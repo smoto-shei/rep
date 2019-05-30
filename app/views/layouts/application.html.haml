@@ -12,17 +12,22 @@
       .navbar-brand
         = link_to root_path, class: 'text-dark' do
           Rep
-      %ul.navbar-nav
-        %li.nav-item.nav-link
-          = link_to new_user_registration_path, class: 'text-dark' do
-            新規登録
-        %li.nav-item.nav-link
-          = link_to new_user_session_path, class: 'text-dark' do
-            ログイン
+      - if user_signed_in?
+        %ul.navbar-nav
+          %li.navbar-nav
+          -#  = link_to
+      - else
+        %ul.navbar-nav
+          %li.nav-item.nav-link
+            = link_to new_user_registration_path, class: 'text-dark' do
+              新規登録
+          %li.nav-item.nav-link
+            = link_to new_user_session_path, class: 'text-dark' do
+              ログイン
     .clearfix
     .container-fluid
 
       = yield
 
-    .app-title.navbar.navbar-expend-md.navbar-light.bg-light
+    .navbar.navbar-expand.navbar-darg.bg-dark
       .navbar-brand Rep
