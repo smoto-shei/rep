@@ -52,3 +52,4 @@ production:
   database: rep_production
   username: rep
   password: <%= ENV['REP_DATABASE_PASSWORD'] %>
+  socket: /tmp/mysql.sock
