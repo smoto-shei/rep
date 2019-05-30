@@ -7,27 +7,25 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body{style: 'padding-top: 3.5rem'}
-    .navbar.navbar-expand.navbar-light.bg-light.fixed-top.navbar-dark
+  %body{style: 'padding-top: 4.5rem; min-height: 100vh', class: 'h-100 d-flex flex-column'}
+    .navbar.navbar-light.bg-light.fixed-top.bg-dark
       .navbar-brand
-        = link_to root_path, class: 'text-dark' do
+        = link_to root_path, class: 'text-white h1' do
           Rep
       - if user_signed_in?
         %ul.navbar-nav
           %li.navbar-nav
           -#  = link_to
       - else
-        %ul.navbar-nav
+        %ul.navbar-nav.navbar-expand.float-right
           %li.nav-item.nav-link
-            = link_to new_user_registration_path, class: 'text-dark' do
+            = link_to new_user_registration_path, class: 'text-white mr-3' do
               新規登録
           %li.nav-item.nav-link
-            = link_to new_user_session_path, class: 'text-dark' do
+            = link_to new_user_session_path, class: 'text-white mr-5' do
               ログイン
-    .clearfix
-    .container-fluid
 
-      = yield
+    = yield
 
-    .navbar.navbar-expand.navbar-darg.bg-dark
-      .navbar-brand Rep
+    .navbar.navbar-dark.bg-dark.mt-auto.py-3
+      .navbar-brand.text-white Rep
