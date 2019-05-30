@@ -7,17 +7,20 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    .app-title.navbar.navbar-expend-md.navbar-light.bg-light.fixed-top
-      .navbar-brand Rep
-      .row.justify-content-end
-        %li.nav-item.btn.btn-outline-primary
-          = link_to '#' do
+  %body{style: 'padding-top: 3.5rem'}
+    .navbar.navbar-expand.navbar-light.bg-light.fixed-top.navbar-dark
+      .navbar-brand
+        = link_to root_path, class: 'text-dark' do
+          Rep
+      %ul.navbar-nav
+        %li.nav-item.nav-link
+          = link_to new_user_registration_path, class: 'text-dark' do
             新規登録
-        %li.nav-item.btn.btn-outline-primary
-          = link_to '#' do
+        %li.nav-item.nav-link
+          = link_to new_user_session_path, class: 'text-dark' do
             ログイン
-    .container
+    .clearfix
+    .container-fluid
 
       = yield
 
