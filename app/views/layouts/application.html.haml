@@ -10,12 +10,13 @@
   %body
     .app-title.navbar.navbar-expend-md.navbar-light.bg-light.fixed-top
       .navbar-brand Rep
-      %li.nav-item
-        = link_to '#' do
-          新規登録
-      %li.nav-item
-        = link_to '#' do
-          ログイン
+      .row.justify-content-end
+        %li.nav-item.btn.btn-outline-primary
+          = link_to '#' do
+            新規登録
+        %li.nav-item.btn.btn-outline-primary
+          = link_to '#' do
+            ログイン
     .container
 
       = yield
