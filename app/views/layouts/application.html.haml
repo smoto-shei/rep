@@ -23,10 +23,15 @@
       - else
         %ul.navbar-nav.navbar-expand.float-right
           %li.nav-item.nav-link
-            = link_to new_user_registration_path, class: 'text-white mr-3 h6' do
+            = form_with model: User.new, scope: :user, url: session_path(:user), local: true do |f|
+              = f.hidden_field :email, value: 'arnold@com'
+              = f.hidden_field :password, value: '123456'
+              = f.submit 'テストログイン', class: 'btn btn-info mr-3'
+          %li.nav-item.nav-link
+            = link_to new_user_registration_path, class: 'btn btn-dark mr-2' do
               新規登録
           %li.nav-item.nav-link
-            = link_to new_user_session_path, class: 'text-white mr-3 h6 ' do
+            = link_to new_user_session_path, class: 'btn btn-dark mr-2' do
               ログイン
 
 
