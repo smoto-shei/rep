@@ -13,20 +13,22 @@
         = link_to root_path, class: 'text-white h6' do
           Rep
       - if user_signed_in?
-        %ul.navbar-nav
-          %li.navbar-nav
-          -#  = link_to
+        %ul.navbar.navbar-nav.navbar-expand
+          %li.nav-item.nav-link
+            = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-3 h6 ' do
+              ログアウト
+          %li.nav-item.nav-link
+            = link_to user_show_path, class: 'text-white mr-4 h6' do
+              マイページ
       - else
         %ul.navbar-nav.navbar-expand.float-right
           %li.nav-item.nav-link
             = link_to new_user_registration_path, class: 'text-white mr-3 h6' do
               新規登録
           %li.nav-item.nav-link
-            = link_to '#', class: 'text-white mr-3 h6 ' do
+            = link_to new_user_session_path, class: 'text-white mr-3 h6 ' do
               ログイン
-          %li.nav-item.nav-link
-            = link_to user_show_path, class: 'text-white mr-4 h6' do
-              マイページ
+
 
 
     = yield
