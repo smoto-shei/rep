@@ -18,7 +18,7 @@
             = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-3 h6 ' do
               ログアウト
           %li.nav-item.nav-link
-            = link_to user_show_path, class: 'text-white mr-4 h6' do
+            = link_to user_path(current_user.id), class: 'text-white mr-4 h6' do
               マイページ
       - else
         %ul.navbar-nav.navbar-expand.float-right
