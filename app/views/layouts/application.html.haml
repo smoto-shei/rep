@@ -22,8 +22,12 @@
             = link_to new_user_registration_path, class: 'text-white mr-3 h6' do
               新規登録
           %li.nav-item.nav-link
-            = link_to new_user_session_path, class: 'text-white mr-5 h6' do
+            = link_to '#', class: 'text-white mr-3 h6 ' do
               ログイン
+          %li.nav-item.nav-link
+            = link_to user_show_path, class: 'text-white mr-4 h6' do
+              マイページ
+
 
     = yield
 
