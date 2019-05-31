@@ -1,8 +1,9 @@
 .row
   .col-2.card.justify-content-center.m-5
     .div.mt-4
-      %h4 name
-      %p ウィルスミス
+      %h4 ニックネーム
+      %p
+        = @user.nickname
     .div.mt-4
       %h4 身長
       %p 185cm
@@ -16,9 +17,9 @@
       %h4 基礎代謝
       %p 1000
   .col-7.card.m-5.justify-content-center
-    = month_calendar events: @training_records do |date, training_records| 
+    = month_calendar  do |date|
       = date.day
 
-      - training_records.each do |training_record|
-        .excersize
-          = training_record.parts
+      -# - training_records.each do |training_record|
+      -#   .excersize
+      -#     = training_record.parts
