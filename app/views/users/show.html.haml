@@ -16,4 +16,9 @@
       %h4 基礎代謝
       %p 1000
   .col-7.card.m-5.justify-content-center
-    #calendar
+    = month_calendar events: @training_records do |date, training_records| 
+      = date.day
+
+      - training_records.each do |training_record|
+        .excersize
+          = training_record.parts
