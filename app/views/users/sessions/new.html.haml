@@ -1,17 +1,31 @@
-%h2 ログイン
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "users/shared/links"
+.container.h-100
+  .row.justify-content-center
+    .col-4.card.justify-content-center.mt-5
+      = form_with model: @user, scope: resource_name, url: session_path(resource_name), id: 'new_user', class: 'new_user', local: true do |f|
+        .form_group.mb-4
+          = f.label :email, 'メールアドレス'
+          = f.text_field :email, class: 'form-control'
+        .form_group.mb-4
+          = f.label :password, 'パスワード'
+          = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+        .action.my-5.justify-content-center
+          = f.submit 'ログイン', class: 'col btn btn-primary'
+
+
+-# %h2 ログイン
+-# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     %br/
+-#     = f.password_field :password, autocomplete: "current-password"
+-#   - if devise_mapping.rememberable?
+-#     .field
+-#       = f.check_box :remember_me
+-#       = f.label :remember_me
+-#   .actions
+-#     = f.submit "Log in"
+-# = render "users/shared/links"

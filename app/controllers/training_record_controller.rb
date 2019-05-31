@@ -1,2 +1,0 @@
-class TrainingRecordController < ApplicationController
-end
