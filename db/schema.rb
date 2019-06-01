@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_01_041856) do
+ActiveRecord::Schema.define(version: 2019_06_01_093102) do
+
+  create_table "exercises", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "en_name"
+    t.string "ja_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["en_name"], name: "index_exercises_on_en_name"
+    t.index ["ja_name"], name: "index_exercises_on_ja_name"
+  end
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "training_record_id", null: false

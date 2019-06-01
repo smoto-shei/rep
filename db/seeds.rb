@@ -58,3 +58,4 @@
   Exercise.create!(
     { en_name: en_name, ja_name: ja_name }
   )
+end
