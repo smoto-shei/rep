@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2019_06_01_093102) do
     t.string "ja_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["en_name"], name: "index_exercises_on_en_name"
-    t.index ["ja_name"], name: "index_exercises_on_ja_name"
+    t.index ["en_name"], name: "index_exercises_on_en_name", unique: true
+    t.index ["ja_name"], name: "index_exercises_on_ja_name", unique: true
   end
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
