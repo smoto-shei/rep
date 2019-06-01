@@ -1,0 +1,2 @@
+class UserBody < ApplicationRecord
+end
