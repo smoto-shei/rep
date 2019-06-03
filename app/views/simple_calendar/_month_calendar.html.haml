@@ -1,14 +1,14 @@
 .simple-calendar
   .calendar-heading
-    = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view
+    = link_to t('simple_calendar.previous', default: '◀︎'), calendar.url_for_previous_view
     %span.calendar-title
-      = t('date.month_names')[start_date.month]
+      = [nil,"Jan.","Feb.","Mar.","Apr.","May","Jun.","Jul.","Aug.","Sep.","Oct.","Nov.","Dec."][start_date.month]
       = start_date.year
-    = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view
+    = link_to t('simple_calendar.next', default: '▶︎'), calendar.url_for_next_view
   %table.table.table-striped
     %thead
       %tr
-        - ['sun','mon','tue','wed','thu','fry','sut'].each do |day|
+        - ['Mon.','Tue.','Wed.','Thu.','Fri.','Sat.','Sun.'].each do |day|
           %th= day
     %tbody
       - date_range.each_slice(7) do |week|
