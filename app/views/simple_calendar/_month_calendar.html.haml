@@ -1,5 +1,5 @@
 .simple-calendar
-  .calendar-heading
+  .calendar-heading.text-center.h3
     = link_to t('simple_calendar.previous', default: '◀︎'), calendar.url_for_previous_view
     %span.calendar-title
       = [nil,"Jan.","Feb.","Mar.","Apr.","May","Jun.","Jul.","Aug.","Sep.","Oct.","Nov.","Dec."][start_date.month]
@@ -8,8 +8,9 @@
   %table.table.table-striped
     %thead
       %tr
-        - ['Mon.','Tue.','Wed.','Thu.','Fri.','Sat.','Sun.'].each do |day|
-          %th= day
+        - ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].each do |day|
+          %th.text-center
+            = day
     %tbody
       - date_range.each_slice(7) do |week|
         %tr
