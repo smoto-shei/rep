@@ -54,25 +54,45 @@
         = @user.nickname
     .body.justify-content-center
       .height
+        - unless @userbody.nil?
+          %p
+            = "#{@userbody&.height} cm"
+        - else
+          %p
+            = "--cm"
+      .weight.ml-2
+        - unless @userbody.nil?
+          %p
+            = "#{@userbody&.weight} kg"
+        - else
+          %p
+            = "--kg"
+    .mt-4
+      %h5 BMI
+      - unless @userbody.nil?
         %p
-          = "#{@userbody&.height} cm"
-      .weight
+          = (@userbody.weight.to_f / (@userbody.height.to_f / 100) ** 2).round(1)
+      - else
         %p
-          = "#{@userbody&.weight} kg"
+          = "--"
     .mt-4
-      %h6 BMI
-      %p
-        = (@userbody.weight.to_f / (@userbody.height.to_f / 100) ** 2).round(1)
+      %h5 適正体重
+      - unless @userbody.nil?
+        %p
+          = "#{((@userbody.height.to_f / 100)**2 * 22).round(1)} kg"
+      - else
+        %p
+          = "-- kg"
     .mt-4
-      %h6 適正体重
-      %p
-        = "#{((@userbody.height.to_f / 100)**2 * 22).round(1)} kg"
-    .mt-4
-      %h6 基礎代謝
-      %p
-        = "#{(66.47 + (13.75 * @userbody.weight.to_f) + (5 * @userbody.height.to_f) - (6.78*(2019 - @userbody.birth_year))).round(0)} kcal"
-    .btn.btn-primary.my-4#edit_body
-      %p 編集する
+      %h5 基礎代謝
+      - unless @userbody.nil?
+        %p
+          = "#{(66.47 + (13.75 * @userbody.weight.to_f) + (5 * @userbody.height.to_f) - (6.78*(2019 - @userbody.birth_year))).round(0)} kcal"
+      - else
+        %p
+          = '--kcal'
+      .btn.btn-primary.my-4#edit_body
+        %p 編集する
 
   .col-7.my-5.justify-content-center
     = month_calendar(attribute: :date, events: @training_records) do |date, training_records|
