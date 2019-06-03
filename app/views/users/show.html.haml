@@ -46,8 +46,8 @@
 .overlay
 -# 本文
 .row
-  .col-2.my-5.mx-3.justify-content-center
-    .avatar
+  .col-2.card.my-5.ml-5.justify-content-center
+    .avatar.mt-3
       = image_tag('avatar_default.png')
     .nickname
       %p
@@ -67,30 +67,30 @@
         - else
           %p
             = "--kg"
-    .mt-4
-      %h5 BMI
-      - unless @userbody.nil?
-        %p
-          = (@userbody.weight.to_f / (@userbody.height.to_f / 100) ** 2).round(1)
-      - else
-        %p
-          = "--"
-    .mt-4
-      %h5 適正体重
-      - unless @userbody.nil?
-        %p
-          = "#{((@userbody.height.to_f / 100)**2 * 22).round(1)} kg"
-      - else
-        %p
-          = "-- kg"
-    .mt-4
-      %h5 基礎代謝
-      - unless @userbody.nil?
-        %p
-          = "#{(66.47 + (13.75 * @userbody.weight.to_f) + (5 * @userbody.height.to_f) - (6.78*(2019 - @userbody.birth_year))).round(0)} kcal"
-      - else
-        %p
-          = '--kcal'
+      .mt-4
+        %h5 BMI
+        - unless @userbody.nil?
+          %p
+            = (@userbody.weight.to_f / (@userbody.height.to_f / 100) ** 2).round(1)
+        - else
+          %p
+            = "--"
+      .mt-4
+        %h5 適正体重
+        - unless @userbody.nil?
+          %p
+            = "#{((@userbody.height.to_f / 100)**2 * 22).round(1)} kg"
+        - else
+          %p
+            = "-- kg"
+      .mt-4
+        %h5 基礎代謝
+        - unless @userbody.nil?
+          %p
+            = "#{(66.47 + (13.75 * @userbody.weight.to_f) + (5 * @userbody.height.to_f) - (6.78*(2019 - @userbody.birth_year))).round(0)} kcal"
+        - else
+          %p
+            = '--kcal'
       .btn.btn-primary.my-4#edit_body
         %p 編集する
 
@@ -110,7 +110,7 @@
       .form_group.m-4
         = f.label :exercise, '種目'
         = f.text_field :exercise, class: 'form-control'
-      - 
+      -
       .form_group.m-4
         = f.label :weight, '重量'
         = f.number_field :weight, class: 'form-control'
