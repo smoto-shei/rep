@@ -1,3 +1,80 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//プロフィール写真
+.avatar{
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 50%;
+  img{
+    width: 60px;
+    height: 60px;
+  }
+}
+
+//ニックネーム
+.nickname{
+  font-size: 13px;
+}
+
+//ボディー表示
+.body{
+  box-sizing: border-box;
+  padding: 10px;
+  .height{
+    box-sizing: border-box;
+    display: inline-block;
+  };
+  .weight{
+    box-sizing: border-box;
+    display: inline-block;
+  }
+}
+
+// userbody のフォーム
+// 表示をするには display, block にする
+//-----------------------------------------------------
+.body_modal{
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  &__inner{
+    margin: 40px 500px;
+    &__body{
+      background: white;
+    }
+
+  }
+}
+// 背景を薄暗くする
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+  z-index: 2999;
+  background: #000;
+  opacity: 0.64
+}
+.animation{
+  opacity: 1;
+}
+// htmlに付け加える
+.modal_open{
+  overflow: hidden !important;
+}
+.show{
+  display: block !important;
+}
+//-----------------------------------------------------

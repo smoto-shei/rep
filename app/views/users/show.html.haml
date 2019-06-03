@@ -1,25 +1,79 @@
+-# body編集のモーダル
+.body_modal
+  .body_modal__inner
+    - if @userbody.nil?
+      .body_modal__inner__body.card
+        = form_with model: @userbody, method: :post, url: user_user_bodies_path(current_user.id), id: 'new_userbody', class: 'new_userbody', local: true do |f|
+          .form_group.m-4
+            = f.label :birth_year, '誕生年'
+            = f.number_field :birth_year, class: 'form-control'
+          .form_group.m-4
+            = f.label :gender, '性別'
+            = f.select :gender, [['男'],['女']], prompt: '--', class: 'form-control'
+          .form_group.m-4
+            = f.label :height, '身長'
+            = f.number_field :height, class: 'form-control'
+          .form_group.m-4
+            = f.label :weight, '体重'
+            = f.number_field :weight, class: 'form-control'
+          .action.m-5.justify-content-center
+            = f.submit '登録する', class: 'btn btn-primary'
+            .btn.btn-primary.close_button
+              閉じる
+    - else
+      .body_modal__inner__body.card
+        = form_with model: @userbody, method: :patch, url: user_user_body_path(current_user.id), id: 'new_userbody', class: 'new_userbody', local: true do |f|
+          .form_group.m-4
+            = f.label :birth_year, '誕生年'
+            = f.number_field :birth_year, class: 'form-control'
+          .form_group.m-4
+            = f.label :gender, '性別'
+            = f.select :gender, [['男'],['女']], prompt: '--', class: 'form-control'
+          .form_group.m-4
+            = f.label :height, '身長'
+            = f.number_field :height, class: 'form-control'
+          .form_group.m-4
+            = f.label :weight, '体重'
+            = f.number_field :weight, class: 'form-control'
+          .action.m-5.justify-content-center
+            = f.submit '編集する', class: 'btn btn-primary'
+            .btn.btn-primary.close_button
+              閉じる
+
+    .body_modal__inner__submit_button
+
+
+.overlay
+-# 本文
 .row
-  .col-2.card.justify-content-center.m-5
-    .div.mt-4
-      %h4 ニックネーム
+  .col-2.m-5.justify-content-center
+    .avatar
+      = image_tag('avatar_default.png')
+    .nickname
       %p
         = @user.nickname
-    .div.mt-4
-      %h4 身長
-      %p 185cm
-    .div.mt-4
-      %h4 体重
-      %p 80kg
-    .div.mt-4
+    .body.justify-content-center
+      .height
+        %p
+          = "#{@userbody.height} cm"
+      .weight
+        %p
+          = "#{@userbody.weight} kg"
+    .mt-4
       %h4 BMI
       %p 20
-    .div.mt-4
+    .mt-4
       %h4 基礎代謝
       %p 1000
-  .col-7.card.m-5.justify-content-center
+    .btn.btn-primary.my-4#edit_body
+      %p 編集する
+
+
+
+  .col-7.my-5.justify-content-center
     = month_calendar  do |date|
       = date.day
 
       -# - training_records.each do |training_record|
       -#   .excersize
-      -#     = training_record.parts
+      -#     = training_record.pdivts

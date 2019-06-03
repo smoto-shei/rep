@@ -8,10 +8,9 @@ class Users::SessionsController < Devise::SessionsController
     # @user = User.new
   end
 
-  # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    redirect_to user_path(current_user.id)
+  end
 
   # DELETE /resource/sign_out
   # def destroy
