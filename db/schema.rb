@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_01_041856) do
+ActiveRecord::Schema.define(version: 2019_06_01_095242) do
+
+  create_table "exercises", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "en_name"
+    t.string "ja_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["en_name"], name: "index_exercises_on_en_name", unique: true
+    t.index ["ja_name"], name: "index_exercises_on_ja_name", unique: true
+  end
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "training_record_id", null: false
@@ -28,6 +37,8 @@ ActiveRecord::Schema.define(version: 2019_06_01_041856) do
     t.integer "date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_training_records_on_user_id"
   end
 
   create_table "user_bodies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -56,5 +67,6 @@ ActiveRecord::Schema.define(version: 2019_06_01_041856) do
   end
 
   add_foreign_key "menus", "training_records"
+  add_foreign_key "training_records", "users"
   add_foreign_key "user_bodies", "users"
 end
