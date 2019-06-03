@@ -6,7 +6,7 @@ class CreateExercises < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    
+
     add_index :exercises, :en_name,   unique: true
     add_index :exercises, :ja_name,   unique: true
   end

@@ -60,11 +60,17 @@
         %p
           = "#{@userbody&.weight} kg"
     .mt-4
-      %h4 BMI
-      %p 20
+      %h6 BMI
+      %p
+        = (@userbody.weight.to_f / (@userbody.height.to_f / 100) ** 2).round(1)
     .mt-4
-      %h4 基礎代謝
-      %p 1000
+      %h6 適正体重
+      %p
+        = "#{((@userbody.height.to_f / 100)**2 * 22).round(1)} kg"
+    .mt-4
+      %h6 基礎代謝
+      %p
+        = "#{(66.47 + (13.75 * @userbody.weight.to_f) + (5 * @userbody.height.to_f) - (6.78*(2019 - @userbody.birth_year))).round(0)} kcal"
     .btn.btn-primary.my-4#edit_body
       %p 編集する
 
