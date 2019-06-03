@@ -68,12 +68,10 @@
     .btn.btn-primary.my-4#edit_body
       %p 編集する
 
-
-
-  .col-7.my-5.justify-content-center
-    = month_calendar  do |date|
+  .col-7.m-5.justify-content-center
+    = month_calendar(attribute: :date, events: @training_records) do |date, training_records|
       = date.day
 
-      -# - training_records.each do |training_record|
-      -#   .excersize
-      -#     = training_record.pdivts
+      - training_records.each do |training_record|
+        .excersize
+          = training_record.part
