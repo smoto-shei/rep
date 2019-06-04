@@ -46,7 +46,7 @@
 .overlay
 -# 本文
 .row
-  .col-2.card.my-5.ml-5.justify-content-center
+  .col-2.card.my-5.ml-5.justify-content-center.w-13
     .avatar.mt-3
       = image_tag('avatar_default.png')
     .nickname
@@ -99,25 +99,32 @@
       = date.day
 
       - training_records.each do |training_record|
-        .exercise
-          = training_record.part
+        -# .exercise
+        = training_record.part
 
-  .col-2.my-5.card.justify-content-center
+  .col-3.my-5.card.justify-content-center.w-22
     = form_with model: @training_record, method: :post, url: user_training_records_path(current_user.id), id: 'new_training_record', class: 'new_training_record', local: true do |f|
-      = f.date_field :date, value: '2019-06-03', readonly: true, class: 'form-control text-center'
+      = f.date_field :date, value: '2019-06-05', readonly: true, class: 'form-control text-center'
 
-      .form_group.m-4
+      .form_group.m-1.mt-3
         = f.label :part, '部位'
-        = f.select :part, [['胸'],['肩'],['腕'],['背中'],['脚'],['有酸素']], prompt: '--', class: 'form-control'
-      .form_group.m-4
+        = f.select :part, [['胸'],['肩'],['腕'],['背中'],['脚'],['有酸素']], {prompt: '--'}, {class: 'form-control-sm ml-3'}
+      .form_group.m-1
         = f.label :exercise, '種目'
         = f.text_field :exercise, class: 'form-control'
       = f.fields_for :menus do |menus|
-        .form_group.m-4
-          = menus.label :weight, '重量'
-          = menus.number_field :weight, class: 'form-control', step: 0.5
-        .form_group.m-4
-          = menus.label :rep, '回数'
-          = menus.number_field :rep, class: 'form-control'
-        .action.m-5.justify-content-center
-          = f.submit '登録する', class: 'btn btn-primary'
+        .d-flex.flex-wrap.mt-3
+          .form_group.w-25.text-center
+            = menus.label :weight, '重量'
+            = menus.number_field :weight, class: 'form-control', step: 0.5
+          .d-flex.w-25.align-items-end
+            %span.ml-2.mb-2 kg ✖️
+          .form_group.w-25.text-center
+            = menus.label :rep, '回数'
+            = menus.number_field :rep, class: 'form-control'
+          .d-flex.w-25.align-items-end
+            %span.ml-2.mb-2 rep
+        .add-btn.m-4
+          ＋追加する（仮）
+      .action.m-2.text-center
+        = f.submit '登録する', class: 'btn btn-primary'
