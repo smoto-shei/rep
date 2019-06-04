@@ -52,7 +52,7 @@
     .nickname
       %p
         = @user.nickname
-    .body.justify-content-center
+    .body
       .height
         - unless @userbody.nil?
           %p
@@ -91,8 +91,8 @@
         - else
           %p
             = '--kcal'
-      .btn.btn-primary.my-4#edit_body
-        %p 編集する
+    .btn.btn-primary.my-4#edit_body.text-center
+      編集する
 
   .col-7.my-5.justify-content-center
     = month_calendar(attribute: :date, events: @training_records) do |date, training_records|
