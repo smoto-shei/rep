@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_031321) do
+ActiveRecord::Schema.define(version: 2019_06_04_035744) do
 
   create_table "exercises", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "en_name"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_031321) do
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "training_record_id", null: false
-    t.integer "weight", null: false
+    t.float "weight", null: false
     t.integer "rep", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -104,6 +104,7 @@
 
   .col-2.my-5.card.justify-content-center
     = form_with model: @training_record, method: :post, url: new_user_training_record_path(current_user.id), id: 'new_training_record', class: 'new_training_record', local: true do |f|
+      = f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), readonly: true, class: 'form-control text-center'
       .form_group.m-4
         = f.label :part, '部位'
         = f.select :part, [['胸'],['肩'],['腕'],['背中'],['脚'],['有酸素']], prompt: '--', class: 'form-control'
