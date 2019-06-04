@@ -12,7 +12,7 @@
             = f.select :gender, [['男'],['女']], prompt: '--', class: 'form-control'
           .form_group.m-4
             = f.label :height, '身長'
-            = f.number_field :height, class: 'form-control'
+            = f.number_field :height, step: '0.1', class: 'form-control'
           .form_group.m-4
             = f.label :weight, '体重'
             = f.number_field :weight, class: 'form-control'
@@ -31,7 +31,7 @@
             = f.select :gender, [['男'],['女']], prompt: '--', class: 'form-control'
           .form_group.m-4
             = f.label :height, '身長'
-            = f.number_field :height, class: 'form-control'
+            = f.number_field :height, step: '0.1', class: 'form-control'
           .form_group.m-4
             = f.label :weight, '体重'
             = f.number_field :weight, class: 'form-control'
