@@ -22,7 +22,7 @@
               閉じる
     - else
       .body_modal__inner__body.card
-        = form_with model: @userbody, method: :patch, url: user_user_body_path(current_user.id), id: 'new_userbody', class: 'new_userbody', local: true do |f|
+        = form_with model: @userbody, method: :patch, url: user_user_body_path(current_user.id,@userbody.id), id: 'new_userbody', class: 'new_userbody', local: true do |f|
           .form_group.m-4
             = f.label :birth_year, '誕生年'
             = f.number_field :birth_year, class: 'form-control'
@@ -93,30 +93,5 @@
             = '--kcal'
       .btn.btn-primary.my-4#edit_body
         %p 編集する
-
-  .col-7.my-5.justify-content-center
-    = month_calendar(attribute: :date, events: @training_records) do |date, training_records|
-      = date.day
-
-      - training_records.each do |training_record|
-        .exercise
-          = training_record.part
-
-  .col-2.my-5.card.justify-content-center
-    = form_with model: @training_record, method: :post, url: new_user_training_record_path(current_user.id), id: 'new_training_record', class: 'new_training_record', local: true do |f|
-      = f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), readonly: true, class: 'form-control text-center'
-      .form_group.m-4
-        = f.label :part, '部位'
-        = f.select :part, [['胸'],['肩'],['腕'],['背中'],['脚'],['有酸素']], prompt: '--', class: 'form-control'
-      .form_group.m-4
-        = f.label :exercise, '種目'
-        = f.text_field :exercise, class: 'form-control'
-      -
-      .form_group.m-4
-        = f.label :weight, '重量'
-        = f.number_field :weight, class: 'form-control', step: 0.1
-      .form_group.m-4
-        = f.label :weight, '回数'
-        = f.number_field :weight, class: 'form-control'
-      .action.m-5.justify-content-center
-        = f.submit '登録する', class: 'btn btn-primary'
+  .col-7
+    %canvas#myChart{height: "400", width: "900", class: 'mt-5'}
