@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_062407) do
+ActiveRecord::Schema.define(version: 2019_06_04_064838) do
 
   create_table "exercises", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "en_name"
@@ -23,10 +23,11 @@ ActiveRecord::Schema.define(version: 2019_06_04_062407) do
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "training_record_id", null: false
-    t.float "weight", null: false
-    t.integer "rep", null: false
+    t.float "weight"
+    t.integer "rep"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "time"
     t.index ["training_record_id"], name: "index_menus_on_training_record_id"
   end
 
@@ -37,7 +38,6 @@ ActiveRecord::Schema.define(version: 2019_06_04_062407) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.string "exercise", null: false
-    t.integer "time"
     t.index ["user_id"], name: "index_training_records_on_user_id"
   end
 
