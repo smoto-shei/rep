@@ -1,4 +1,7 @@
 -# body編集のモーダル
+%head
+  = include_gon
+  = javascript_include_tag "application"
 .body_modal
   .body_modal__inner
     - if @userbody.nil?
@@ -94,4 +97,22 @@
       .btn.btn-primary.my-4#edit_body
         %p 編集する
   .col-7
+    .btn.btn-primary
+      = link_to chest_user_training_records_path, class: 'text-white mr-3 h6 ' do
+        胸
+    .btn.btn-primary
+      = link_to chest_user_training_records_path, class: 'text-white mr-3 h6 ' do
+        肩
+    .btn.btn-primary
+      = link_to chest_user_training_records_path, class: 'text-white mr-3 h6 ' do
+        腕
+    .btn.btn-primary
+      = link_to chest_user_training_records_path, class: 'text-white mr-3 h6 ' do
+        背中
+    .btn.btn-primary
+      = link_to chest_user_training_records_path, class: 'text-white mr-3 h6 ' do
+        脚
+    .btn.btn-primary
+      = link_to chest_user_training_records_path, class: 'text-white mr-3 h6 ' do
+        有酸素
     %canvas#myChart{height: "400", width: "900", class: 'mt-5'}

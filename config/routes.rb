@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users do
     resources :user_bodies
-    resources :training_records
+    resources :training_records do
+      collection do
+        get :chest
+      end
+    end
   end
+
 
 end
