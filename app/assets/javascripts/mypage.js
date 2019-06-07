@@ -11,4 +11,3 @@ document.addEventListener('turbolinks:load', function() {
       $('html').removeClass('modal_open');
     })
   });
-});
