@@ -9,5 +9,6 @@ document.addEventListener('turbolinks:load', function() {
       $('.body_modal').css('display', 'none');
       $('.overlay').css('display', 'none');
       $('html').removeClass('modal_open');
-    })
+    });
   });
+});
