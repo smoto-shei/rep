@@ -96,15 +96,20 @@
 
   .col-7.my-5.justify-content-center
     = month_calendar(attribute: :date, events: @training_records) do |date, training_records|
-      = date.day
+      .calendar-btn{id: "#{date}"}
+        = date.day
 
-      - training_records.each do |training_record|
-        -# .exercise
-        = training_record.part
+        - training_records.each do |training_record|
+          -# .exercise
+          = training_record.part
 
   .col-3.my-5.card.justify-content-center.w-22
-    = form_with model: @training_record, method: :post, url: user_training_records_path(current_user.id), id: 'new_training_record', class: 'new_training_record', local: true do |f|
-      = f.date_field :date, value: '2019-06-05', readonly: true, class: 'form-control text-center'
+    = form_with model: @training_record, method: :post, url: user_training_records_path(current_user.id), id: 'new_training_record', class: 'new_training_record' do |f|
+      = f.date_field :date, value: Date.today, readonly: true, class: 'form-control-sm text-center my-4 mx-2'
+      #training_records.mx-2
+        %h6 実施したメニュー
+        %ul#day_records.list-unstyled.ml-2
+          = render partial: "shared/training_records", collection: @day_records, as: "day_record"
 
       .form_group.m-1.mt-3
         = f.label :part, '部位'
@@ -113,18 +118,34 @@
         = f.label :exercise, '種目'
         = f.text_field :exercise, class: 'form-control'
       = f.fields_for :menus do |menus|
-        .d-flex.flex-wrap.mt-3
-          .form_group.w-25.text-center
-            = menus.label :weight, '重量'
-            = menus.number_field :weight, class: 'form-control', step: 0.5
-          .d-flex.w-25.align-items-end
-            %span.ml-2.mb-2 kg ✖️
-          .form_group.w-25.text-center
-            = menus.label :rep, '回数'
-            = menus.number_field :rep, class: 'form-control'
-          .d-flex.w-25.align-items-end
-            %span.ml-2.mb-2 rep
-        .add-btn.m-4
-          ＋追加する（仮）
-      .action.m-2.text-center
+        #set-form
+          -# .d-flex.flex-wrap.mt-3.align-items-center
+          -#   %span.mx-2 継続時間
+          -#   = menus.number_field :time, class: 'form-control w-50'
+          -#   %span.mx-2 分
+          -# .d-flex.flex-wrap.mt-3
+          -#   .w-25.text-center
+          -#     = menus.label :weight, '重量'
+          -#     = menus.number_field :weight, class: 'form-control', step: 0.5
+          -#   .d-flex.w-25.align-items-end
+          -#     %span.ml-2.mb-2 kg ✖️
+          -#   .w-25.text-center
+          -#     = menus.label :rep, '回数'
+          -#     = menus.number_field :rep, class: 'form-control'
+          -#   .d-flex.w-25.align-items-end
+          -#     %span.ml-2.mb-2 rep
+          -# = f.fields_for :menus do |menus|
+          -#   .d-flex.flex-wrap.mt-2
+          -#     .form_group.w-25.text-center
+          -#       = menus.number_field :weight, class: 'form-control', step: 0.5
+          -#     .d-flex.w-25.align-items-end
+          -#       %span.ml-2.mb-2 kg ✖️
+          -#     .form_group.w-25.text-center
+          -#       = menus.number_field :rep, class: 'form-control'
+          -#     .d-flex.w-25.align-items-end
+          -#       %span.ml-2.mb-2 rep
+      -# .my-3
+      -#   #add-set.btn.btn-outline-primary.btn-sm
+      -#     セット追加
+      .action.my-4.mx-2.text-center
         = f.submit '登録する', class: 'btn btn-primary'

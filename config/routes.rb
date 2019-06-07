@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users do
+    member do
+      get 'records_update'
+    end
     resources :user_bodies
     resources :training_records do
       collection do
