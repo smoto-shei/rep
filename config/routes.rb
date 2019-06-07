@@ -10,7 +10,12 @@ Rails.application.routes.draw do
       get 'records_update'
     end
     resources :user_bodies
-    resources :training_records
+    resources :training_records do
+      collection do
+        get :chest
+      end
+    end
   end
+
 
 end

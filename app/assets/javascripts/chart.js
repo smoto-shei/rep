@@ -1,12 +1,13 @@
 document.addEventListener('turbolinks:load', function() {
-  var ctx = document.getElementById("myChart").getContext('2d');
-  var myChart = new Chart(ctx, {
+
+  var ctx = $("#myChart"); //chartクラスをインスタンス化
+  var total_load_chart = new Chart(ctx, {
       type: 'bar',
       data: {
-          labels: ['２月','３月','４月','5月','6月'],
-          datasets: [{
+          labels: gon.label, // x軸
+          datasets: [{                             // y軸
               label: "肩",
-              data: [3800,2000,1500,3000,1800],
+              data: gon.data,
               backgroundColor: 'rgba(255, 99, 132, 1.0)',
               borderColor: 'rgba(255, 50, 132, 1.0)',
               fill: false
