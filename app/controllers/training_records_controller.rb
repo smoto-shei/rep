@@ -9,6 +9,16 @@ class TrainingRecordsController < ApplicationController
       @training_record.save
     end
 
+    def destroy
+      @training_record = TrainingRecord.find_by(id: params[:id])
+      if current_user.id == @training_record.user_id
+        date = @training_record.date
+        @training_record.destroy
+        @training_records = TrainingRecord.where(user_id: params[:user_id], date: date)
+        render partial: "shared/day_records_on_calendar", locals: { training_records: @training_records}
+      end
+    end
+
     def chest
       @user = User.find(current_user.id)
       @chest = TrainingRecord.where(user_id: current_user.id)
