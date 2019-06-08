@@ -9,6 +9,13 @@ class TrainingRecordsController < ApplicationController
       @training_record.save
     end
 
+    def destroy
+      @training_record = TrainingRecord.find_by(id: params[:id])
+      if current_user.id == @training_record.user_id
+        @training_record.destroy
+      end
+    end
+
     def chest
       @user = User.find(current_user.id)
       @chest = TrainingRecord.where(user_id: current_user.id)

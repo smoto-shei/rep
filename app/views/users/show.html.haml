@@ -98,10 +98,12 @@
     = month_calendar(attribute: :date, events: @training_records) do |date, training_records|
       .calendar-btn{id: "#{date}"}
         = date.day
-
+        - parts = []
         - training_records.each do |training_record|
-          -# .exercise
-          = training_record.part
+          - parts << training_record.part
+        - parts.uniq.each do |part|
+          = part
+
 
   .col-3.my-5.card.justify-content-center.w-22
     = form_with model: @training_record, method: :post, url: user_training_records_path(current_user.id), id: 'new_training_record', class: 'new_training_record' do |f|

@@ -62,14 +62,12 @@ document.addEventListener('turbolinks:load', function() {
   $('.day').on('click',function(){
     var date = $(this).children('div').attr('id');
     var pathname = location.pathname + '/records_update';
-    console.log(pathname)
     $.ajax({
       type: 'GET',
       url: pathname,
       data: { date: date },
       datatype: 'json'
     }).done(function(data){
-      console.log(data)
       $('#day_records').empty();
       $('#day_records').append(data);
       $('#training_record_date').val(date);
@@ -93,5 +91,19 @@ document.addEventListener('turbolinks:load', function() {
         break;
     }
 
+  })
+
+  $('#training_records').on('click', '.record_delete_btn', function(){
+    var url = location.pathname + "/training_records/" + $(this).attr('value');
+    var li_obj = $(this).parent();
+    $.ajax({
+      type: 'DELETE',
+      url: url,
+      datatype: 'json'
+    }).done(function(data){
+      li_obj.remove();
+    }).fail(function(){
+      alert('通信に失敗しました')
+    })
   })
 });
