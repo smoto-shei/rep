@@ -1,12 +1,40 @@
 
 .toppage
-  = link_to image_tag("/assets/toppage.png")
+  = link_to image_tag("/assets/toppage_picture")
 
 .container-fuild
-  .headline.row.justify-content-center
-    .col-3.justify-content-center.text-center.my-5
-      %h2 about us
-  .description
-    .col-10
-      %p このサイトは筋トレ好きによる筋トレの管理を行います。
-      %p Rep.co,Ltd;
+  .headline.justify-content-center
+    .title-head.text-center.my-5
+      .aaa
+        %p About Our Service
+        .bbb M-Repはトレーニングを愛する全ての人たちのライフスタイルを総合的にサポートします
+
+        .c
+          = image_tag "/assets/toppage_beginners" ,size:"640x400"
+        .d
+          .d1.justify-content-center
+            %p For  Every  Beginners
+          .d2.justify-content-center
+            %p 〜 Let's get started from here 〜
+          .d3.justify-content-center
+            %p トレーニング・食事・サプリメント等、必要な情報は全てここから。
+          .btn.btn-primary.learn_button1.justify-content-center
+            %p Learn More
+
+
+
+        .e
+          .e1.justify-content-center
+            %p For  Every  Trainees
+          .e2.justify-content-center
+            %p 〜 Fit Yourself 〜
+          .e3.justify-content-center
+            %p 日々のトレーニング内容の記録とデータ分析であなたのトレーニングを管理。
+          .btn.btn-primary.learn_button2
+            %p Learn More
+        .f
+          = image_tag "/assets/karate-1343889__480" ,size:"640x400"
+
+.description
+  .col-10
+    %p Rep.co,Ltd;

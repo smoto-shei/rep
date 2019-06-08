@@ -1,10 +1,91 @@
 // Place all the styles related to the toppages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .toppage{
   width: 100vw;
   img{
     width: 100%;
   }
+}
+.container-fuild{
+  background-color: #e8e8e8;
+}
+.aaa{
+  font-size: 25px;
+  font-style: italic;
+
+}
+.bbb{
+  font-size: 15px;
+  margin: 0px 0px 40px 0px;
+  background-color: #e8e8e8;
+}
+.c,.d,.e,.f{
+  float: left;
+  border-color: yellow;
+  width: 50%;
+}
+.c{
+  display: inline-block;      /* インラインブロック要素にする */
+  margin: 10px 0px 0px 0px;
+  background-color: white;
+}
+.d{
+  display: inline-block;      /* インラインブロック要素にする */
+  margin: 10px 0px 0px 0px;
+  height: 400px;
+  background-color: white;
+  .d1{
+    margin: 50px 0px 0px 0px;
+    font-size: 30px;
+    font-style: italic;
+  }
+  .d2{
+    margin: 20px 0px 0px 0px;
+    font-size: 20px;
+    font-style: italic;
+  }
+  .d3{
+    margin: 40px 0px 40px 0px;
+    font-size: 15px;
+    font-style: italic;
+  }
+  .btn.btn-primary.learn_button1{
+    background-color: black;
+    border-color: black;
+    height: 40px;
+    margin: 0px 0px 0px 0px;
+  }
+}
+.e{
+  display: inline-block;      /* インラインブロック要素にする */
+  margin: 0px 0px 0px 0px;
+  height: 400px;
+  background-color: white;
+  .e1{
+    font-size: 30px;
+    margin: 60px 0px 0px 0px;
+    font-style: italic;
+  }
+  .e2{
+    margin: 20px 0px 0px 0px;
+    font-size: 20px;
+    font-style: italic;
+  }
+  .e3{
+    margin: 40px 0px 40px 0px;
+    font-size: 15px;
+    font-style: italic;
+  }
+  .btn.btn-primary.learn_button2{
+    background-color: black;
+    border-color: black;
+    height: 40px;
+    margin: 0px 0px 0px 0px;
+  }
+}
+.f{
+  display: inline-block;      /* インラインブロック要素にする */
+  margin: 10px 0px 0px 0px;
+  background-color: white;
 }
