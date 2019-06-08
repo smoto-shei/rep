@@ -13,9 +13,16 @@ Rails.application.routes.draw do
     resources :training_records do
       collection do
         get :chest
+        get :sholder
+        get :arm
+        get :back
+        get :leg
+        get :aerobic
       end
     end
   end
+
+  get 'toppage/column', to: 'toppages#column' #のちにcolumnテーブル作ったらルーティング修正
 
 
 end

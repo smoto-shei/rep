@@ -2,44 +2,47 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Rep
+    %title M-Rep
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = include_gon
   %body{style: 'padding-top: 72px; min-height: 100vh', class: 'h-100 d-flex flex-column'}
     .navbar.navbar-light.bg-light.fixed-top.bg-dark
       .navbar-brand
-        = link_to root_path, class: 'text-white h6' do
-          Rep
+        = link_to root_path, class: 'text-white 15px' do
+          M-Rep
       - if user_signed_in?
         %ul.navbar.navbar-nav.navbar-expand
           %li.nav-item.nav-link
-            = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-3 h6 ' do
-              ログアウト
+            = link_to toppage_column_path, class: 'text-white mr-3 15px ' do
+              column
           %li.nav-item.nav-link
-            = link_to user_path(current_user.id), class: 'text-white mr-4 h6' do
-              カレンダー
+            = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-3 15px ' do
+              Log Out
           %li.nav-item.nav-link
-            = link_to user_training_records_path(current_user.id), class: 'text-white mr-4 h6' do
-              分析
+            = link_to user_path(current_user.id), class: 'text-white mr-4 15px' do
+              Calender
+          %li.nav-item.nav-link
+            = link_to user_training_records_path(current_user.id), class: 'text-white mr-4 15px' do
+              Analytics
       - else
         %ul.navbar-nav.navbar-expand.float-right
           %li.nav-item.nav-link
             = form_with model: User.new, scope: :user, url: session_path(:user), local: true do |f|
               = f.hidden_field :email, value: 'arnold@com'
               = f.hidden_field :password, value: '123456'
-              = f.submit 'テストログイン', class: 'btn btn-info mr-3'
+              = f.submit 'Test Log In', class: 'btn btn-info mr-3'
+          %li.nav-item.nav-link
+            = link_to toppage_column_path, class: 'btn btn-dark mr-2' do
+              column
           %li.nav-item.nav-link
             = link_to new_user_registration_path, class: 'btn btn-dark mr-2' do
-              新規登録
+              Sign Up
           %li.nav-item.nav-link
             = link_to new_user_session_path, class: 'btn btn-dark mr-2' do
-              ログイン
-
-
-
+              Log In
     = yield
-
     .navbar.navbar-dark.bg-dark.mt-auto.py-3
-      .navbar-brand.text-white Rep
+      .navbar-brand.text-white M-Rep
