@@ -12,12 +12,7 @@ Rails.application.routes.draw do
     resources :user_bodies
     resources :training_records do
       collection do
-        get :chest
-        get :sholder
-        get :arm
-        get :back
-        get :leg
-        get :aerobic
+        get :draw_graph
       end
     end
   end

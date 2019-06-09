@@ -93,17 +93,20 @@
             = '--kcal'
       .btn.btn-primary.my-4#edit_body
         %p 編集する
-  .col-7.mt-5.ml-5
-    = link_to chest_user_training_records_path, class: 'btn-lg btn-primary mr-2' do
-      胸
-    = link_to sholder_user_training_records_path, class: 'btn-lg btn-primary mr-2' do
-      肩
-    = link_to arm_user_training_records_path, class: 'btn-lg btn-primary mr-2' do
-      腕
-    = link_to back_user_training_records_path, class: 'btn-lg btn-primary mr-2' do
-      背中
-    = link_to leg_user_training_records_path, class: 'btn-lg btn-primary mr-2' do
-      脚
-    = link_to aerobic_user_training_records_path, class: 'btn-lg btn-primary mr-2' do
-      有酸素
+
+  .col-7.mt-5.ml-5{"data-turbolinks" => "false"}
+    .btn-group.cursor_pointer
+      .btn-lg.btn-primary.mr-2.graph.cursor_pointer{value: '胸'}
+        胸
+      .btn-lg.btn-primary.mr-2.graph.cursor_pointer{value: '肩'}
+        肩
+      .btn-lg.btn-primary.mr-2.graph.cursor_pointer{value: '腕'}
+        腕
+      .btn-lg.btn-primary.mr-2.graph.cursor_pointer{value: '背中'}
+        背中
+      .btn-lg.btn-primary.mr-2.graph.cursor_pointer{value: '脚'}
+        脚
+      .btn-lg.btn-primary.mr-2.graph.cursor_pointer{value: '有酸素'}
+        有酸素
+
     %canvas#myChart{height: "400", width: "900", class: 'mt-5'}
