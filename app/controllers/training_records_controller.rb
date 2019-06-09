@@ -12,7 +12,10 @@ class TrainingRecordsController < ApplicationController
 
     def create
       @training_record = TrainingRecord.new(training_record_params)
-      @training_record.save
+      @training_records = TrainingRecord.where(user_id: current_user.id, date: params[:training_record][:date])
+      unless @training_record.save
+        render status: 400, body: nil
+      end
     end
 
     def destroy
@@ -21,7 +24,7 @@ class TrainingRecordsController < ApplicationController
         date = @training_record.date
         @training_record.destroy
         @training_records = TrainingRecord.where(user_id: params[:user_id], date: date)
-        render partial: "shared/day_records_on_calendar", locals: { training_records: @training_records}
+        render partial: "shared/day_records_on_calendar", locals: { training_records: @training_records }
       end
     end
 
