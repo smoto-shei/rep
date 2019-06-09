@@ -1,7 +1,9 @@
 class TrainingRecordsController < ApplicationController
     before_action :set_user, except: [:create]
     before_action :set_userbody,except: [:create]
-    before_action :set_month, except: [:index, :create]
+    before_action :set_month, except: :create
+    before_action :set_gon_user_id, except: :create
+
 
 
     def index
@@ -26,54 +28,15 @@ class TrainingRecordsController < ApplicationController
       end
     end
 
-    def chest
-      @training_records = @user.training_records.where(part: '胸')
-      gon.part = '胸'
-      gon.label = (@mon-5..@mon).to_a.map {|a| a.to_s + '月'}
-      gon.data = TrainingRecord.make_chart_data(@training_records)
-      render :index
+    def draw_graph
+      @part = params[:part]
+      @training_records = @user.training_records.where(part: @part)
+      @data = TrainingRecord.make_chart_data(@training_records)
+      respond_to do |format|
+        format.json
+        format.html { redirect_to user_training_records_path }
+      end
     end
-
-    def sholder
-      @training_records = @user.training_records.where(part: '肩')
-      gon.part = '肩'
-      gon.label = (@mon-5..@mon).to_a.map {|a| a.to_s + '月'}
-      gon.data = TrainingRecord.make_chart_data(@training_records)
-      render :index
-    end
-
-    def arm
-      @training_records = @user.training_records.where(part: '腕')
-      gon.part = '腕'
-      gon.label = (@mon-5..@mon).to_a.map {|a| a.to_s + '月'}
-      gon.data = TrainingRecord.make_chart_data(@training_records)
-      render :index
-    end
-
-    def back
-      @training_records = @user.training_records.where(part: '背中')
-      gon.part = '背中'
-      gon.label = (@mon-5..@mon).to_a.map {|a| a.to_s + '月'}
-      gon.data = TrainingRecord.make_chart_data(@training_records)
-      render :index
-    end
-
-    def leg
-      @training_records = @user.training_records.where(part: '脚')
-      gon.part = '脚'
-      gon.label = (@mon-5..@mon).to_a.map {|a| a.to_s + '月'}
-      gon.data = TrainingRecord.make_chart_data(@training_records)
-      render :index
-    end
-
-    def aerobic
-      @training_records = @user.training_records.where(part: '有酸素')
-      gon.part = '有酸素'
-      gon.label = (@mon-5..@mon).to_a.map {|a| a.to_s + '月'}
-      gon.data = TrainingRecord.make_chart_data_aerobic(@training_records)
-      render :index
-    end
-
 
 
   private
@@ -92,6 +55,11 @@ class TrainingRecordsController < ApplicationController
 
   def set_month
     @mon = Date.today.month
+    gon.label = (@mon-5..@mon).to_a.map {|a| a.to_s + '月'}
+  end
+
+  def set_gon_user_id
+    gon.user_id = current_user.id
   end
 
 end
