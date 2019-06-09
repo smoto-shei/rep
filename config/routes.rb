@@ -22,5 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'toppage/column', to: 'toppages#column' #のちにcolumnテーブル作ったらルーティング修正
+
 
 end

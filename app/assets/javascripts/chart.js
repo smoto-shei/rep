@@ -7,7 +7,7 @@ document.addEventListener('turbolinks:load', function() {
         data: {
             labels: gon.label, // x軸
             datasets: [{                             // y軸
-                label: "肩",
+                label: gon.part,
                 data: gon.data,
                 backgroundColor: 'rgba(255, 99, 132, 1.0)',
                 borderColor: 'rgba(255, 50, 132, 1.0)',
@@ -17,7 +17,6 @@ document.addEventListener('turbolinks:load', function() {
         options: {
             title:  {
               display: true,
-              text: "Training Record"
             }
         }
     });
