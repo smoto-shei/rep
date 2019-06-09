@@ -61,15 +61,17 @@ document.addEventListener('turbolinks:load', function() {
 
   $('.day').on('click',function(){
     var date = $(this).children('div').attr('id');
+    var that = $(this)
     var pathname = location.pathname + '/records_update';
+    $('.day').removeClass('checked');
     $.ajax({
       type: 'GET',
       url: pathname,
       data: { date: date },
       datatype: 'json'
     }).done(function(data){
-      $('#day_records').empty();
-      $('#day_records').append(data);
+      that.addClass('checked');
+      $('#day_records').html(data);
       $('#training_record_date').val(date);
     }).fail(function(){
       alert('通信に失敗しました');
@@ -90,7 +92,6 @@ document.addEventListener('turbolinks:load', function() {
         add_set_html_and_btn();
         break;
     }
-
   })
 
   $('#training_records').on('click', '.record_delete_btn', function(){
@@ -102,12 +103,20 @@ document.addEventListener('turbolinks:load', function() {
       url: url,
       datatype: 'json'
     }).done(function(day_html){
-      console.log(day_html)
       li_obj.remove();
-      $(day).empty();
-      $(day).append(day_html);
+      $(day).html(day_html);
     }).fail(function(){
       alert('通信に失敗しました')
     })
   })
+
+  $('#new_training_record').on('ajax:success', function(event) {
+    console.log($('#new_training_record')[0]);
+    $('#new_training_record')[0].reset();
+    $('#add-set').remove();
+    $('#set-form').empty();
+  });
+  $('#new_training_record').on('ajax:error', function(event) {
+    alert("通信に失敗しました");
+  });
 });

@@ -1,0 +1,6 @@
+:plain
+  var day_records = "#{j(render partial: "shared/training_records", locals: { day_record: @training_record })}";
+  $('#day_records').append(day_records);
+  var day = "#records_#{@training_record.date}";
+  var day_parts = "#{j(render partial: "shared/day_records_on_calendar", locals: { training_records: @training_records })}";
+  $(day).html(day_parts);

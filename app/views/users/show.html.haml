@@ -104,7 +104,7 @@
 
   .col-3.my-5.card.justify-content-center.w-22
     = form_with model: @training_record, method: :post, url: user_training_records_path(current_user.id), id: 'new_training_record', class: 'new_training_record' do |f|
-      = f.date_field :date, value: Date.today,  class: 'form-control-sm text-center my-4 mx-2'
+      = f.date_field :date, value: Date.today, readonly: true, class: 'form-control-sm text-center my-4 mx-2'
       #training_records.mx-2
         %h6 実施したメニュー
         %ul#day_records.list-unstyled.ml-2
