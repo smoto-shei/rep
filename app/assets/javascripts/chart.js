@@ -16,7 +16,6 @@ document.addEventListener('turbolinks:load', function() {
       })
 
       .done(function(data){
-        console.log(data)
   // ------------------------------------------------------チャートの描画
 
           if (document.getElementById("myChart") != null){
@@ -34,9 +33,9 @@ document.addEventListener('turbolinks:load', function() {
                     }]
                 },
                 options: {
-                    title:  {
-                      display: true,
-                    }
+                  title:  {
+                    display: true,
+                  }
                 }
             });
           }

@@ -16,7 +16,9 @@
         .article1_text.justify-content-center
           %p 多忙なサラリーマンにとっての悩みのタネの一つが日頃の運動不足。勤め帰りに立ち寄り、汗を流せるのがスポーツクラブ。マシンジム、スタジオ、プールを備える総合系スポーツクラブを展開する3社 ....
         .btn.detail_button
-          %p Details
+          = link_to toppage_a_column_path, class:'a_link',style: 'text-decoration:none' do
+            %p Details
+
       .article_picture1
         = image_tag "/assets/karate-1343889__480" ,size:"640x300"
       .article1

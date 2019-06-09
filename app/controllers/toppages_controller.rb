@@ -5,4 +5,7 @@ class ToppagesController < ApplicationController
   def column
   end
 
+  def a_column
+  end
+
 end
