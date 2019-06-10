@@ -5,6 +5,14 @@ class TrainingRecord < ApplicationRecord
   validates :exercise, presence: true
   accepts_nested_attributes_for :menus, allow_destroy: true
 
+  def self.bring_training_data(user,part)
+    if part == 'Total'
+      user.training_records
+    else
+      user.training_records.where(part: part)
+    end
+  end
+
   def self.make_chart_data(records) # 半月分の総負荷量算出
     # --------------------------- バケット作成 例:今月が６月の場合 => {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
     amount = Hash.new
@@ -27,6 +35,4 @@ class TrainingRecord < ApplicationRecord
     end
     amount.values # hash をバリューのみの配列にする {1:100, 2:100, 3:400, 4:2500, 5:1600, 6:2800.5} =>[100.0, 100.0, 400.0, 2500.0, 1600.0, 2800.5]
   end
-
-
 end

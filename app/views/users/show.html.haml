@@ -12,10 +12,10 @@
             = f.select :gender, [['男'],['女']], prompt: '--', class: 'form-control'
           .form_group.m-4
             = f.label :height, '身長'
-            = f.number_field :height, step: '0.1', class: 'form-control'
+            = f.number_field :height, step: '0.1', in: 100...300, class: 'form-control'
           .form_group.m-4
             = f.label :weight, '体重'
-            = f.number_field :weight, class: 'form-control'
+            = f.number_field :weight, in: 20...350, class: 'form-control'
           .action.m-5.justify-content-center
             = f.submit '登録する', class: 'btn btn-primary'
             .btn.btn-primary.close_button
