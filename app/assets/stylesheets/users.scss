@@ -112,6 +112,14 @@ input[type="date"]::-webkit-calendar-picker-indicator{
   cursor: pointer;
 }
 
+.records_boxes{
+  border-style: solid;
+  border-width: 1px;
+  border-top-width: 0px;
+  border-color: #eeeeee;
+  padding: 0.5em 0 0.5em 1em;
+}
+
 $part_font_size: 14px;
 .chest_color{
   text-align: center;
