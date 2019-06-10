@@ -3,13 +3,13 @@ document.addEventListener('turbolinks:load', function() {
     html =`
 <div class="d-flex flex-wrap mt-2">
   <div class="form_group w-25 text-center">
-    <input class="form-control" step="0.5" type="number" name="training_record[menus_attributes][${count}][weight]" id="training_record_menus_attributes_${count}_weight">
+    <input class="form-control" step="0.5" type="number" max="999.5" min="0.0" name="training_record[menus_attributes][${count}][weight]" id="training_record_menus_attributes_${count}_weight">
   </div>
   <div class="d-flex w-25 align-items-end">
     <span class="ml-2 mb-2">kg ✖️</span>
   </div>
   <div class="form_group w-25 text-center">
-    <input class="form-control" type="number" name="training_record[menus_attributes][${count}][rep]" id="training_record_menus_attributes_${count}_rep">
+    <input class="form-control" type="number" max="999" min="0" name="training_record[menus_attributes][${count}][rep]" id="training_record_menus_attributes_${count}_rep">
   </div>
   <div class="d-flex w-25 align-items-end">
     <span class="ml-2 mb-2">rep</span>
@@ -22,14 +22,14 @@ document.addEventListener('turbolinks:load', function() {
 <div class="d-flex flex-wrap mt-3">
   <div class="w-25 text-center">
     <label for="training_record_menus_attributes_0_weight">重量</label>
-    <input class="form-control" step="0.5" type="number" name="training_record[menus_attributes][0][weight]" id="training_record_menus_attributes_0_weight">
+    <input class="form-control" step="0.5" type="number" max="999.5" min="0.0" name="training_record[menus_attributes][0][weight]" id="training_record_menus_attributes_0_weight">
   </div>
   <div class="d-flex w-25 align-items-end">
     <span class="ml-2 mb-2">kg ✖️</span>
   </div>
   <div class="w-25 text-center">
     <label for="training_record_menus_attributes_0_rep">回数</label>
-    <input class="form-control" type="number" name="training_record[menus_attributes][0][rep]" id="training_record_menus_attributes_0_rep">
+    <input class="form-control" type="number" max="999", min="0" name="training_record[menus_attributes][0][rep]" id="training_record_menus_attributes_0_rep">
   </div>
   <div class="d-flex w-25 align-items-end">
     <span class="ml-2 mb-2">rep</span>
@@ -48,10 +48,17 @@ document.addEventListener('turbolinks:load', function() {
     html = `
 <div class="d-flex flex-wrap mt-3 align-items-center">
   <span class="mx-2">継続時間</span>
-  <input class="form-control w-50" type="number" name="training_record[menus_attributes][0][time]" id="training_record_menus_attributes_0_time">
+  <input class="form-control w-50" type="number" max="1440" min="0" name="training_record[menus_attributes][0][time]" id="training_record_menus_attributes_0_time">
   <span class="mx-2">分</span>
 </div>`
     $('#set-form').append(html);
+  }
+
+  function appendExercise(exercise){
+    html = `
+    ${exercise.ja_name}
+    `
+    $('#exercise_search_result').append(html);
   }
 
   $('#new_training_record').on('click','#add-set',function(){
@@ -119,4 +126,25 @@ document.addEventListener('turbolinks:load', function() {
   $('#new_training_record').on('ajax:error', function(event) {
     alert("通信に失敗しました");
   });
+
+  $('#training_record_exercise').on('keyup', function(){
+    var input = $('#training_record_exercise').val();
+    $('#exercise_search_result').empty();
+    if(input){
+      $.ajax({
+        type: 'GET',
+        url: '/exercises',
+        data: { keyword: input },
+        datatype: 'json'
+      }).done(function(exercises){
+        if(exercises.length !== 0){
+          exercises.forEach(function(exercise){
+            appendExercise(exercise);
+          })
+        }
+      }).fail(function(){
+        alert('error');
+      })
+    }
+  })
 });

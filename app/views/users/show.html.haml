@@ -116,6 +116,7 @@
       .form_group.m-1
         = f.label :exercise, '種目'
         = f.text_field :exercise, class: 'form-control'
+        #exercise_search_result
       = f.fields_for :menus do |menus|
         #set-form
           -# .d-flex.flex-wrap.mt-3.align-items-center
