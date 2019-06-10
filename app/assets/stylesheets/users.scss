@@ -78,7 +78,17 @@
   display: block !important;
 }
 //-----------------------------------------------------
-
+input[type="date"]::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+}
+input[type="date"]::-webkit-clear-button{
+  -webkit-appearance: none;
+}
+input[type="date"]::-webkit-calendar-picker-indicator{
+  background: transparent;
+  position: absolute;
+  -webkit-appearance: none;
+}
 // 幅調整
 .w-13{
   max-width: 13%;
@@ -91,16 +101,58 @@
 .day{
   &:hover{
     background-color: #aaaaaa;
-    text-decoration: underline;
     cursor : pointer;
   }
 }
 .checked{
   background-color: #aaaaaa!important;
 }
-
-
 // recordの削除ボタン
 .record_delete_btn {
   cursor: pointer;
+}
+
+$part_font_size: 14px;
+.chest_color{
+  text-align: center;
+  background-color: blue;
+  color: white;
+  border-radius: 10px;
+  font-size: $part_font_size;
+}
+
+.sholder_color{
+  text-align: center;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  font-size: $part_font_size;
+}
+.arms_color{
+  text-align: center;
+  background-color: yellowgreen;
+  color: white;
+  border-radius: 10px;
+  font-size: $part_font_size;
+}
+.back_color{
+  text-align: center;
+  background-color: violet;
+  color: white;
+  border-radius: 10px;
+  font-size: $part_font_size;
+}
+.foots_color{
+  text-align: center;
+  background-color: orange;
+  color: white;
+  border-radius: 10px;
+  font-size: $part_font_size;
+}
+.aerobics_color{
+  text-align: center;
+  background-color: brown;
+  color: white;
+  border-radius: 10px;
+  font-size: $part_font_size;
 }

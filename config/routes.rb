@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :exercises, only: :index
 
   get 'toppage/column', to: 'toppages#column' #のちにcolumnテーブル作ったらルーティング修正
   get 'toppage/a_column', to: 'toppages#a_column' #のちにcolumnテーブル作ったらルーティング修正
