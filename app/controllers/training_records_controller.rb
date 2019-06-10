@@ -30,7 +30,7 @@ class TrainingRecordsController < ApplicationController
 
     def draw_graph
       @part = params[:part]
-      @training_records = @user.training_records.where(part: @part)
+      @training_records = TrainingRecord.bring_training_data(@user,@part)
       @data = TrainingRecord.make_chart_data(@training_records)
       respond_to do |format|
         format.json
