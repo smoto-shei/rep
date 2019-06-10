@@ -3,27 +3,36 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //プロフィール写真
+.btn.btn-primary.my-6{
+  width: 60px;
+  margin-left: auto;
+  font-size: 12px;
+  margin-bottom: 10px;
+  margin-top: 10px
+}
 .avatar{
   overflow: hidden;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto;
   border-radius: 50%;
+  border:1px solid #AAAAAA;
   img{
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
   }
 }
 
 //ニックネーム
 .nickname{
   font-size: 13px;
+  margin: 20px 0px 10px 0px;
 }
 
 //ボディー表示
 .body{
   box-sizing: border-box;
-  padding: 10px;
+  font-size: 14px;
   .height{
     box-sizing: border-box;
     display: inline-block;
@@ -101,15 +110,26 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 .day{
   &:hover{
     background-color: #aaaaaa;
+    text-decoration: underline;
     cursor : pointer;
   }
 }
 .checked{
   background-color: #aaaaaa!important;
 }
+
+
 // recordの削除ボタン
 .record_delete_btn {
   cursor: pointer;
+}
+
+.records_boxes{
+  border-style: solid;
+  border-width: 1px;
+  border-top-width: 0px;
+  border-color: #eeeeee;
+  padding: 0.5em 0 0.5em 1em;
 }
 
 $part_font_size: 14px;
