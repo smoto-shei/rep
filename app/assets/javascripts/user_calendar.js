@@ -55,16 +55,13 @@ document.addEventListener('turbolinks:load', function() {
   }
 
   function appendExercise(exercise){
-    html = `
-    ${exercise.ja_name}
-    `
+    html = `<div class="records_boxes">${exercise.ja_name}</div>`
     $('#exercise_search_result').append(html);
   }
 
   $('#new_training_record').on('click','#add-set',function(){
     add_set_html($('#set-form').children().length);
   })
-
 
   $('.day').on('click',function(){
     var date = $(this).children('div').attr('id');
@@ -146,5 +143,11 @@ document.addEventListener('turbolinks:load', function() {
         alert('error');
       })
     }
+  })
+
+  $('#exercise_search_result').on('click','.records_boxes',function(){
+    selected = $(this).text();
+    $('#training_record_exercise').val(selected);
+    $('#exercise_search_result').empty();
   })
 });
