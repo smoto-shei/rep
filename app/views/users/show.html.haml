@@ -52,7 +52,7 @@
     .nickname
       %p
         = @user.nickname
-    .body
+    .body.justify-content-center
       .height
         - unless @userbody.nil?
           %p
@@ -76,14 +76,6 @@
           %p
             = "--"
       .mt-4
-        %h5 適正体重
-        - unless @userbody.nil?
-          %p
-            = "#{((@userbody.height.to_f / 100)**2 * 22).round(1)} kg"
-        - else
-          %p
-            = "-- kg"
-      .mt-4
         %h5 基礎代謝
         - unless @userbody.nil?
           %p
@@ -91,7 +83,7 @@
         - else
           %p
             = '--kcal'
-    .btn.btn-primary.my-4#edit_body.text-center
+    .btn.btn-primary.my-4#edit_body
       編集する
 
   .col-7.my-5.justify-content-center

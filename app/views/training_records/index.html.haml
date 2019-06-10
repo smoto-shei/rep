@@ -12,10 +12,10 @@
             = f.select :gender, [['男'],['女']], prompt: '--', class: 'form-control'
           .form_group.m-4
             = f.label :height, '身長'
-            = f.number_field :height, step: '0.1', class: 'form-control'
+            = f.number_field :height, step: '0.1', in: 100...300, class: 'form-control'
           .form_group.m-4
             = f.label :weight, '体重'
-            = f.number_field :weight, class: 'form-control'
+            = f.number_field :weight, in: 20...350, class: 'form-control'
           .action.m-5.justify-content-center
             = f.submit '登録する', class: 'btn btn-primary'
             .btn.btn-primary.close_button
@@ -31,10 +31,10 @@
             = f.select :gender, [['男'],['女']], prompt: '--', class: 'form-control'
           .form_group.m-4
             = f.label :height, '身長'
-            = f.number_field :height, step: '0.1', in: 100...300, class: 'form-control'
+            = f.number_field :height, step: '0.1', class: 'form-control'
           .form_group.m-4
             = f.label :weight, '体重'
-            = f.number_field :weight, in: 20...350, class: 'form-control'
+            = f.number_field :weight, class: 'form-control'
           .action.m-5.justify-content-center
             = f.submit '編集する', class: 'btn btn-primary'
             .btn.btn-primary.close_button
@@ -76,14 +76,6 @@
           %p
             = "--"
       .mt-4
-        %h5 適正体重
-        - unless @userbody.nil?
-          %p
-            = "#{((@userbody.height.to_f / 100)**2 * 22).round(1)} kg"
-        - else
-          %p
-            = "-- kg"
-      .mt-4
         %h5 基礎代謝
         - unless @userbody.nil?
           %p
@@ -91,8 +83,8 @@
         - else
           %p
             = '--kcal'
-      .btn.btn-primary.my-4#edit_body
-        %p 編集する
+    .btn.btn-primary.my-4#edit_body
+      編集する
 
   .col-7.mt-5.ml-5{"data-turbolinks" => "false"}
     .btn-group.cursor_pointer

@@ -9,24 +9,24 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = include_gon
   %body{style: 'padding-top: 72px; min-height: 100vh', class: 'h-100 d-flex flex-column'}
-    .navbar.navbar-light.bg-light.fixed-top.bg-dark
+    .navbar.navbar-dark.bg-secondary.fixed-top.bg-secondary
       .navbar-brand
         = link_to root_path, class: 'text-white 15px' do
           M-Rep
       - if user_signed_in?
         %ul.navbar.navbar-nav.navbar-expand
           %li.nav-item.nav-link
-            = link_to toppage_column_path, class: 'text-white mr-3 15px ' do
-              column
+            = link_to toppage_column_path, class: 'text-white mr-3 15px btn btn-info' do
+              Column
           %li.nav-item.nav-link
-            = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-3 15px ' do
-              Log Out
-          %li.nav-item.nav-link
-            = link_to user_path(current_user.id), class: 'text-white mr-4 15px' do
+            = link_to user_path(current_user.id), class: 'text-white mr-3 15px btn btn-info' do
               Calender
           %li.nav-item.nav-link
-            = link_to user_training_records_path(current_user.id), class: 'text-white mr-4 15px' do
-              Analytics
+            = link_to user_training_records_path(current_user.id), class: 'text-white mr-3 15px btn btn-info' do
+              Analysis
+          %li.nav-item.nav-link
+            = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-1 15px btn btn-danger' do
+              Log Out
       - else
         %ul.navbar-nav.navbar-expand.float-right
           %li.nav-item.nav-link
@@ -35,14 +35,16 @@
               = f.hidden_field :password, value: '123456'
               = f.submit 'Test Log In', class: 'btn btn-info mr-3'
           %li.nav-item.nav-link
-            = link_to toppage_column_path, class: 'btn btn-dark mr-2' do
-              column
+            = link_to toppage_column_path, class: 'btn btn-info mr-3' do
+              Column
           %li.nav-item.nav-link
-            = link_to new_user_registration_path, class: 'btn btn-dark mr-2' do
+            = link_to new_user_registration_path, class: 'btn btn-info mr-3' do
               Sign Up
           %li.nav-item.nav-link
-            = link_to new_user_session_path, class: 'btn btn-dark mr-2' do
+            = link_to new_user_session_path, class: 'btn btn-danger mr-1' do
               Log In
     = yield
-    .navbar.navbar-dark.bg-dark.mt-auto.py-3
-      .navbar-brand.text-white M-Rep
+    .navbar.navbar-dark.bg-secondary.mt-auto.py-3
+      .navbar-brand.text-white
+        = link_to root_path, class: 'text-white 15px' do
+          M-Rep
