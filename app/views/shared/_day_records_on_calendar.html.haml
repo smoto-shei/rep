@@ -2,4 +2,18 @@
 - training_records.each do |training_record|
   - parts << training_record.part
 - parts.uniq.each do |part|
-  = part
+  - case part
+  - when '胸'
+    - value = 'chest'
+  - when '肩'
+    - value = 'sholder'
+  - when '腕'
+    - value = 'arms'
+  - when '背中'
+    - value = 'back'
+  - when '脚'
+    - value = 'foots'
+  - when '有酸素'
+    - value = 'aerobics'
+  %div{ class: "#{value}_color"}
+    = part

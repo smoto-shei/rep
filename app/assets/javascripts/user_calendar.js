@@ -73,6 +73,7 @@ document.addEventListener('turbolinks:load', function() {
       that.addClass('checked');
       $('#day_records').html(data);
       $('#training_record_date').val(date);
+      $('#training_record_date').attr('value',date);
     }).fail(function(){
       alert('通信に失敗しました');
     })
@@ -111,7 +112,6 @@ document.addEventListener('turbolinks:load', function() {
   })
 
   $('#new_training_record').on('ajax:success', function(event) {
-    console.log($('#new_training_record')[0]);
     $('#new_training_record')[0].reset();
     $('#add-set').remove();
     $('#set-form').empty();
