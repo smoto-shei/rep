@@ -7,6 +7,7 @@ class TrainingRecordsController < ApplicationController
 
 
     def index
+      @userbody = @user.user_body
       # @records = User.find(current_user.id).trainig_records
     end
 
