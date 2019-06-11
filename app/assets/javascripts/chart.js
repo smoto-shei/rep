@@ -23,6 +23,7 @@ document.addEventListener('turbolinks:load', function() {
 
 // ------------------------------------------------------チャートの描画
 function draw_graph(data){
+  console.log(data.data[0])
   var ctx = $("#myChart");
   load_chart = new Chart(ctx, {
     type: 'bar',
@@ -39,14 +40,13 @@ function draw_graph(data){
     options: {
       responsive: true,                  //グラフ自動設定
       legend: {                          //凡例設定
-          display: true                 //表示設定
+          display: false                 //表示設定
       },
-      // title:  {
-      //   display: true,
-      //   fontSize: 22,                  //フォントサイズ
-      //   text: 'Training Record'
-
-      // },
+      title:  {
+        display: true,
+        fontSize: 22,                  //フォントサイズ
+        text: data.part
+      },
       scales: {                          //軸設定
         yAxes: [{                      //y軸設定
             display: true,             //表示設定
@@ -56,6 +56,7 @@ function draw_graph(data){
                 fontSize: 18               //フォントサイズ
             },
             ticks: {                      //最大値最小値設定
+                suggestedMax: 100,
                 min: 0,                   //最小値
                 fontSize: 18,             //フォントサイズ
                 stepSize: 0               //軸間隔
@@ -90,7 +91,8 @@ function draw_graph(data){
 }
 // ----------------------------------------------------------
 function update_chart(data){
-
+  // load_chart.options.title.text = data.part
+  console.log(data.data)
   load_chart.data.datasets[0].label = data.part
   load_chart.data.datasets[0].data = data.data
   load_chart.update();
