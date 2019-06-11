@@ -8,13 +8,19 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = include_gon
-  %body{style: 'padding-top: 72px; min-height: 100vh', class: 'h-100 d-flex flex-column'}
+  %body{style: 'padding-top: 86px; min-height: 100vh', class: 'h-100 d-flex flex-column'}
     .navbar.navbar-dark.bg-secondary.fixed-top.bg-secondary
       .navbar-brand
         = link_to root_path, class: 'text-white 15px' do
           M-Rep
       - if user_signed_in?
         %ul.navbar.navbar-nav.navbar-expand
+          %li.nav-item.nav-link
+            = link_to user_images_path(current_user.id), class: 'text-white mr-3 15px btn btn-info' do
+              筋肉画像（作業用link)
+          %li.nav-item.nav-link
+            = link_to users_path, class: 'text-white mr-3 15px btn btn-info' do
+              ユーザー検索
           %li.nav-item.nav-link
             = link_to toppage_column_path, class: 'text-white mr-3 15px btn btn-info' do
               Column
@@ -28,12 +34,15 @@
             = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-1 15px btn btn-danger' do
               Log Out
       - else
-        %ul.navbar-nav.navbar-expand.float-right
+        %ul.navbar.navbar-nav.navbar-expand
           %li.nav-item.nav-link
             = form_with model: User.new, scope: :user, url: session_path(:user), local: true do |f|
               = f.hidden_field :email, value: 'arnold@com'
               = f.hidden_field :password, value: '123456'
               = f.submit 'Test Log In', class: 'btn btn-info mr-3'
+          %li.nav-item.nav-link
+            = link_to users_path, class: 'text-white mr-3 15px btn btn-info' do
+              ユーザー検索
           %li.nav-item.nav-link
             = link_to toppage_column_path, class: 'btn btn-info mr-3' do
               Column

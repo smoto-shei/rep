@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do
       get 'records_update'
     end
+    resources :images
     resources :user_bodies
     resources :training_records do
       collection do
