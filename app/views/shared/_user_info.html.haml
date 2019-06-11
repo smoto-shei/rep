@@ -1,0 +1,39 @@
+.btn.btn-primary.my-6#edit_body.text-center
+  編集
+.avatar.mt-2
+  = image_tag('avatar_default.png')
+.nickname
+  %p
+    = user.nickname
+  <hr>
+.body
+  .height
+    - unless userbody.nil?
+      %p
+        = "#{userbody&.height} cm"
+    - else
+      %p
+        = "--cm"
+  .weight.ml-3
+    - unless userbody.nil?
+      %p
+        = "#{userbody&.weight} kg"
+    - else
+      %p
+        = "--kg"
+  .mt-1
+    %h6 BMI
+    - unless userbody.nil?
+      %p
+        = (userbody.weight.to_f / (userbody.height.to_f / 100) ** 2).round(1)
+    - else
+      %p
+        = "--"
+  .mt-1
+    %h6 想定基礎代謝
+    - unless userbody.nil?
+      %p
+        = "#{(66.47 + (13.75 * userbody.weight.to_f) + (5 * userbody.height.to_f) - (6.78*(2019 - userbody.birth_year))).round(0)} kcal"
+    - else
+      %p
+        = '--kcal'
