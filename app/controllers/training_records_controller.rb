@@ -29,9 +29,15 @@ class TrainingRecordsController < ApplicationController
     end
 
     def draw_graph
-      @part = params[:part]
+      @part, @unit = for_graph_params[:part],for_graph_params[:unit]
       @training_records = TrainingRecord.bring_training_data(@user,@part)
-      @data = TrainingRecord.make_chart_data(@training_records)
+      if @unit == 'month'
+        @x_label = set_month
+        @data = TrainingRecord.make_data_for_month(@training_records)
+      else
+        @x_label = set_week
+        @data = TrainingRecord.make_data_for_week(@training_records)
+      end
       respond_to do |format|
         format.json
         format.html { redirect_to user_training_records_path }
@@ -44,6 +50,34 @@ class TrainingRecordsController < ApplicationController
   def training_record_params
     params.require(:training_record).permit(:date, :part, :exercise, menus_attributes: [:weight, :rep, :time]).merge(user_id: current_user.id)
   end
+
+  def for_graph_params
+    params.permit(:part,:unit)
+  end
+
+  def set_month
+    @mon = Date.today.month
+    gon.label = (@mon-5..@mon).to_a.map {|a| a.to_s + '月'}
+    return gon.label
+  end
+
+  def set_week
+    gon.label = ['その前','その前','その前','その前','先週','今週']
+    return gon.label
+  end
+
+  #----------------------------------------------------- ApplicationControllerに記述
+  # def set_user
+  #   @user = User.find(current_user.id)
+  # end
+
+  # def set_userbody
+  #   @userbody = @user.user_body
+  # end
+
+  # def set_gon_user_id
+  #   gon.user_id = current_user.id
+  # end
 
 
 end

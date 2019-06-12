@@ -1,35 +1,65 @@
-// ---------------------------------------------------- 空チャート作成
+
 document.addEventListener('turbolinks:load', function() {
+
+// ---------------------------------------------------- 一回目空チャート作成
   if (document.getElementById("myChart") != null){
-  var ctx = $("#myChart");
+    var ctx = $("#myChart");
   load_chart = new Chart(ctx);
 
   var url = `/users/${gon.user_id}/training_records/draw_graph`
   var part = 'Total';
+  var unit = $('input[name="unit"]').val();
 
   $.ajax({
     type: 'get',
     url: url,
-    data: { part: part },
+    data: {
+      part: part,
+      unit: unit
+    },
     datatype: 'json'
   })
 
   .done(function(data){
-    draw_graph(data);
-    data_label();
+      draw_graph(data);
+      data_label();
     })
   }
+
+// ----------------------------------------------- 二度目以降analytic ページのチャート描写
+  $(function(){
+    $('.graph').on('click',function(e){
+      var url = `/users/${gon.user_id}/training_records/draw_graph`
+      var part = $(this).attr('value');
+      var unit = $('input[name="unit"]:checked').val();
+
+      $.ajax({
+        type: 'get',
+        url: url,
+        data: {
+          part: part,
+          unit: unit
+         },
+        datatype: 'json'
+      })
+
+      .done(function(data){
+        update_chart(data);
+        })
+    });
+  });
+
+
 })
 
 // ------------------------------------------------------チャートの描画
 function draw_graph(data){
-  console.log(data.data[0])
   var ctx = $("#myChart");
   load_chart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: gon.label, // x軸
-      datasets: [{                             // y軸
+      labels: gon.label, // x軸のラベル
+      datasets: [{
         label: data.part,
         data: data.data,
         backgroundColor: 'rgba(255, 99, 132, 1.0)',
@@ -92,9 +122,10 @@ function draw_graph(data){
 // ----------------------------------------------------------
 function update_chart(data){
   // load_chart.options.title.text = data.part
-  console.log(data.data)
   load_chart.data.datasets[0].label = data.part
   load_chart.data.datasets[0].data = data.data
+  load_chart.data.labels = data.x_label
+  load_chart.options.title.text = data.part
   load_chart.update();
 }
 
@@ -135,24 +166,3 @@ function data_label(){
   });
 }
     //----------------------------------------------------------------
-
-// analytic ページのチャート描写
-document.addEventListener('turbolinks:load', function() {
-  $(function(){
-    $('.graph').on('click',function(e){
-      var url = `/users/${gon.user_id}/training_records/draw_graph`
-      var part = $(this).attr('value');
-
-      $.ajax({
-        type: 'get',
-        url: url,
-        data: { part: part },
-        datatype: 'json'
-      })
-
-      .done(function(data){
-        update_chart(data);
-        })
-    });
-  });
-});

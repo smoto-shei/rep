@@ -9,19 +9,28 @@
 
   .col-7.mt-5{"data-turbolinks" => "false"}
     .btn-group.cursor_pointer
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: 'Total'}
+      .graph.btn.btn-primary.mr-2.cursor_pointer{value: 'Total'}
         Total
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: '胸'}
+      .graph.btn.btn-primary.mr-2.cursor_pointer{value: '胸'}
         胸
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: '肩'}
+      .graph.btn.btn-primary.mr-2.cursor_pointer{value: '肩'}
         肩
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: '腕'}
+      .graph.btn.btn-primary.mr-2.cursor_pointer{value: '腕'}
         腕
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: '背中'}
+      .graph.btn.btn-primary.mr-2.cursor_pointer{value: '背中'}
         背中
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: '脚'}
+      .graph.btn.btn-primary.mr-2.cursor_pointer{value: '脚'}
         脚
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: '有酸素'}
+      .graph.btn.btn-primary.mr-2.cursor_pointer{value: '有酸素'}
         有酸素
+
+    .btn-group
+      .form-check-inline
+        %input#check_month.form-check-input.mr-2.cursor_pointer{type: 'radio', name: 'unit', value: 'month', checked: 'true', display: 'none'}
+        %label.form-check-label.btn.btn-secondary{for: 'check_month'} 月
+      .form-check-inline
+        %input#check_week.form-check-input.mr-2.cursor_pointer{type: 'radio', name: 'unit', value: 'week'}
+        %label.form-check-label.btn.btn-secondary{for: 'check_week'} 週
+
 
     %canvas#myChart{height: "400", width: "900", class: 'mt-5'}
