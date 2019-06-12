@@ -1,7 +1,7 @@
 
 document.addEventListener('turbolinks:load', function() {
 
-// ---------------------------------------------------- 一回目空チャート作成
+// ---------------------------------------------------- 一回目のグラフ作成
   if (document.getElementById("myChart") != null){
     var ctx = $("#myChart");
   load_chart = new Chart(ctx);
@@ -26,11 +26,12 @@ document.addEventListener('turbolinks:load', function() {
     })
   }
 
-// ----------------------------------------------- 二度目以降analytic ページのチャート描写
+// ----------------------------------------------- 二度目以降のチャート描写
   $(function(){
-    $('.graph').on('click',function(e){
+    //  $('.graph').on('click',function(){ これだとcheckedを二度押さないと効かない
+    $('input').change(function(){ // タブルクォテーションじゃないとエラーになる.
       var url = `/users/${gon.user_id}/training_records/draw_graph`
-      var part = $(this).attr('value');
+      var part = $("[name=check_part]:checked").val();
       var unit = $('input[name="unit"]:checked').val();
 
       $.ajax({
@@ -48,7 +49,6 @@ document.addEventListener('turbolinks:load', function() {
         })
     });
   });
-
 
 })
 
@@ -97,7 +97,7 @@ function draw_graph(data){
             barPercentage: 0.7,           //棒グラフ幅
             categoryPercentage: 0.4,      //棒グラフ幅
             scaleLabel: {                 //軸ラベル設定
-                display: true,             //表示設定
+                display: false,             //表示設定
                 labelString: 'Month',  //ラベル
                 fontSize: 18
             },
@@ -119,6 +119,7 @@ function draw_graph(data){
 
   });
 }
+
 // ----------------------------------------------------------
 function update_chart(data){
   // load_chart.options.title.text = data.part
