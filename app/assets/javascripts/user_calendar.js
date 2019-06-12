@@ -40,6 +40,9 @@ document.addEventListener('turbolinks:load', function() {
   <div class="btn btn-outline-primary btn-sm" id="add-set">
     セット追加
   </div>
+  <div class="btn btn-outline-danger btn-sm ml-3" id="remove-set">
+    セット削除
+  </div>
 </div>`
     $('#set-form').append(set_html);
     $('#set-form').after(set_btn);
@@ -61,6 +64,12 @@ document.addEventListener('turbolinks:load', function() {
 
   $('#new_training_record').on('click','#add-set',function(){
     add_set_html($('#set-form').children().length);
+  })
+
+  $('#new_training_record').on('click','#remove-set',function(){
+    if($('#set-form').children().length > 1){
+      $('#set-form').children().last().remove();
+    }
   })
 
   $('.day').on('click',function(){
