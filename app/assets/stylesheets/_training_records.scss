@@ -5,3 +5,15 @@
 .cursor_pointer{
   cursor: pointer;
 }
+
+.radio_btn{
+  display: none;
+}
+
+input[type=radio]:checked + .part_label {
+  border: 5px solid #000;
+}
+
+input[type=radio]:checked + .unit_label {
+  border: 5px solid #000;
+}

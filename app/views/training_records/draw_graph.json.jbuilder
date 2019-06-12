@@ -1,5 +1,6 @@
 json.data @data
 json.part @part
+json.x_label @x_label
 
 
   # json.array! @new_messages do |message|
