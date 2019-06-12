@@ -8,20 +8,38 @@
 
 
   .col-7.mt-5{"data-turbolinks" => "false"}
-    .btn-group.cursor_pointer
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: 'Total'}
-        Total
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: '胸'}
-        胸
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: '肩'}
-        肩
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: '腕'}
-        腕
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: '背中'}
-        背中
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: '脚'}
-        脚
-      .btn.btn-primary.mr-2.graph.cursor_pointer{value: '有酸素'}
-        有酸素
+    -# ここで cursor_pointer 指定すれば子要素全部に有効
+    .btn-group.cursor_pointer.ml-5
+      .form-check-inline
+        -# .graphで発火させる。.radio_btnは {display: none;} ,inputタグにつける
+        %input#radio_total.radio_btn{type: 'radio', name: 'check_part', value: 'Total', checked: 'true'}
+        %label.part_label.form-check-label.btn.btn-primary{for: 'radio_total'} total
+      .form-check-inline
+        %input#radio_chest.radio_btn{type: 'radio', name: 'check_part', value: '胸'}
+        %label.part_label.form-check-label.btn.btn-primary{for: 'radio_chest'} 胸
+      .form-check-inline
+        %input#radio_arm.radio_btn{type: 'radio', name: 'check_part', value: '腕'}
+        %label.part_label.form-check-label.btn.btn-primary{for: 'radio_arm'} 腕
+      .form-check-inline
+        %input#radio_sholder.radio_btn{type: 'radio', name: 'check_part', value: '肩'}
+        %label.part_label.form-check-label.btn.btn-primary{for: 'radio_sholder'} 肩
+      .form-check-inline
+        %input#radio_back.radio_btn{type: 'radio', name: 'check_part', value: '背中'}
+        %label.part_label.form-check-label.btn.btn-primary{for: 'radio_back'} 背中
+      .form-check-inline
+        %input#radio_leg.radio_btn{type: 'radio', name: 'check_part', value: '脚'}
+        %label.part_label.form-check-label.btn.btn-primary{for: 'radio_leg'} 脚
+      .form-check-inline
+        %input#radio_aerobic.radio_btn{type: 'radio', name: 'check_part', value: '有酸素'}
+        %label.part_label.form-check-label.btn.btn-primary{for: 'radio_aerobic'} 有酸素
+
+    .btn-group
+      .form-check-inline
+        %input#check_month.radio_btn.form-check-input.mr-2.cursor_pointer{type: 'radio', name: 'unit', value: 'month', checked: 'true'}
+        %label.unit_label.form-check-label.btn.btn-secondary{for: 'check_month'} 月
+      .form-check-inline
+        %input#check_week.radio_btn.form-check-input.mr-2.cursor_pointer{type: 'radio', name: 'unit', value: 'week'}
+        %label.unit_label.form-check-label.btn.btn-secondary{for: 'check_week'} 週
+
 
     %canvas#myChart{height: "400", width: "900", class: 'mt-5'}
