@@ -124,6 +124,20 @@ input[type="date"]::-webkit-calendar-picker-indicator{
   cursor: pointer;
 }
 
+.menu-list {
+  list-style-type: none;
+}
+
+.remove_hidden_class{
+  cursor: pointer;
+}
+.add_hidden_class {
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+
 .records_boxes{
   border-style: solid;
   border-width: 1px;
