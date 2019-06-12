@@ -1,4 +1,18 @@
 %li.list-unstyled
+  %span.remove_hidden_class ➕
+  %span.add_hidden_class.hidden ➖
   = day_record.part
   = day_record.exercise
-  %span.record_delete_btn{value: "#{day_record.id}"} ❌
+  %span.ml-2.record_delete_btn{value: "#{day_record.id}"} ❌
+  %ul.hidden
+    - day_record.menus.each do |menu|
+      - if day_record.part == '有酸素'
+        %li.menu-list
+          = menu.time
+          分
+      - else 
+        %li.menu-list
+          = menu.weight
+          Kg ×
+          = menu.rep
+          回数
