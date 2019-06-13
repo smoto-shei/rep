@@ -3,6 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //プロフィール写真
+.col-2{
+  border-right: solid rgb(245, 248, 250);
+  background-color: rgb(245, 248, 250);
+  padding: 10px 20px 0px 20px;
+
+}
 .btn.btn-primary.my-6{
   width: 60px;
   margin-left: auto;
