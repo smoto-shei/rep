@@ -2,9 +2,12 @@
 
 -# 本文
 .row
-  .col-2.my-5.ml-5.justify-content-center.w-13
+  .col-2.my-3.ml-3.justify-content-center.w-15
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
   -# ここから自由に描いてください
-  .col-7
-    %h1　ここにユーザー画像
+  .col-9
+    .com Photo
+    <hr>
+    .photo_date 2019/6/12
+    .photo_box 写真

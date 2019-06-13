@@ -75,6 +75,8 @@ function draw_graph(data){
       title:  {
         display: true,
         fontSize: 22,                  //フォントサイズ
+        position: 'top',
+        padding: 20,
         text: data.part
       },
       scales: {                          //軸設定

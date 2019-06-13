@@ -37,7 +37,7 @@ class TrainingRecord < ApplicationRecord
   end
 
   def self.make_data_for_week(records)
-    records = records.sort_by {|rec| rec.date} #配列を日付順(本日に近い順)にする
+    records = records.sort_by {|rec| rec.date} #配列を先頭から日付順(本日に近い順、降順)にする
     today = Date.today
     this_week = today + (7 - today.wday) # wdayは、(月火水木金土日) = (1,2,3,4,5,6,7) と対応している。 7 - today.wday とすることで週末を出している
     start_week = records[-1].date - (6 - records[-1].date.wday) # レコードの最初の日を割り出す(使わないかもしれないが今後期間を伸ばすときにおいておく)
