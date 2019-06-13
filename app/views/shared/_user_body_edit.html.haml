@@ -39,7 +39,7 @@
             %p.edit_body_fail.height_fail.hide  100以上300以下で入力してください
           .form_group.m-4
             = f.label :weight, '体重'
-            = f.number_field :weight, in: 20...350, class: 'form-control weight_number'
+            = f.number_field :weight, step: '0.1', in: 20...350, class: 'form-control weight_number'
             %p.edit_body_fail.weight_fail.hide 20以上350以下で入力してください
           .action.m-5.justify-content-center
             = f.submit '編集する', class: 'btn btn-primary'

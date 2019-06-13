@@ -2,7 +2,7 @@
 
 -# 本文
 .row
-  .col-2.my-0.ml-2.justify-content-center.w-15
+  .col-2.my-0.ml-3.justify-content-center.w-15
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
 
@@ -14,7 +14,7 @@
           = render partial: "shared/day_records_on_calendar", locals: { training_records: training_records}
 
 
-  .col-3.my-5.justify-content-center.w-22
+  .col-3.sidebar.my-0.justify-content-center.w-22
     = form_with model: @training_record, method: :post, url: user_training_records_path(current_user.id), id: 'new_training_record', class: 'new_training_record' do |f|
       = f.date_field :date, value: Date.today, readonly: true, class: 'form-control-sm text-center my-4 mx-2'
       #training_records.mx-2
