@@ -62,7 +62,7 @@ class TrainingRecordsController < ApplicationController
   end
 
   def set_week
-    gon.label = ['その前','その前','その前','その前','先週','今週']
+    gon.label = ['５週間前','４週間前','３週間前','２週間前','先週','今週']
     return gon.label
   end
 
