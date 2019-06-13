@@ -96,6 +96,7 @@ document.addEventListener('turbolinks:load', function() {
     var selected_part = $(this).val();
     $('#set-form').empty();
     $('#add-set').remove();
+    $('#remove-set').remove();
     switch(selected_part){
       case "":;
         break;
