@@ -13,6 +13,7 @@ class TrainingRecordsController < ApplicationController
     def create
       @training_record = TrainingRecord.new(training_record_params)
       @training_records = TrainingRecord.where(user_id: current_user.id, date: params[:training_record][:date])
+      @user = User.find(current_user.id)
       unless @training_record.save
         render status: 400, body: nil
       end
