@@ -128,6 +128,7 @@ document.addEventListener('turbolinks:load', function() {
   $('#new_training_record').on('ajax:success', function(event) {
     $('#new_training_record')[0].reset();
     $('#add-set').remove();
+    $('#remove-set').remove();
     $('#set-form').empty();
   });
   $('#new_training_record').on('ajax:error', function(event) {
