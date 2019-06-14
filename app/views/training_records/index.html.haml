@@ -11,34 +11,34 @@
     -# ここで cursor_pointer 指定すれば子要素全部に有効
     .btn-group.cursor_pointer.ml-5
       .form-check-inline
-        -# .graphで発火させる。.radio_btnは {display: none;} ,inputタグにつける
-        %input#radio_total.radio_btn{type: 'radio', name: 'check_part', value: 'Total', checked: 'true'}
+        -# .graphで発火させる。.radio_btnは {display: none;} ,input.chart_btnタグにつける
+        %input.chart_btn#radio_total.radio_btn{type: 'radio', name: 'check_part', value: 'Total', checked: 'true'}
         %label.part_label.form-check-label.btn.btn-primary{for: 'radio_total'} total
       .form-check-inline
-        %input#radio_chest.radio_btn{type: 'radio', name: 'check_part', value: '胸'}
+        %input.chart_btn#radio_chest.radio_btn{type: 'radio', name: 'check_part', value: '胸'}
         %label.part_label.form-check-label.btn.btn-primary{for: 'radio_chest'} 胸
       .form-check-inline
-        %input#radio_arm.radio_btn{type: 'radio', name: 'check_part', value: '腕'}
+        %input.chart_btn#radio_arm.radio_btn{type: 'radio', name: 'check_part', value: '腕'}
         %label.part_label.form-check-label.btn.btn-primary{for: 'radio_arm'} 腕
       .form-check-inline
-        %input#radio_sholder.radio_btn{type: 'radio', name: 'check_part', value: '肩'}
+        %input.chart_btn#radio_sholder.radio_btn{type: 'radio', name: 'check_part', value: '肩'}
         %label.part_label.form-check-label.btn.btn-primary{for: 'radio_sholder'} 肩
       .form-check-inline
-        %input#radio_back.radio_btn{type: 'radio', name: 'check_part', value: '背中'}
+        %input.chart_btn#radio_back.radio_btn{type: 'radio', name: 'check_part', value: '背中'}
         %label.part_label.form-check-label.btn.btn-primary{for: 'radio_back'} 背中
       .form-check-inline
-        %input#radio_leg.radio_btn{type: 'radio', name: 'check_part', value: '脚'}
+        %input.chart_btn#radio_leg.radio_btn{type: 'radio', name: 'check_part', value: '脚'}
         %label.part_label.form-check-label.btn.btn-primary{for: 'radio_leg'} 脚
       .form-check-inline
-        %input#radio_aerobic.radio_btn{type: 'radio', name: 'check_part', value: '有酸素'}
+        %input.chart_btn#radio_aerobic.radio_btn{type: 'radio', name: 'check_part', value: '有酸素'}
         %label.part_label.form-check-label.btn.btn-primary{for: 'radio_aerobic'} 有酸素
 
     .btn-group
       .form-check-inline
-        %input#check_month.radio_btn.form-check-input.mr-2.cursor_pointer{type: 'radio', name: 'unit', value: 'month', checked: 'true'}
+        %input.chart_btn#check_month.radio_btn.form-check-input.chart_btn.mr-2.cursor_pointer{type: 'radio', name: 'unit', value: 'month', checked: 'true'}
         %label.unit_label.form-check-label.btn.btn-secondary{for: 'check_month'} 月
       .form-check-inline
-        %input#check_week.radio_btn.form-check-input.mr-2.cursor_pointer{type: 'radio', name: 'unit', value: 'week'}
+        %input.chart_btn#check_week.radio_btn.form-check-input.chart_btn.mr-2.cursor_pointer{type: 'radio', name: 'unit', value: 'week'}
         %label.unit_label.form-check-label.btn.btn-secondary{for: 'check_week'} 週
 
 
