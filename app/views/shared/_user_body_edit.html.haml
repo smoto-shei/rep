@@ -3,7 +3,7 @@
   .body_modal__inner
     - if @userbody.nil?
       .body_modal__inner__body.card
-        = form_with model: @userbody, method: :post, url: user_user_bodies_path(current_user.id,@userbody.id), id: 'new_userbody', class: 'new_userbody', local: true do |f|
+        = form_with model: @userbody, method: :post, url: user_user_bodies_path(current_user.id), id: 'new_userbody', class: 'new_userbody', local: true do |f|
           .form_group.m-4
             = f.label :birth_year, '誕生年'
             = f.number_field :birth_year, in: 1900...2019, class: 'form-control birth_year_number'
@@ -17,7 +17,7 @@
             %p.edit_body_fail.height_fail.hide  100以上300以下で入力してください
           .form_group.m-4
             = f.label :weight, '体重'
-            = f.number_field :weight, in: 20...350, class: 'form-control weight_number'
+            = f.number_field :weight, step: '0.1', in: 20...350, class: 'form-control weight_number'
             %p.edit_body_fail.weight_fail.hide 20以上350以下で入力してください
           .action.m-5.justify-content-center
             = f.submit '登録する', class: 'btn btn-primary'
