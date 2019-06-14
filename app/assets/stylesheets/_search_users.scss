@@ -1,18 +1,35 @@
 //ユーザー検索
 .uniti{
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgb(245, 248, 250);
     text-align:center;
-    padding: 50px;
-}
-.osk{
-    display: inline-block;
-    width: 40%;
     background-color: white;
+   
+}
+.margin{
+    margin-top: 20px;
 }
 .kensaku{
-    margin-bottom: 10px;
-    margin-top: 20px;
     font-size: 18px;
+    background-color: white;
+    margin: 0px auto 10px auto;
+}
+.kensaku_form_group{
+    text-align: left;
+    padding-left: 20px;
+    font-size: 16px;
+}
+.kensaku_form{
+    display: block;
+    margin-bottom: 16px;
+}
+.hoge{
+    width: 200px;
+}
+.huga{
+    width: 60px;
+}
+.between{
+    display: inline-block;
 }
 .user_profile1{
     margin-bottom: 20px;
@@ -38,7 +55,7 @@
 .namae1 {
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
     margin-left: 20px;
 }

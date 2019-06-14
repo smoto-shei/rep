@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.col-2{
+  border-right: solid rgb(245, 248, 250);
+  background-color: rgb(245, 248, 250);
+}
+.sidebar{
+  min-height: 90vh;
+}
 .cursor_pointer{
   cursor: pointer;
 }

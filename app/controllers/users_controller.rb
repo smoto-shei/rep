@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def index
+    @user = User.find(current_user.id)
+    @userbody = @user.user_body
+  end
+
   def show
     @user = User.find(params[:id])
     @training_records = @user.training_records
