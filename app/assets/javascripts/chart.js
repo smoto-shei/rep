@@ -4,32 +4,32 @@ document.addEventListener('turbolinks:load', function() {
 // ---------------------------------------------------- 一回目のグラフ作成
   if (document.getElementById("myChart") != null){
     var ctx = $("#myChart");
-  load_chart = new Chart(ctx);
+    load_chart = new Chart(ctx);
 
-  var url = `/users/${gon.user_id}/training_records/draw_graph`
-  var part = 'Total';
-  var unit = $('input[name="unit"]').val();
+    var url = `/users/${gon.user_id}/training_records/draw_graph`
+    var part = 'Total';
+    var unit = $('input[name="unit"]').val();
 
-  $.ajax({
-    type: 'get',
-    url: url,
-    data: {
-      part: part,
-      unit: unit
-    },
-    datatype: 'json'
-  })
-
-  .done(function(data){
-      draw_graph(data);
-      data_label();
+    $.ajax({
+      type: 'get',
+      url: url,
+      data: {
+        part: part,
+        unit: unit
+      },
+      datatype: 'json'
     })
+
+    .done(function(data){
+        draw_graph(data);
+        data_label();
+      })
   }
 
 // ----------------------------------------------- 二度目以降のチャート描写
   $(function(){
     //  $('.graph').on('click',function(){ これだとcheckedを二度押さないと効かない
-    $('input').change(function(){ // タブルクォテーションじゃないとエラーになる.
+    $('.chart_btn').change(function(){ // タブルクォテーションじゃないとエラーになる.
       var url = `/users/${gon.user_id}/training_records/draw_graph`
       var part = $("[name=check_part]:checked").val();
       var unit = $('input[name="unit"]:checked').val();

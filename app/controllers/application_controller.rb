@@ -24,4 +24,10 @@ class ApplicationController < ActionController::Base
     gon.user_id = current_user.id
   end
 
+  def set_gon_month
+    @mon = Date.today.month
+    gon.label = (@mon-5..@mon).to_a.map {|a| a.to_s + '月'}
+    return gon.label
+  end
+
 end
