@@ -1,33 +1,16 @@
 class TrainingRecordsController < ApplicationController
-    before_action :set_user, except: [:create]
+  before_action :set_user, except: [:create]
     before_action :set_userbody,except: [:create]
-    before_action :set_month, except: :create
-    before_action :set_gon_user_id, except: :create
+    before_action :set_month, except: :create        #turbolinks で読み込まれるためアクション前にセット
+    before_action :set_gon_user_id, except: :create  #turbolinks で読み込まれるためアクション前にセット
 
 
 
+    # Analysisページ
     def index
-      @userbody = @user.user_body
     end
 
-    def create
-      @training_record = TrainingRecord.new(training_record_params)
-      @training_records = TrainingRecord.where(user_id: current_user.id, date: params[:training_record][:date])
-      unless @training_record.save
-        render status: 400, body: nil
-      end
-    end
-
-    def destroy
-      @training_record = TrainingRecord.find_by(id: params[:id])
-      if current_user.id == @training_record.user_id
-        date = @training_record.date
-        @training_record.destroy
-        @training_records = TrainingRecord.where(user_id: params[:user_id], date: date)
-        render partial: "shared/day_records_on_calendar", locals: { training_records: @training_records }
-      end
-    end
-
+    # Analysisページ グラフ描写
     def draw_graph
       @part, @unit = for_graph_params[:part],for_graph_params[:unit]
       @training_records = TrainingRecord.bring_training_data(@user,@part)
@@ -41,6 +24,26 @@ class TrainingRecordsController < ApplicationController
       respond_to do |format|
         format.json
         format.html { redirect_to user_training_records_path }
+      end
+    end
+
+    # トレーニングレコードの登録
+    def create
+      @training_record = TrainingRecord.new(training_record_params)
+      @training_records = TrainingRecord.where(user_id: current_user.id, date: params[:training_record][:date])
+      unless @training_record.save
+        render status: 400, body: nil
+      end
+    end
+
+    # カレンダーページ、レコード削除
+    def destroy
+      @training_record = TrainingRecord.find_by(id: params[:id])
+      if current_user.id == @training_record.user_id
+        date = @training_record.date
+        @training_record.destroy
+        @training_records = TrainingRecord.where(user_id: params[:user_id], date: date)
+        render partial: "shared/day_records_on_calendar", locals: { training_records: @training_records }
       end
     end
 
