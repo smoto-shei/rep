@@ -2,7 +2,7 @@
 = render partial: "shared/user_body_edit"
 
 .row
-  .col-2.my-0.ml-3.justify-content-center.w-15
+  .col-2.sidebar.my-0.ml-3.justify-content-center.w-15
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
 
@@ -43,3 +43,5 @@
 
 
     %canvas#myChart{height: "400", width: "900", class: 'mt-5'}
+  
+  .col-2.w-90
