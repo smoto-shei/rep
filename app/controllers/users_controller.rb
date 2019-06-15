@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
+  before_action :set_user, except: [:create]
+  before_action :set_userbody,except: [:create]
+  before_action :set_gon_month, except: :create    #turbolinks で読み込まれるためアクション前にセット
+  before_action :set_gon_user_id, except: :create  #turbolinks で読み込まれるためアクション前にセット
 
   # ユーザー検索
   def index
-    @user = User.find(current_user.id)
-    @userbody = @user.user_body
   end
 
   # カレンダーページ（マイページ）

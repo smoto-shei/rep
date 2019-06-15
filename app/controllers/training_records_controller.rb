@@ -1,8 +1,8 @@
 class TrainingRecordsController < ApplicationController
   before_action :set_user, except: [:create]
-    before_action :set_userbody,except: [:create]
-    before_action :set_month, except: :create        #turbolinks で読み込まれるためアクション前にセット
-    before_action :set_gon_user_id, except: :create  #turbolinks で読み込まれるためアクション前にセット
+  before_action :set_userbody,except: [:create]
+  before_action :set_gon_month, except: :create    #turbolinks で読み込まれるためアクション前にセット
+  before_action :set_gon_user_id, except: :create  #turbolinks で読み込まれるためアクション前にセット
 
 
 
@@ -12,10 +12,10 @@ class TrainingRecordsController < ApplicationController
 
     # Analysisページ グラフ描写
     def draw_graph
-      @part, @unit = for_graph_params[:part],for_graph_params[:unit]
+      @part, @unit = graph_radio_btn_params[:part], graph_radio_btn_params[:unit]
       @training_records = TrainingRecord.bring_training_data(@user,@part)
       if @unit == 'month'
-        @x_label = set_month
+        @x_label = set_gon_month
         @data = TrainingRecord.make_data_for_month(@training_records)
       else
         @x_label = set_week
@@ -51,37 +51,20 @@ class TrainingRecordsController < ApplicationController
 
   private
 
+  # トレーニングレコードを登録するときのパラメータ
   def training_record_params
     params.require(:training_record).permit(:date, :part, :exercise, menus_attributes: [:weight, :rep, :time]).merge(user_id: current_user.id)
   end
 
-  def for_graph_params
+  # グラフページのラジオボタンの checked のパラメータ
+  def graph_radio_btn_params
     params.permit(:part,:unit)
   end
 
-  def set_month
-    @mon = Date.today.month
-    gon.label = (@mon-5..@mon).to_a.map {|a| a.to_s + '月'}
-    return gon.label
-  end
-
+  # グラフのx軸を週にセット
   def set_week
     gon.label = ['５週間前','４週間前','３週間前','２週間前','先週','今週']
-    return gon.label
+    gon.label
   end
-
-  #----------------------------------------------------- ApplicationControllerに記述
-  # def set_user
-  #   @user = User.find(current_user.id)
-  # end
-
-  # def set_userbody
-  #   @userbody = @user.user_body
-  # end
-
-  # def set_gon_user_id
-  #   gon.user_id = current_user.id
-  # end
-
 
 end
