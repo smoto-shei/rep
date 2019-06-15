@@ -15,6 +15,21 @@ document.addEventListener('turbolinks:load', function() {
       $('html').removeClass('modal_open');
     });
 
+    // 画像のプレビューを表示させる
+    $('.avatar_image_edit').change(function(){
+      // 投稿された画像をfileオブジェクトで取得する
+      var avatar_image = $('.avatar_image_edit').prop('files');
+
+      // FileReaderのインスタンスを作成
+      var reader = new FileReader();
+      reader.onload =function(e){
+        var url = e.target.result;
+        // imageタグのsrcを変更
+        $('#avatar_image').attr('src',url)
+      }
+      reader.readAsDataURL(avatar_image[0]);
+    })
+
 
     // 誕生年のバリデーションを出す
     $('.birth_year_number').keyup(function(){

@@ -1,6 +1,8 @@
 class UserBodiesController < ApplicationController
 
+
   def new
+    binding.pry
     @userbody = UserBody.new
   end
 
@@ -24,11 +26,13 @@ class UserBodiesController < ApplicationController
 
   private
 
+
   def userbody_params
-    params.permit(:weight, :height, :gender, :birth_year)
+    params.permit(:weight, :height, :gender, :birth_year, :avatar)
   end
+
   def userbody_params_update
-    params.require(:user_body).permit(:weight, :height, :gender, :birth_year)
+    params.require(:user_body).permit(:weight, :height, :gender, :birth_year, :avatar)
   end
 
 end

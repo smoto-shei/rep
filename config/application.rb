@@ -12,6 +12,7 @@ module Rep
     config.load_defaults 5.2
     config.i18n.default_locale = :ja
     config.time_zone = 'Asia/Tokyo'
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
 
     config.generators do |g|
       g.assets     false
