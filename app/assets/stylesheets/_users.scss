@@ -23,6 +23,9 @@
     height: 100px;
   }
 }
+#avatar_image{
+  object-fit: cover;
+}
 .edit_avatar{
   text-align: center;
 }

@@ -26,7 +26,7 @@
         = "#{userbody&.weight} kg"
   .mt-1
     %h6 BMI
-    - if userbody&.nil?
+    - if userbody&.height.nil? || userbody&.weight.nil?
       %p
         = "--"
     - else
@@ -34,7 +34,7 @@
         = (userbody.weight.to_f / (userbody.height.to_f / 100) ** 2).round(1)
   .mt-1
     %h6 想定基礎代謝
-    - if userbody&.nil?
+    - if userbody&.height.nil? || userbody&.weight.nil? || userbody&.birth_year.nil?
       %p
         = '--kcal'
     - else
