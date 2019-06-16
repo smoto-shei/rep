@@ -168,7 +168,6 @@ document.addEventListener('turbolinks:load', function() {
     $(this).nextAll('ul').removeClass('hidden');
   })
   $('#day_records').on('click','.add_hidden_class',function(){
-    console.log(this);
     $(this).prev().removeClass('hidden');
     $(this).addClass('hidden');
     $(this).nextAll('ul').addClass('hidden');

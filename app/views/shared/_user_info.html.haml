@@ -1,44 +1,44 @@
 .btn.btn-primary.my-6#edit_body.text-center
   編集
 .avatar.mt-2
-  - unless userbody.nil?
-    = image_tag("#{userbody.avatar}")
-  - else
+  - if userbody&.avatar.nil?
     = image_tag('avatar_default.png')
+  - else
+    = image_tag("#{userbody.avatar}")
 .nickname
   %p
     = user.nickname
   <hr>
 .body
   .height
-    - unless userbody.nil?
-      %p
-        = "#{userbody&.height} cm"
-    - else
+    - if userbody&.height.nil?
       %p
         = "--cm"
-  .weight.ml-3
-    - unless userbody.nil?
-      %p
-        = "#{userbody&.weight} kg"
     - else
+      %p
+        = "#{userbody&.height} cm"
+  .weight.ml-3
+    - if userbody&.weight.nil?
       %p
         = "--kg"
+    - else
+      %p
+        = "#{userbody&.weight} kg"
   .mt-1
     %h6 BMI
-    - unless userbody.nil?
-      %p
-        = (userbody.weight.to_f / (userbody.height.to_f / 100) ** 2).round(1)
-    - else
+    - if userbody&.nil?
       %p
         = "--"
-  .mt-1
-    %h6 想定基礎代謝
-    - unless userbody.nil?
-      %p
-        = "#{(66.47 + (13.75 * userbody.weight.to_f) + (5 * userbody.height.to_f) - (6.78*(2019 - userbody.birth_year))).round(0)} kcal"
     - else
       %p
+        = (userbody.weight.to_f / (userbody.height.to_f / 100) ** 2).round(1)
+  .mt-1
+    %h6 想定基礎代謝
+    - if userbody&.nil?
+      %p
         = '--kcal'
+    - else
+      %p
+        = "#{(66.47 + (13.75 * userbody.weight.to_f) + (5 * userbody.height.to_f) - (6.78*(2019 - userbody.birth_year))).round(0)} kcal"
     = link_to user_images_path(@user.id), class: 'unti' do
       %h6 筋肉画像
