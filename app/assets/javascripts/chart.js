@@ -1,7 +1,8 @@
 
 document.addEventListener('turbolinks:load', function() {
 
-// ---------------------------------------------------- 一回目のグラフ作成
+// ----------------------一回目のグラフ作成-----------------------------
+
   if (document.getElementById("myChart") != null){
     var ctx = $("#myChart");
     load_chart = new Chart(ctx);
@@ -19,19 +20,21 @@ document.addEventListener('turbolinks:load', function() {
       },
       datatype: 'json'
     })
-
     .done(function(data){
         draw_graph(data);
         data_label();
       })
+    .fail(function(){
+        alert('通信に失敗しました')
+    })
   }
 
-// ----------------------------------------------- 二度目以降のチャート描写
+// ---------------------二度目以降のチャート描写------------------------
   $(function(){
     //  $('.graph').on('click',function(){ これだとcheckedを二度押さないと効かない
-    $('.chart_btn').change(function(){ // タブルクォテーションじゃないとエラーになる.
+    $('.chart_btn').change(function(){
       var url = `/users/${gon.user_id}/training_records/draw_graph`
-      var part = $("[name=check_part]:checked").val();
+      var part = $("[name=check_part]:checked").val(); // タブルクォテーションじゃないとエラーになる.
       var unit = $('input[name="unit"]:checked').val();
 
       $.ajax({
@@ -43,16 +46,20 @@ document.addEventListener('turbolinks:load', function() {
          },
         datatype: 'json'
       })
-
       .done(function(data){
         update_chart(data);
-        })
+      })
+      .fail(function(){
+        alert('通信に失敗しました')
+      })
     });
   });
 
 })
 
-// ------------------------------------------------------チャートの描画
+// --------------------以下メソッド--------------------------
+
+// --------------------グラフの描画--------------------------
 function draw_graph(data){
   var ctx = $("#myChart");
   load_chart = new Chart(ctx, {
@@ -74,7 +81,7 @@ function draw_graph(data){
       },
       title:  {
         display: true,
-        fontSize: 22,                  //フォントサイズ
+        fontSize: 22,
         position: 'top',
         padding: 20,
         text: data.part
@@ -122,9 +129,8 @@ function draw_graph(data){
   });
 }
 
-// ----------------------------------------------------------
+// -------------------グラフの更新-------------------------------
 function update_chart(data){
-  // load_chart.options.title.text = data.part
   load_chart.data.datasets[0].label = data.part
   load_chart.data.datasets[0].data = data.data
   load_chart.data.labels = data.x_label
@@ -133,7 +139,7 @@ function update_chart(data){
 }
 
 
-//------------------------------------------------------------- データラベルの表示
+//--------------------データラベルの表示--------------------------
 function data_label(){
   Chart.plugins.register({
     afterDatasetsDraw: function (chart, easing) {
@@ -168,4 +174,4 @@ function data_label(){
     }
   });
 }
-    //----------------------------------------------------------------
+//----------------------------------------------------------------
