@@ -10,7 +10,7 @@ class UserBodiesController < ApplicationController
     @userbody = UserBody.new(userbody_params.merge(user_id: current_user.id))
 
     if @userbody.save
-      redirect_to user_path(current_user.id)
+      redirect_back(fallback_location: root_path)
     else
       render :new
     end
@@ -18,7 +18,7 @@ class UserBodiesController < ApplicationController
 
   def update
     if current_user.user_body.update(userbody_params_update)
-      redirect_to user_path(current_user.id)
+      redirect_back(fallback_location: root_path)
     else
       render :new
     end
