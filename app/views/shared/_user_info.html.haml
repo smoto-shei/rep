@@ -1,7 +1,10 @@
 .btn.btn-primary.my-6#edit_body.text-center
   編集
 .avatar.mt-2
-  = image_tag('avatar_default.png')
+  - unless userbody.nil?
+    = image_tag("#{userbody.avatar}")
+  - else
+    = image_tag('avatar_default.png')
 .nickname
   %p
     = user.nickname
