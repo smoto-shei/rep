@@ -15,7 +15,7 @@ document.addEventListener('turbolinks:load', function() {
       $('html').removeClass('modal_open');
     });
 
-    // 画像のプレビューを表示させる
+    // アバター画像のプレビューを表示させる
     $('.avatar_image_edit').change(function(){
       // 投稿された画像をfileオブジェクトで取得する
       var avatar_image = $('.avatar_image_edit').prop('files');
@@ -52,7 +52,6 @@ document.addEventListener('turbolinks:load', function() {
     // 体重のバリデーション出す
     $('.weight_number').keyup(function(){
       if ( $(this).val() < 20 || $(this).val() > 350){
-        console.log(200)
         $('.weight_fail').removeClass('hide');
       } else {
         $('.weight_fail').addClass('hide');
