@@ -10,9 +10,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    ActiveRecord::Base.transaction do
+      super
+      @user.save
+
+      @userbody = UserBody.new
+      @userbody.user_id = @user.id
+      @userbody.avatar = Pathname.new(Rails.root.join("app/assets/images/no_avatar.png")).open
+      @userbody.save
+
+    end
+  end
 
   # GET /resource/edit
   # def edit

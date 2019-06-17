@@ -2,7 +2,6 @@ class UserBodiesController < ApplicationController
 
 
   def new
-    binding.pry
     @userbody = UserBody.new
   end
 

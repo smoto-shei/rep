@@ -26,21 +26,27 @@
 }
 .huga{
     width: 60px;
+    margin: 0px 0px 5px 5px;
 }
 .between{
     display: inline-block;
 }
 .user_profile1{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .user_image {
     float: left;
-    border-color: yellow;
+    overflow: hidden;
     width: 80px;
     height: 80px;
-    background-color: cyan;
     border-radius: 50%;
     margin: 0px 0px 0px 20px;
+    border:1px solid #AAAAAA;
+    img{
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+      }
 }
 
 .user_name1 {

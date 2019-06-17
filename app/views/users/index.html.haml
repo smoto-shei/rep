@@ -7,37 +7,38 @@
   .col-7.uniti
     .kensaku
       %p.margin ユーザー検索
-      <hr>
-      .kensaku_form_group
-        .kensaku_form
-          %label
-          ユーザーネーム：
-          %input.hoge
-
-        .kensaku_height
-          %label
-          身長：
-          %input.huga
-          %p.between 〜
-          %input.huga
-        .kensaku_weight
-          %label
-          体重：
-          %input.huga
-          %p.between 〜
-          %input.huga
-      .btn.btn-primary.kensaku_button
-        検索
-      <hr>
-      .user_profile
-        .user_image
-          %p 写真
-        .user_name
-          .namae アーノルド・シュワルツネッガー
-          .shousai 173cm／80kg トレーニング歴：3年
-      .user_profile  
-        .user_image
-
+      %hr
+      = search_form_for @search do |f|
+        .kensaku_form_group
+          .kensaku_form
+            = f.label :nickname_cont, 'ニックネーム: '
+            = f.search_field :nickname_cont
+          .kensaku_height
+            = f.label :user_body_height_gteq do
+              身長:
+            = f.search_field :user_body_height_gteq, class: 'huga'
+            = f.label :user_body_height_lteq do
+              〜
+            = f.search_field :user_body_height_lteq, class: 'huga'
+          .kensaku_weight
+            = f.label :user_body_height_gteq do
+              体重:
+            = f.search_field :user_body_weight_gteq, class: 'huga'
+            = f.label :user_body_height_lteq do
+              〜
+            = f.search_field :user_body_weight_lteq, class: 'huga'
+        = f.submit class: 'btn btn-primary' do
+          検索
+      %hr
+      
+      - @people.each do |people|
+        .user_profile
+          .user_image1
+            = image_tag "#{people.user_body.avatar.url}"
+          .user_name1
+            .namae1 #{people.nickname}
+            .shousai #{people.user_body.height}cm/#{people.user_body.weight}kg
+        %hr
 
   .col-2.w-22
   
