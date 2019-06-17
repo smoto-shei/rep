@@ -30,7 +30,7 @@
         = f.submit class: 'btn btn-primary' do
           検索
       %hr
-
+      
       - @people.each do |people|
         .user_profile
           .user_image1
@@ -40,25 +40,5 @@
             .shousai #{people.user_body.height}cm/#{people.user_body.weight}kg
         %hr
 
-
-      -# .user_profile2
-      -#   .user_image2
-      -#     %p 写真
-      -#   .user_name2
-      -#     %p.namae2 真本 周平之助
-      -# .user_profile3
-      -#   .user_image3
-      -#     %p 写真
-      -#   .user_name3
-      -#     %p.namae3 真本 周平之助
-      -# .user_profile4
-      -#   .user_image4
-      -#     %p 写真
-      -#   .user_name4
-      -#     %p.namae4 真本 周平之助
-      -# .user_profile5
-      -#   .user_image5
-      -#     %p 写真
-      -#   .user_name5
-      -#     %p.namae5 真本 周平之助
-  .col-3
+  .col-2.w-22
+  
