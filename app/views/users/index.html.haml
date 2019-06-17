@@ -31,6 +31,7 @@
           検索
       %hr
 
+<<<<<<< HEAD
       - @people.each do |people|
         .user_profile
           .user_image1
@@ -62,3 +63,32 @@
       -#   .user_name5
       -#     %p.namae5 真本 周平之助
   .col-3
+=======
+        .kensaku_height
+          %label
+          身長：
+          %input.huga
+          %p.between 〜
+          %input.huga
+        .kensaku_weight
+          %label
+          体重：
+          %input.huga
+          %p.between 〜
+          %input.huga
+      .btn.btn-primary.kensaku_button
+        検索
+      <hr>
+      .user_profile
+        .user_image
+          %p 写真
+        .user_name
+          .namae アーノルド・シュワルツネッガー
+          .shousai 173cm／80kg トレーニング歴：3年
+      .user_profile  
+        .user_image
+
+
+  .col-2.w-22
+  
+>>>>>>> master
