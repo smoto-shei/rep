@@ -21,11 +21,11 @@
   img{
     width: 100px;
     height: 100px;
+    object-fit: cover;
   }
 }
-#avatar_image{
-  object-fit: cover;
-}
+
+
 .edit_avatar{
   text-align: center;
 }

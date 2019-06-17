@@ -4,8 +4,10 @@ class UsersController < ApplicationController
   before_action :set_gon_month, except: :create    #turbolinks で読み込まれるためアクション前にセット
   before_action :set_gon_user_id, except: :create  #turbolinks で読み込まれるためアクション前にセット
 
-  # ユーザー検索
+  # ユーザー検索画面
   def index
+    @search = User.ransack(params[:q])
+    @people = @search.result.includes(:user_body)
   end
 
   # カレンダーページ（マイページ）
