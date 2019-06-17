@@ -8,20 +8,27 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def training_record_params
-    params.require(:training_record).permit(:date, :part, :exercise, menus_attributes: [:weight, :rep, :time]).merge(user_id: current_user.id)
-  end
-
+  # ログイン中のユーザーをセット
   def set_user
     @user = User.find(current_user.id)
   end
 
+  # ログイン中のユーザーのボディーをセット
   def set_userbody
     @userbody = @user.user_body
   end
 
+  # chart.js に渡す user_id をセット
   def set_gon_user_id
     gon.user_id = current_user.id
+  end
+
+  # chart.js に渡す x軸 をセット
+  def set_gon_month
+    mon_array = [0,1,2,3,4,5,6,7,8,9,10,11,12,1,2,3,4,5]
+    start = (Date.today - 5.month).month                    # スタートは 今月の５ヶ月前
+    gon.label = mon_array[start,6].map {|a| a.to_s + '月'}
+    gon.label
   end
 
 end

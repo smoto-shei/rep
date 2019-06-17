@@ -7,18 +7,19 @@ class TrainingRecord < ApplicationRecord
 
   def self.bring_training_data(user,part)
     if part == 'Total'
-      user.training_records
+      user.training_records.includes(:menus)
     else
-      a = user.training_records.where(part: part)
+      user.training_records.where(part: part).includes(:menus)
     end
   end
 
   def self.make_data_for_month(records) # 半月分の総負荷量算出
+    return [0,0,0,0,0,0] if records.length == 0
     # --------------------------- バケット作成 例:今月が６月の場合 => {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
     amount = Hash.new
-    month = Date.today.month # Date.today.month で現在の月を出す
-    start = month - 5        # スタートは今月の５ヶ月前
-    start.upto(month) do |mon|
+    mon_array = [0,1,2,3,4,5,6,7,8,9,10,11,12,1,2,3,4,5]
+    start = (Date.today - 5.month).month        # スタートは今月の５ヶ月前
+    mon_array[start,6].each do |mon|
       amount[mon] = 0
     end
     # --------------------------- 負荷量の算出
@@ -37,6 +38,7 @@ class TrainingRecord < ApplicationRecord
   end
 
   def self.make_data_for_week(records)
+    return [0,0,0,0,0,0] if records.length == 0
     records = records.sort_by {|rec| rec.date} #配列を先頭から日付順(本日に近い順、降順)にする
     today = Date.today
     this_week = today + (7 - today.wday) # wdayは、(月火水木金土日) = (1,2,3,4,5,6,7) と対応している。 7 - today.wday とすることで週末を出している

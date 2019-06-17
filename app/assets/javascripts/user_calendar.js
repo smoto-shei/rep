@@ -96,6 +96,7 @@ document.addEventListener('turbolinks:load', function() {
     var selected_part = $(this).val();
     $('#set-form').empty();
     $('#add-set').remove();
+    $('#remove-set').remove();
     switch(selected_part){
       case "":;
         break;
@@ -127,6 +128,7 @@ document.addEventListener('turbolinks:load', function() {
   $('#new_training_record').on('ajax:success', function(event) {
     $('#new_training_record')[0].reset();
     $('#add-set').remove();
+    $('#remove-set').remove();
     $('#set-form').empty();
   });
   $('#new_training_record').on('ajax:error', function(event) {
@@ -166,7 +168,6 @@ document.addEventListener('turbolinks:load', function() {
     $(this).nextAll('ul').removeClass('hidden');
   })
   $('#day_records').on('click','.add_hidden_class',function(){
-    console.log(this);
     $(this).prev().removeClass('hidden');
     $(this).addClass('hidden');
     $(this).nextAll('ul').addClass('hidden');

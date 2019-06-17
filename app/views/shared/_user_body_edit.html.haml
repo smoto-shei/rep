@@ -3,8 +3,14 @@
   .body_modal__inner
     - if @userbody.nil?
       .body_modal__inner__body.card
-        = form_with model: @userbody, method: :post, url: user_user_bodies_path(current_user.id,@userbody.id), id: 'new_userbody', class: 'new_userbody', local: true do |f|
-          .form_group.m-4
+        = form_with model: @userbody, method: :post, url: user_user_bodies_path(current_user.id), id: 'new_userbody', class: 'new_userbody', local: true do |f|
+          .form_group.m-4.edit_avatar
+            = f.label :avatar, class: 'avatar cursor_pointer mt-2'  do
+              = image_tag "avatar_default.png", id: "avatar_image"
+              = f.file_field :avatar, style: 'display :none;', class: 'form-control avatar_image_edit'
+            %p.mt-2
+              = @user.nickname
+          .form_group.m-4.justify-content-center
             = f.label :birth_year, '誕生年'
             = f.number_field :birth_year, in: 1900...2019, class: 'form-control birth_year_number'
             %p.edit_body_fail.birth_year_fail.hide  1900以上2019以下で入力してください
@@ -17,7 +23,7 @@
             %p.edit_body_fail.height_fail.hide  100以上300以下で入力してください
           .form_group.m-4
             = f.label :weight, '体重'
-            = f.number_field :weight, in: 20...350, class: 'form-control weight_number'
+            = f.number_field :weight, step: '0.1', in: 20...350, class: 'form-control weight_number'
             %p.edit_body_fail.weight_fail.hide 20以上350以下で入力してください
           .action.m-5.justify-content-center
             = f.submit '登録する', class: 'btn btn-primary'
@@ -26,6 +32,12 @@
     - else
       .body_modal__inner__body.card
         = form_with model: @userbody, method: :patch, url: user_user_body_path(current_user.id,@userbody.id), id: 'new_userbody', class: 'new_userbody', local: true do |f|
+          .form_group.m-4.edit_avatar
+            = f.label :avatar, class: 'avatar cursor_pointer mt-2'  do
+              = image_tag "#{@userbody.avatar}", id: "avatar_image"
+              = f.file_field :avatar, style: 'display :none;', class: 'form-control avatar_image_edit'
+            %p.mt-2
+              = @user.nickname
           .form_group.m-4
             = f.label :birth_year, '誕生年'
             = f.number_field :birth_year, in: 1900...2019, class: 'form-control birth_year_number'

@@ -22,42 +22,15 @@
         %ul#day_records.list-unstyled.ml-2
           = render partial: "shared/training_records", collection: @day_records, as: "day_record"
 
-      .form_group.m-1.mt-3
-        = f.label :part, '部位'
-        = f.select :part, [['胸'],['肩'],['腕'],['背中'],['脚'],['有酸素']], {prompt: '--'}, {class: 'form-control-sm ml-3'}
-      .form_group.m-1
-        = f.label :exercise, '種目'
-        = f.text_field :exercise, class: 'form-control'
-        #exercise_search_result
-      = f.fields_for :menus do |menus|
-        #set-form
-          -# .d-flex.flex-wrap.mt-3.align-items-center
-          -#   %span.mx-2 継続時間
-          -#   = menus.number_field :time, class: 'form-control w-50'
-          -#   %span.mx-2 分
-          -# .d-flex.flex-wrap.mt-3
-          -#   .w-25.text-center
-          -#     = menus.label :weight, '重量'
-          -#     = menus.number_field :weight, class: 'form-control', step: 0.5
-          -#   .d-flex.w-25.align-items-end
-          -#     %span.ml-2.mb-2 kg ✖️
-          -#   .w-25.text-center
-          -#     = menus.label :rep, '回数'
-          -#     = menus.number_field :rep, class: 'form-control'
-          -#   .d-flex.w-25.align-items-end
-          -#     %span.ml-2.mb-2 rep
-          -# = f.fields_for :menus do |menus|
-          -#   .d-flex.flex-wrap.mt-2
-          -#     .form_group.w-25.text-center
-          -#       = menus.number_field :weight, class: 'form-control', step: 0.5
-          -#     .d-flex.w-25.align-items-end
-          -#       %span.ml-2.mb-2 kg ✖️
-          -#     .form_group.w-25.text-center
-          -#       = menus.number_field :rep, class: 'form-control'
-          -#     .d-flex.w-25.align-items-end
-          -#       %span.ml-2.mb-2 rep
-      -# .my-3
-      -#   #add-set.btn.btn-outline-primary.btn-sm
-      -#     セット追加
-      .action.my-4.mx-2.text-center
-        = f.submit '登録する', class: 'btn btn-primary'
+      - if @user.id == current_user.id
+        .form_group.m-1.mt-3
+          = f.label :part, '部位'
+          = f.select :part, [['胸'],['肩'],['腕'],['背中'],['脚'],['有酸素']], {prompt: '--'}, {class: 'form-control-sm ml-3'}
+        .form_group.m-1
+          = f.label :exercise, '種目'
+          = f.text_field :exercise, class: 'form-control'
+          #exercise_search_result
+        = f.fields_for :menus do |menus|
+          #set-form
+        .action.my-4.mx-2.text-center
+          = f.submit '登録する', class: 'btn btn-primary'

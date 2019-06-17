@@ -3,7 +3,8 @@
   %span.add_hidden_class.hidden ➖
   = day_record.part
   = day_record.exercise
-  %span.ml-2.record_delete_btn{value: "#{day_record.id}"} ❌
+  - if @user.id == current_user.id
+    %span.ml-2.record_delete_btn{value: "#{day_record.id}"} ❌
   %ul.hidden
     - day_record.menus.each do |menu|
       - if day_record.part == '有酸素'
@@ -13,6 +14,6 @@
       - else 
         %li.menu-list
           = menu.weight
-          Kg ×
+          kg ×
           = menu.rep
-          回数
+          rep
