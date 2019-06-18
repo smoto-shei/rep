@@ -50,5 +50,10 @@ test:
 production:
   <<: *default
   database: rep_production
-  username: rep
-  password: <%= ENV['REP_DATABASE_PASSWORD'] %>
+  # AWSの設定
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
+  # Heroku の設定
+  # username: rep
+  # password: <%= ENV['REP_DATABASE_PASSWORD'] %>
