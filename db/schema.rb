@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_101409) do
+ActiveRecord::Schema.define(version: 2019_06_18_082620) do
 
   create_table "exercises", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "en_name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_06_15_101409) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
+    t.date "experience"
     t.index ["user_id"], name: "index_user_bodies_on_user_id"
   end
 
