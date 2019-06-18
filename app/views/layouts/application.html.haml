@@ -17,7 +17,7 @@
         %ul.navbar.navbar-nav.navbar-expand
           %li.nav-item.nav-link
             = link_to user_images_path(current_user.id), class: 'text-white mr-3 15px btn btn-info' do
-              筋肉画像（作業用link)
+              Photo
           %li.nav-item.nav-link
             = link_to users_path, class: 'text-white mr-3 15px btn btn-info' do
               ユーザー検索
@@ -53,7 +53,46 @@
             = link_to new_user_session_path, class: 'btn btn-danger mr-1' do
               Log In
     = yield
-    .navbar.navbar-dark.bg-secondary.mt-auto.py-3
-      .navbar-brand.text-white
+    .navbar.navbar-dark.bg-secondary.mt-auto.py-2
+      .navbar-brand
         = link_to root_path, class: 'text-white 15px' do
           M-Rep
+      - if user_signed_in?
+        %ul.navbar.navbar-nav.navbar-expand
+          %li.nav-item.nav-link
+            = link_to user_images_path(current_user.id), class: 'text-white mr-3 15px btn btn-info' do
+              筋肉画像（作業用link)
+          %li.nav-item.nav-link
+            = link_to users_path, class: 'text-white mr-3 15px btn btn-info' do
+              ユーザー検索
+          %li.nav-item.nav-link
+            = link_to toppage_column_path, class: 'text-white mr-3 15px btn btn-info' do
+              Column
+          %li.nav-item.nav-link
+            = link_to user_path(current_user.id), class: 'text-white mr-3 15px btn btn-info' do
+              Calender
+          %li.nav-item.nav-link
+            = link_to user_training_records_path(current_user.id), class: 'text-white mr-3 15px btn btn-info' do
+              Analysis
+          %li.nav-item.nav-link
+            = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-1 15px btn btn-danger' do
+              Log Out
+      - else
+        %ul.navbar.navbar-nav.navbar-expand
+          %li.nav-item.nav-link
+            = form_with model: User.new, scope: :user, url: session_path(:user), local: true do |f|
+              = f.hidden_field :email, value: 'arnold@com'
+              = f.hidden_field :password, value: '123456'
+              = f.submit 'Test Log In', class: 'btn btn-info mr-3'
+          -# %li.nav-item.nav-link
+          -#   = link_to users_path, class: 'text-white mr-3 15px btn btn-info' do
+          -#     ユーザー検索
+          %li.nav-item.nav-link
+            = link_to toppage_column_path, class: 'btn btn-info mr-3' do
+              Column
+          %li.nav-item.nav-link
+            = link_to new_user_registration_path, class: 'btn btn-info mr-3' do
+              Sign Up
+          %li.nav-item.nav-link
+            = link_to new_user_session_path, class: 'btn btn-danger mr-1' do
+              Log In

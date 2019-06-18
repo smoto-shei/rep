@@ -7,8 +7,10 @@
     width: 100%;
   }
 }
-.container-fuild{
-  background-color: rgb(245, 248, 250);
+
+.col-10{
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0;
 }
 .aaa{
   font-size: 25px;
@@ -18,7 +20,7 @@
 .bbb{
   font-size: 15px;
   margin: 0px 0px 40px 0px;
-  background-color: rgb(245, 248, 250);
+  
 }
 .c,.d,.e,.f{
   float: left;
