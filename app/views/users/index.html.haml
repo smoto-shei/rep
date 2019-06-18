@@ -32,12 +32,14 @@
       %hr
 
       - @people.each do |people|
-        .user_profile
-          .user_image1
-            = image_tag "#{people.user_body.avatar.url}"
-          .user_name1
-            .namae1 #{people.nickname}
-            .shousai #{people.user_body.height}cm/#{people.user_body.weight}kg
-        %hr
+        - unless [people.user_body.height,people.user_body.weight,people.user_body.experience].include?(nil)
+          .user_searched
+            .avatar_searched
+              = image_tag "#{people.user_body.avatar.url}"
+            .user_detail_searched
+              .name #{people.nickname}
+              .body #{people.user_body.height}cm/#{people.user_body.weight}kg
+              .experience= "#{((Date.today - people.user_body.experience).numerator / 365)+1} 年目"
+          %hr
 
   .col-3.sidebar
