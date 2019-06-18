@@ -1,7 +1,7 @@
 = render partial: "shared/user_body_edit"
 
 .row
-  .col-2.my-0.ml-0.justify-content-center
+  .col-2.sidebar-my-0.ml-0.justify-content-center
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
   .col-7.uniti
@@ -40,4 +40,4 @@
             .shousai #{people.user_body.height}cm/#{people.user_body.weight}kg
         %hr
 
-  .col-3
+  .col-3.sidebar
