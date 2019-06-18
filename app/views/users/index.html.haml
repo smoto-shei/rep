@@ -6,7 +6,7 @@
 
   .col-7.uniti
     .kensaku
-      %p.margin ユーザー検索
+      %p.margin ユーザーを検索
       %hr
       = search_form_for @search do |f|
         .kensaku_form_group
@@ -23,6 +23,13 @@
           .kensaku_weight
             = f.label :user_body_height_gteq do
               体重:
+            = f.search_field :user_body_weight_gteq, class: 'huga'
+            = f.label :user_body_height_lteq do
+              〜
+            = f.search_field :user_body_weight_lteq, class: 'huga'
+          .kensaku_experience
+            = f.label :user_body_height_gteq do
+              トレーニング歴:
             = f.search_field :user_body_weight_gteq, class: 'huga'
             = f.label :user_body_height_lteq do
               〜
