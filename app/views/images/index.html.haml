@@ -13,9 +13,11 @@
     .photo_box 写真
     %hr
     - @images.each do |image|
-      - image.user_image.each do |ele|
-        -# - binding.pry
+      - image.user_image.each_with_index do |ele,index|
         = image_tag("#{ele}")
+        = link_to "Delete", user_image_path(image, index), method: :delete, data: { confirm: "Are you sure you want to delete this image?" }
     = form_with model: @image, url: user_images_path, method: :post do |image|
       = image.file_field :user_image, multiple: true
       = image.submit
+    <hr>
+  .col-2
