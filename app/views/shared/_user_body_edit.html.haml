@@ -24,10 +24,15 @@
           = f.label :weight, '体重'
           = f.number_field :weight, step: '0.1', in: 20...350, class: 'form-control weight_number'
           %p.edit_body_fail.weight_fail.hide 20以上350以下で入力してください
-        .action.m-5.justify-content-center
-          = f.submit '編集する', class: 'btn btn-primary'
-          .btn.btn-primary.close_button
-            閉じる
+        .form_group.m-4
+          = f.label :experience, '筋トレ開始日'
+          <br>
+          = f.date_select :experience, discard_day: true, class: 'form-control'
+        .action.m-5.row.justify-content-around
+          = button_tag type: 'submit' , class: '' do
+            %i.fas.fa-3x.fa-check-circle.cursor_pointer.d-inline-flex
+
+          %i.fas.fa-3x.fa-times-circle.close_button.cursor_pointer.d-inline-flex
 
     .body_modal__inner__submit_button
 

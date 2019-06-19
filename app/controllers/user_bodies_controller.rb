@@ -27,11 +27,11 @@ class UserBodiesController < ApplicationController
 
 
   def userbody_params
-    params.permit(:weight, :height, :gender, :birth_year, :avatar)
+    params.permit(:weight, :height, :gender, :birth_year, :avatar, :experience)
   end
 
   def userbody_params_update
-    params.require(:user_body).permit(:weight, :height, :gender, :birth_year, :avatar)
+    params.require(:user_body).permit(:weight, :height, :gender, :birth_year, :avatar, :experience)
   end
 
 end

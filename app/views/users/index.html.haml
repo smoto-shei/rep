@@ -1,12 +1,12 @@
 = render partial: "shared/user_body_edit"
 
 .row
-  .col-2.my-0.ml-0.justify-content-center
+  .col-2.sidebar-my-0.ml-0.justify-content-center
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
   .col-7.uniti
     .kensaku
-      %p.margin ユーザー検索
+      %p.margin ユーザーを検索
       %hr
       = search_form_for @search do |f|
         .kensaku_form_group
@@ -27,17 +27,26 @@
             = f.label :user_body_height_lteq do
               〜
             = f.search_field :user_body_weight_lteq, class: 'huga'
+          .kensaku_experience
+            = f.label :user_body_height_gteq do
+              トレーニング歴:
+            = f.search_field :user_body_weight_gteq, class: 'huga'
+            = f.label :user_body_height_lteq do
+              〜
+            = f.search_field :user_body_weight_lteq, class: 'huga'
         = f.submit class: 'btn btn-primary' do
           検索
       %hr
 
       - @people.each do |people|
-        .user_profile
-          .user_image1
-            = image_tag "#{people.user_body.avatar.url}"
-          .user_name1
-            .namae1 #{people.nickname}
-            .shousai #{people.user_body.height}cm/#{people.user_body.weight}kg
-        %hr
+        - unless [people.user_body.height,people.user_body.weight,people.user_body.experience].include?(nil)
+          .user_searched
+            .avatar_searched
+              = image_tag "#{people.user_body.avatar.url}"
+            .user_detail_searched
+              .name #{people.nickname}
+              .body #{people.user_body.height}cm/#{people.user_body.weight}kg
+              .experience= "#{((Date.today - people.user_body.experience).numerator / 365)+1} 年目"
+          %hr
 
-  .col-3
+  .col-3.sidebar

@@ -1,41 +1,51 @@
-.btn.btn-primary.my-6#edit_body.text-center
-  編集
-.avatar.mt-2
-  = image_tag "#{@userbody.avatar}"
-.nickname
-  %p
-    = user.nickname
-  <hr>
-.body
-  .height
-    - if userbody&.height.nil?
-      %p
-        = "--cm"
-    - else
-      %p
-        = "#{userbody&.height} cm"
-  .weight.ml-3
-    - if userbody&.weight.nil?
-      %p
-        = "--kg"
-    - else
-      %p
-        = "#{userbody&.weight} kg"
-  .mt-1
-    %h6 BMI
-    - if userbody&.height.nil? || userbody&.weight.nil?
-      %p
-        = "--"
-    - else
-      %p
-        = (userbody.weight.to_f / (userbody.height.to_f / 100) ** 2).round(1)
-  .mt-1
-    %h6 想定基礎代謝
-    - if userbody&.height.nil? || userbody&.weight.nil? || userbody&.birth_year.nil?
-      %p
-        = '--kcal'
-    - else
-      %p
-        = "#{(66.47 + (13.75 * userbody.weight.to_f) + (5 * userbody.height.to_f) - (6.78*(2019 - userbody.birth_year))).round(0)} kcal"
-    = link_to user_images_path(@user.id), class: 'unti' do
-      %h6 筋肉画像
+.user_info
+  .btn.btn-primary.my-6#edit_body.text-center
+    編集
+  .avatar.mt-2
+    = image_tag "#{@userbody.avatar}"
+  .nickname
+    %p
+      = user.nickname
+    <hr>
+  .body
+    .height
+      - if userbody&.height.nil?
+        %p.ml-2
+          = "--cm"
+      - else
+        %p.ml-2
+          = "#{userbody&.height} cm"
+    .weight.ml-3
+      - if userbody&.weight.nil?
+        %p.ml-2
+          = "--kg"
+      - else
+        %p.ml-2
+          = "#{userbody&.weight} kg"
+    .mt-1
+      %h6 BMI
+      - if userbody&.height.nil? || userbody&.weight.nil?
+        %p.ml-2
+          = "--"
+      - else
+        %p.ml-2
+          = (userbody.weight.to_f / (userbody.height.to_f / 100) ** 2).round(1)
+    .mt-1
+      %h6 想定基礎代謝
+      - if [userbody&.height, userbody&.weight, userbody&.birth_year].include?(nil)
+        %p.ml-2
+          = '--kcal'
+      - else
+        %p.ml-2
+          = "#{(66.47 + (13.75 * userbody.weight.to_f) + (5 * userbody.height.to_f) - (6.78*(2019 - userbody.birth_year))).round(0)} kcal"
+    .mt-1
+      %h6 筋トレ歴
+      - if userbody&.experience.nil?
+        %p.ml-2
+          = '--'
+      - else
+        %p.ml-2
+          = "#{((Date.today - userbody.experience).numerator / 365)+1} 年目"
+    .mt-1
+      = link_to user_images_path(@user.id), class: 'unti' do
+        %h6 筋肉画像

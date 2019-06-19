@@ -4,6 +4,9 @@
     text-align:center;
     background-color: white;
 }
+.sidebar{
+    min-height: 90vh;
+}
 .margin{
     margin-top: 20px;
 }
@@ -14,12 +17,27 @@
 }
 .kensaku_form_group{
     text-align: left;
-    padding-left: 20px;
+    padding-left: 200px;
     font-size: 16px;
 }
 .kensaku_form{
     display: block;
     margin-bottom: 16px;
+}
+.kensaku_height{
+    margin-bottom: 14px;
+}
+.kensaku_weight{
+    margin-bottom: 14px;
+}
+.kensaku_experience{
+    margin-bottom: 14px;
+}
+.label{
+    display: block;
+}
+.search_field{
+    display: block;
 }
 .hoge{
     width: 200px;
@@ -31,42 +49,46 @@
 .between{
     display: inline-block;
 }
-.user_profile1{
-    margin-bottom: 10px;
+.user_searched{
+    .avatar_searched {
+        float: left;
+        overflow: hidden;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 0px 0px 0px 20px;
+        border:1px solid #AAAAAA;
+        img{
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+          }
+    }
+    .user_detail_searched {
+        float: none;
+        border-color: yellow;
+        width: auto;
+        margin-left: 80px;
+        text-align: left;
+        font-size: 16px;
+        .name {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+            margin-left: 20px;
+        }
+        .body {
+            display: inline-block;
+            text-align: left;
+            margin-left: 20px;
+            font-style: italic;
+        }
+        .experience {
+            display: inline-block;
+            font-size: 14px;
+            text-align: left;
+            margin-left: 20px;
+            font-style: italic;
+        }
+    }
 }
-.user_image {
-    float: left;
-    overflow: hidden;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin: 0px 0px 0px 20px;
-    border:1px solid #AAAAAA;
-    img{
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-      }
-}
-
-.user_name1 {
-    float: none;
-    border-color: yellow;
-    width: auto;
-    margin-left: 100px;
-    height: 80px;
-    align-items: center;
-    font-size: 16px;
-}
-.namae {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: left;
-    margin-left: 20px;
-}
-.shousai {
-    text-align: left;
-    margin-left: 20px;
-    font-style: italic;
-}
-
