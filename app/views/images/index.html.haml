@@ -8,7 +8,14 @@
   -# ここから自由に描いてください
   .col-9
     .com Photo
-    <hr>
+    %hr
     .photo_date 2019/6/12
     .photo_box 写真
-    <hr>
+    %hr
+    - @images.each do |image|
+      - image.user_image.each do |ele|
+        -# - binding.pry
+        = image_tag("#{ele}")
+    = form_with model: @image, url: user_images_path, method: :post do |image|
+      = image.file_field :user_image, multiple: true
+      = image.submit
