@@ -20,7 +20,7 @@
 .bbb{
   font-size: 15px;
   margin: 0px 0px 40px 0px;
-  
+
 }
 .c,.d,.e,.f{
   float: left;
@@ -89,4 +89,8 @@
 .f{
   display: inline-block;      /* インラインブロック要素にする */
   background-color: white;
+}
+
+.inline-block{
+  display: inline-block;
 }
