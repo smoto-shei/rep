@@ -8,11 +8,11 @@
     .kensaku
       %p.margin ユーザーを検索
       %hr
-      = search_form_for @search do |f|
+      = search_form_for @search, id: "user_search_form", url: users_path do |f|
         .kensaku_form_group
           .kensaku_form
-            = f.label :nickname_cont, 'ニックネーム: '
-            = f.search_field :nickname_cont
+            = f.label :nickname_start, 'ニックネーム: '
+            = f.search_field :nickname_start
           .kensaku_height
             = f.label :user_body_height_gteq do
               身長:
@@ -21,32 +21,35 @@
               〜
             = f.search_field :user_body_height_lteq, class: 'huga'
           .kensaku_weight
-            = f.label :user_body_height_gteq do
+            = f.label :user_body_weight_gteq do
               体重:
             = f.search_field :user_body_weight_gteq, class: 'huga'
-            = f.label :user_body_height_lteq do
+            = f.label :user_body_weight_lteq do
               〜
             = f.search_field :user_body_weight_lteq, class: 'huga'
           .kensaku_experience
-            = f.label :user_body_height_gteq do
+            = f.label :user_body_experience_lteq do
               トレーニング歴:
-            = f.search_field :user_body_weight_gteq, class: 'huga'
-            = f.label :user_body_height_lteq do
-              〜
-            = f.search_field :user_body_weight_lteq, class: 'huga'
-        = f.submit class: 'btn btn-primary' do
+            = f.search_field :user_body_experience_lteq, class: 'huga'
+            = f.label :user_body_experience_gteq do
+              年目 〜
+            = f.search_field :user_body_experience_gteq, class: 'huga'
+            .inline-block 年目
+        = f.submit class: 'btn btn-primary search_btn' do
           検索
       %hr
 
-      - @people.each do |people|
-        - unless [people.user_body.height,people.user_body.weight,people.user_body.experience].include?(nil)
-          .user_searched
-            .avatar_searched
-              = image_tag "#{people.user_body.avatar.url}"
-            .user_detail_searched
-              .name #{people.nickname}
-              .body #{people.user_body.height}cm/#{people.user_body.weight}kg
-              .experience= "#{((Date.today - people.user_body.experience).numerator / 365)+1} 年目"
-          %hr
+      - unless @people.nil?
+        - @people.each do |people|
+          - unless [people.user_body.height,people.user_body.weight,people.user_body.experience].include?(nil)
+            = link_to user_path(people.id), class: '' do
+              .user_searched
+                .avatar_searched
+                  = image_tag "#{people.user_body.avatar.url}"
+                .user_detail_searched
+                  .name #{people.nickname}
+                  .body #{people.user_body.height}cm/#{people.user_body.weight}kg
+                  .experience= "#{((Date.today.year - people.user_body.experience.year)*12 + Date.today.month - people.user_body.experience.month) / 12 + 1} 年目"
+              %hr
 
   .col-3.sidebar

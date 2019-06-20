@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get 'toppage/column', to: 'toppages#column' #のちにcolumnテーブル作ったらルーティング修正
   get 'toppage/a_column', to: 'toppages#a_column' #のちにcolumnテーブル作ったらルーティング修正
+  get 'toppage/privacy_policy', to: 'toppages#privacy_policy' #のちにcolumnテーブル作ったらルーティング修正
+  get 'toppage/regulation', to: 'toppages#regulation' #のちにcolumnテーブル作ったらルーティング修正
 
 
 end
