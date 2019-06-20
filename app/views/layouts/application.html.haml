@@ -16,20 +16,20 @@
       - if user_signed_in?
         %ul.navbar.navbar-nav.navbar-expand
           %li.nav-item.nav-link
-            = link_to user_images_path(current_user.id), class: 'text-white mr-3 15px btn btn-info' do
-              Photo
+            = link_to user_images_path(current_user.id), class: 'text-white mr-4' do
+              %i.fas.fa-2x.fas.fa-camera
           %li.nav-item.nav-link
-            = link_to users_path, class: 'text-white mr-3 15px btn btn-info' do
-              ユーザー検索
+            = link_to users_path, class: 'text-white mr-4' do
+              %i.fas.fa-2x.fa-search
           %li.nav-item.nav-link
-            = link_to toppage_column_path, class: 'text-white mr-3 15px btn btn-info' do
-              Column
+            = link_to toppage_column_path, class: 'text-white mr-4' do
+              %i.fas.fa-2x.fas.fa-book-open
           %li.nav-item.nav-link
-            = link_to user_path(current_user.id), class: 'text-white mr-3' do
+            = link_to user_path(current_user.id), class: 'text-white mr-4' do
               %i.far.fa-2x.fa-calendar-alt
           %li.nav-item.nav-link
-            = link_to user_training_records_path(current_user.id), class: 'text-white mr-3' do
-              %i.fas.fa-2x.fa-dumbbell
+            = link_to user_training_records_path(current_user.id), class: 'text-white mr-4' do
+              %i.fas.fa-2x.fa-chart-line
           %li.nav-item.nav-link
             = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-1 15px btn btn-danger' do
               Log Out
