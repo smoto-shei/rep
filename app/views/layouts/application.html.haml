@@ -16,20 +16,20 @@
       - if user_signed_in?
         %ul.navbar.navbar-nav.navbar-expand
           %li.nav-item.nav-link
-            = link_to user_images_path(current_user.id), class: 'text-white mr-3 15px btn btn-info' do
-              Photo
+            = link_to user_images_path(current_user.id), class: 'text-white mr-4' do
+              %i.fas.fa-2x.fas.fa-camera
           %li.nav-item.nav-link
-            = link_to users_path, class: 'text-white mr-3 15px btn btn-info' do
-              ユーザー検索
+            = link_to users_path, class: 'text-white mr-4' do
+              %i.fas.fa-2x.fa-search
           %li.nav-item.nav-link
-            = link_to toppage_column_path, class: 'text-white mr-3 15px btn btn-info' do
-              Column
+            = link_to toppage_column_path, class: 'text-white mr-4' do
+              %i.fas.fa-2x.fas.fa-book-open
           %li.nav-item.nav-link
-            = link_to user_path(current_user.id), class: 'text-white mr-3' do
+            = link_to user_path(current_user.id), class: 'text-white mr-4' do
               %i.far.fa-2x.fa-calendar-alt
           %li.nav-item.nav-link
-            = link_to user_training_records_path(current_user.id), class: 'text-white mr-3' do
-              %i.fas.fa-2x.fa-dumbbell
+            = link_to user_training_records_path(current_user.id), class: 'text-white mr-4' do
+              %i.fas.fa-2x.fa-chart-line
           %li.nav-item.nav-link
             = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-1 15px btn btn-danger' do
               Log Out
@@ -53,46 +53,21 @@
             = link_to new_user_session_path, class: 'btn btn-danger mr-1' do
               Log In
     = yield
-    .navbar.navbar-dark.bg-secondary.mt-auto.py-2
-      .navbar-brand
-        = link_to root_path, class: 'text-white 15px' do
-          M-Rep
-      - if user_signed_in?
-        %ul.navbar.navbar-nav.navbar-expand
-          %li.nav-item.nav-link
-            = link_to user_images_path(current_user.id), class: 'text-white mr-3 15px btn btn-info' do
-              筋肉画像（作業用link)
-          %li.nav-item.nav-link
-            = link_to users_path, class: 'text-white mr-3 15px btn btn-info' do
-              ユーザー検索
-          %li.nav-item.nav-link
-            = link_to toppage_column_path, class: 'text-white mr-3 15px btn btn-info' do
-              Column
-          %li.nav-item.nav-link
-            = link_to user_path(current_user.id), class: 'text-white mr-3 15px btn btn-info' do
-              Calender
-          %li.nav-item.nav-link
-            = link_to user_training_records_path(current_user.id), class: 'text-white mr-3 15px btn btn-info' do
-              Analysis
-          %li.nav-item.nav-link
-            = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-1 15px btn btn-danger' do
-              Log Out
-      - else
-        %ul.navbar.navbar-nav.navbar-expand
-          %li.nav-item.nav-link
-            = form_with model: User.new, scope: :user, url: session_path(:user), local: true do |f|
-              = f.hidden_field :email, value: 'arnold@com'
-              = f.hidden_field :password, value: '123456'
-              = f.submit 'Test Log In', class: 'btn btn-info mr-3'
-          -# %li.nav-item.nav-link
-          -#   = link_to users_path, class: 'text-white mr-3 15px btn btn-info' do
-          -#     ユーザー検索
-          %li.nav-item.nav-link
-            = link_to toppage_column_path, class: 'btn btn-info mr-3' do
-              Column
-          %li.nav-item.nav-link
-            = link_to new_user_registration_path, class: 'btn btn-info mr-3' do
-              Sign Up
-          %li.nav-item.nav-link
-            = link_to new_user_session_path, class: 'btn btn-danger mr-1' do
-              Log In
+
+    .nav-box.bg-secondary
+      .navbar.navbar-dark.bg-secondary.mt-auto.py-2
+        .navbar-brand.suzuki
+          = link_to root_path, class: 'text-white 15px' do
+            M-Rep
+        %ul.row.policy
+          %li.nav-item.nav-link.inline-block
+            = link_to root_path, class: 'text-white mr-5 18px' do
+              トップページ
+          %li.nav-item.nav-link.inline-block
+            = link_to user_training_records_path(current_user.id), class: 'text-white mr-5 18px' do
+              利用規約
+          %li.nav-item.nav-link.inline-block
+            = link_to user_training_records_path(current_user.id), class: 'text-white mr-3 18px' do
+              プライバシーポリシー
+      .text-white.text-center.mb-3.mt-2
+        © 2019 M-Rep
