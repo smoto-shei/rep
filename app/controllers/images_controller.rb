@@ -24,7 +24,6 @@ class ImagesController < ApplicationController
     index = params[:index].strip.split(',').map(&:to_i)
     @image = Image.find(1)
     remove_image_at_index(index)
-    binding.pry
     @image.save
   end
 
@@ -57,7 +56,7 @@ class ImagesController < ApplicationController
     end
     @image.user_image = remain_images
   end
-  
+
   def set_image
     @image = Image.find(params[:image_id])
   end
