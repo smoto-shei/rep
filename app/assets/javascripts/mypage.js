@@ -4,9 +4,12 @@ document.addEventListener('turbolinks:load', function() {
   $(function(){
 
     // モーダルを出す、隠す
-    $('#edit_body').on('click',function(){
+    $('#edit_body, #follow_now_btn, #for_follow_btn').on('click',function(){
+      console.log(this)
       $('.body_modal').css('display', 'block');
-      $('.overlay').css('display', 'block');    $('html').addClass('modal_open');
+      $('.overlay').css('display', 'block');
+      $('html').addClass('modal_open');
+      $.ajax
     });
 
     $('.close_button').on('click',function(){
