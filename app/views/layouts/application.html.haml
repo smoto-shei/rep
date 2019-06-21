@@ -44,19 +44,19 @@
           -#   = link_to users_path, class: 'text-white mr-3 15px btn btn-info' do
           -#     ユーザー検索
           %li.nav-item.nav-link
-            = link_to toppage_column_path, class: 'btn btn-info mr-3' do
-              Column
+            = link_to toppage_column_path, class: 'text-white mr-4' do
+              %i.fas.fa-2x.fas.fa-book-open
           %li.nav-item.nav-link
-            = link_to new_user_registration_path, class: 'btn btn-info mr-3' do
+            = link_to new_user_registration_path, class: 'text-white mr-4' do
               Sign Up
           %li.nav-item.nav-link
-            = link_to new_user_session_path, class: 'btn btn-danger mr-1' do
+            = link_to new_user_session_path, class: 'text-white mr-1' do
               Log In
     = yield
 
     .nav-box.bg-secondary
       .navbar.navbar-dark.bg-secondary.mt-auto.py-2
-        .navbar-brand.suzuki
+        .navbar-brand.below_tab
           = link_to root_path, class: 'text-white 15px' do
             M-Rep
         %ul.row.policy
