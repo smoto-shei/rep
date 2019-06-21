@@ -1,4 +1,5 @@
 .overlay
 .body_modal
   .body_modal__inner
-    = render partial: "shared/user_body_edit"
+    - unless @userbody == nil
+      = render partial: "shared/user_body_edit"
