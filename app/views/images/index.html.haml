@@ -1,5 +1,5 @@
 -# 本文
-.row
+.row.no-gutters
   .col-2.sidebar.my-0.ml-0.justify-content-center
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
@@ -18,7 +18,7 @@
                   %pre
                     ドラッグ & ドロップ
                     またはクリックしてアップロード
-            
+
           = image.text_area :comment, rows: 5, class: 'form_control w-100'
           = image.submit '自慢の筋肉画像を投稿する', class: 'btn btn-primary w-100', id: 'image-submit'
       %hr
@@ -36,5 +36,3 @@
         = image_tag "#{ele}", class: 'photo-box'
       %hr
   .col-2
-
-
