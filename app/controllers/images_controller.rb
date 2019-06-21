@@ -6,19 +6,27 @@ class ImagesController < ApplicationController
 
   # 筋肉画像のページ
   def index
+    @user = User.find(params[:user_id])
     @images = Image.where(user_id: params[:user_id])
     @image = Image.new
   end
 
   def create
-    @images = Image.new(image_params)
-    @images.save
+    @image = Image.new(image_params)
+    @image.save
+    # redirect_back(fallback_location: root_path)
   end
 
   def edit
+    @image = Image.find(1)
   end
 
   def update
+    index = params[:index].strip.split(',').map(&:to_i)
+    @image = Image.find(1)
+    remove_image_at_index(index)
+    binding.pry
+    @image.save
   end
 
   def destroy
@@ -32,18 +40,23 @@ class ImagesController < ApplicationController
 
   # 記事投稿のストロングパラメータ
   def image_params
-    params.require(:image).permit({user_image: []}).merge(user_id: current_user.id)
+    params.require(:image).permit(:comment, {user_image: []}).merge(user_id: current_user.id)
+  end
+
+  def add_more_images(new_images)
+    images = @image.user_image
+    images += new_images
+    @image.images = images
   end
 
   def remove_image_at_index(index)
     remain_images = @image.user_image
-     if index == 0 && @image.user_image.size == 1
-       @image.remove_user_image!
-     else
-       deleted_image = remain_images.delete_at(index) 
-       deleted_image.try(:remove!)
-       @image.user_image = remain_images
-     end
+    index.sort.reverse.each do |i|
+      puts |i|
+      deleted_image = remain_images.delete_at(i)
+      deleted_image.try(:remove!)
+    end
+    @image.user_image = remain_images
   end
   
   def set_image

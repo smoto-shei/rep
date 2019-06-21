@@ -99,16 +99,19 @@
   display: block !important;
 }
 //-----------------------------------------------------
+
 input[type="date"]::-webkit-inner-spin-button{
   -webkit-appearance: none;
 }
 input[type="date"]::-webkit-clear-button{
   -webkit-appearance: none;
 }
-input[type="date"]::-webkit-calendar-picker-indicator{
-  background: transparent;
-  position: absolute;
-  -webkit-appearance: none;
+#new_training_record{
+  input[type="date"]::-webkit-calendar-picker-indicator{
+    background: transparent;
+    position: absolute;
+    -webkit-appearance: none;
+  }
 }
 // 幅調整
 .w-13{

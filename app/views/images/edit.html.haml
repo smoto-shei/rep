@@ -10,10 +10,17 @@
     .com Photo
     %hr
     - if @user.id == current_user.id
-      = form_with model: @image, url: user_images_path(current_user.id,@image), method: :post, id: 'image-create' do |image|
+      = form_with model: @image, url: user_image_path(current_user.id,@image), method: :put, id: 'image-create' do |image|
         .form-group.image-form
           .image-box
             %ul#image-list
+              - @image.user_image.each_with_index do |user_image,index|
+                %li
+                  %figure.image-preview
+                    = image_tag "#{user_image}", class: "image-preview"
+                  .preview-btn
+                    .edit-preview-delete.btn.btn-outline-danger.btn-sm.px-4{ value: "#{index}"}
+                      削除
               = image.label :user_image, id: 'image-list-before' do
                 = image.file_field :user_image, multiple: true, style: 'display: none;'
                 #image-drop-box
@@ -22,21 +29,7 @@
                     またはクリックしてアップロード
             
           = image.text_area :comment, rows: 5, class: 'form_control w-100'
-          = image.submit '自慢の筋肉画像を投稿する', class: 'btn btn-primary w-100', id: 'image-submit'
+          = image.submit '自慢の筋肉画像を投稿する', class: 'btn btn-primary w-100', id: 'image-edit'
       %hr
-    - @images.each do |image|
-      .head_box
-        .photo_date
-          = image.created_at.strftime("%Y/%m/%d")
-        .comment
-          = image.comment
-        .edit-btn.ml-3
-          %i.fas.fa-pencil-alt.p-1
-        .delete-btn.ml-auto.mb-2
-          %i.fas.fa-times-circle.fa-3x
-      - image.user_image.each do |ele|
-        = image_tag "#{ele}", class: 'photo-box'
-      %hr
+
   .col-2
-
-
