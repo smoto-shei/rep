@@ -28,5 +28,3 @@
 
 # ローカルの画像をあげない
 public/uploads/
-
-db/schema.rb
