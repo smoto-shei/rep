@@ -1,0 +1,14 @@
+-# ここの@user.idはparamsのid
+- if @user.id == current_user.id
+  .btn.btn-primary.my-6#edit_body.text-center
+    編集
+
+- else
+  - if current_user.following?(user)
+    = form_with model: @current_user.relationships.find_by(follow_id: user.id), method: :delete do |f| # current_userのrelationshipsでfollow_idがparamsのidのものを探す。
+      = f.hidden_field :follow_id, value: user.id
+      = f.submit 'フォロー中', class: 'mt-3 follow_now_btn'
+  - else
+    = form_with model: @current_user.relationships.build do |f| # user_idにcurrent_user.idが入ったrelationshipsインスタンスを作成
+      = f.hidden_field :follow_id, value: user.id
+      = f.submit 'フォローする', class: 'mt-3 for_follow_btn'

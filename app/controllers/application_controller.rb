@@ -8,15 +8,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # ログイン中のユーザーをセット
-  def set_user
-    @user = User.find(current_user.id)
-  end
-
-  # ログイン中のユーザーのボディーをセット
-  def set_userbody
+  # ログイン中のユーザー,ユーザーをセット
+  def set_user_info
+    @user = User.includes(:user_body).find(current_user.id)
     @userbody = @user.user_body
   end
+
 
   # chart.js に渡す user_id をセット
   def set_gon_user_id
