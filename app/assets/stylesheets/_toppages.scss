@@ -10,41 +10,41 @@
 .headline{
   background-color: rgb(245, 248, 250);
 }
-.aaa{
+.about_service{
   font-size: 25px;
   font-style: italic;
 }
-.bbb{
+.about_service_text{
   font-size: 15px;
   margin: 0px 0px 40px 0px;
 
 }
-.c,.d,.e,.f{
+.colum_picture,.colum_introduction,.training_calender,.training_calender_picture{
   float: left;
   border-color: yellow;
   width: 50%;
 }
-.c{
+.colum_picture{
   display: inline-block;      /* インラインブロック要素にする */
   margin: 10px 0px 0px 0px;
   background-color: white;
 }
-.d{
+.colum_introduction{
   display: inline-block;      /* インラインブロック要素にする */
   margin: 10px 0px 0px 0px;
   height: 400px;
   background-color: white;
-  .d1{
+  .message{
     margin: 50px 0px 0px 0px;
     font-size: 30px;
     font-style: italic;
   }
-  .d2{
+  .sub_message{
     margin: 20px 0px 0px 0px;
     font-size: 20px;
     font-style: italic;
   }
-  .d3{
+  .message_text{
     margin: 40px 0px 40px 0px;
     font-size: 15px;
     font-style: italic;
@@ -56,22 +56,22 @@
     margin: 0px 0px 0px 0px;
   }
 }
-.e{
+.training_calender{
   display: inline-block;      /* インラインブロック要素にする */
   margin: 0px 0px 0px 0px;
   height: 400px;
   background-color: white;
-  .e1{
+  .message{
+    margin: 50px 0px 0px 0px;
     font-size: 30px;
-    margin: 60px 0px 0px 0px;
     font-style: italic;
   }
-  .e2{
+  .sub_message{
     margin: 20px 0px 0px 0px;
     font-size: 20px;
     font-style: italic;
   }
-  .e3{
+  .message_text{
     margin: 40px 0px 40px 0px;
     font-size: 15px;
     font-style: italic;
@@ -83,7 +83,7 @@
     margin: 0px 0px 0px 0px;
   }
 }
-.f{
+.training_calender_picture{
   display: inline-block;      /* インラインブロック要素にする */
   background-color: white;
 }
@@ -95,6 +95,10 @@
 }
 .inline-block{
   display: inline-block;
+}
+
+.below_tab{
+  margin-top: 1.5px;
 }
 .block{
   display: block;
