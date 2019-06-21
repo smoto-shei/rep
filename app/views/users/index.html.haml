@@ -1,5 +1,3 @@
-= render partial: "shared/user_body_edit"
-
 .row
   .col-2.sidebar-my-0.ml-0.justify-content-center
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
@@ -39,17 +37,7 @@
           検索
       %hr
 
-      - unless @people.nil?
-        - @people.each do |people|
-          - unless [people.user_body.height,people.user_body.weight,people.user_body.experience].include?(nil)
-            = link_to user_path(people.id), class: '' do
-              .user_searched
-                .avatar_searched
-                  = image_tag "#{people.user_body.avatar.url}"
-                .user_detail_searched
-                  .name #{people.nickname}
-                  .body #{people.user_body.height}cm/#{people.user_body.weight}kg
-                  .experience= "#{((Date.today.year - people.user_body.experience.year)*12 + Date.today.month - people.user_body.experience.month) / 12 + 1} 年目"
-              %hr
+    #seaech_result
+      = render partial: "shared/search_result"
 
   .col-3.sidebar
