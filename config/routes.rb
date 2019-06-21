@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
   root 'toppages#index'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: "users/sessions",
   }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   resources :users do
-    member do
+    member do      #id含む
       get 'records_update'
+    end
+    collection do  #id含まない
+      get 'pagination'
     end
     resources :images
     resources :user_bodies
@@ -17,7 +21,10 @@ Rails.application.routes.draw do
       end
     end
   end
+
   resources :exercises, only: :index
+
+  resources :relationships, only: [:create, :destroy]
 
   get 'toppage/column', to: 'toppages#column' #のちにcolumnテーブル作ったらルーティング修正
   get 'toppage/a_column', to: 'toppages#a_column' #のちにcolumnテーブル作ったらルーティング修正

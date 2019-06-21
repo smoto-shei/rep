@@ -1,14 +1,23 @@
 .user_info
-  - if @user.id == current_user.id
-    .btn.btn-primary.my-6#edit_body.text-center
-      編集
-  - else
-    .mt-5
+  = render partial: "shared/follow_btn", locals: { user: @user }
   .avatar.mt-2
     = image_tag "#{@userbody.avatar}"
   .nickname
     %p
       = user.nickname
+    .follow_follower
+      .follow.inline-block
+        = link_to '#' do
+          .follow__number
+            = "#{@user.follows.length}"
+          .follow__string
+            = " フォロー"
+      .follow.inline-block.ml-2
+        = link_to '#' do
+          .follow__number
+            = "#{@user.followers.length}"
+          .follow__string
+            = " フォロワー"
     <hr>
   .body
     .height

@@ -43,6 +43,44 @@
     object-fit: cover;
   }
 }
+
+// フォローボタン
+.follow_now_btn{
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: white;
+  background-color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 10px;
+  transition: .4s;
+}
+.for_follow_btn{
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 10px;
+  transition: .4s;
+}
+.follow{
+  &__number{
+    display: inline-block;
+    font-weight: bold;
+  }
+  &__string{
+    display: inline-block;
+  }
+}
+
+
+
+
 .edit_avatar{
   text-align: center;
 }
@@ -112,16 +150,19 @@
   display: block !important;
 }
 //-----------------------------------------------------
+
 input[type="date"]::-webkit-inner-spin-button{
   -webkit-appearance: none;
 }
 input[type="date"]::-webkit-clear-button{
   -webkit-appearance: none;
 }
-input[type="date"]::-webkit-calendar-picker-indicator{
-  background: transparent;
-  position: absolute;
-  -webkit-appearance: none;
+#new_training_record{
+  input[type="date"]::-webkit-calendar-picker-indicator{
+    background: transparent;
+    position: absolute;
+    -webkit-appearance: none;
+  }
 }
 // 幅調整
 .w-13{
