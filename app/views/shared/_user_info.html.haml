@@ -1,11 +1,23 @@
 .user_info
-  .btn.btn-primary.my-6#edit_body.text-center
-    編集
+  = render partial: "shared/follow_btn", locals: { user: @user }
   .avatar.mt-2
     = image_tag "#{@userbody.avatar}"
   .nickname
     %p
       = user.nickname
+    .follow_follower
+      .follow.inline-block
+        = link_to '#' do
+          .follow__number
+            = "#{@user.follows.length}"
+          .follow__string
+            = " フォロー"
+      .follow.inline-block.ml-2
+        = link_to '#' do
+          .follow__number
+            = "#{@user.followers.length}"
+          .follow__string
+            = " フォロワー"
     <hr>
   .body
     .height
@@ -45,7 +57,7 @@
           = '--'
       - else
         %p.ml-2
-          = "#{((Date.today - userbody.experience).numerator / 365)+1} 年目"
+          = "#{((Date.today.year - userbody.experience.year)*12 + Date.today.month - userbody.experience.month) / 12 + 1} 年目"
     .mt-1
       = link_to user_images_path(@user.id), class: 'unti' do
         %h6 筋肉画像

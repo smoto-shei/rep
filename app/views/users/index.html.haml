@@ -1,5 +1,3 @@
-= render partial: "shared/user_body_edit"
-
 .row
   .col-2.sidebar-my-0.ml-0.justify-content-center
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
@@ -8,11 +6,11 @@
     .kensaku
       %p.margin ユーザーを検索
       %hr
-      = search_form_for @search do |f|
+      = search_form_for @search, id: "user_search_form", url: users_path do |f|
         .kensaku_form_group
           .kensaku_form
-            = f.label :nickname_cont, 'ニックネーム: '
-            = f.search_field :nickname_cont
+            = f.label :nickname_start, 'ニックネーム: '
+            = f.search_field :nickname_start
           .kensaku_height
             = f.label :user_body_height_gteq do
               身長:
@@ -21,32 +19,25 @@
               〜
             = f.search_field :user_body_height_lteq, class: 'huga'
           .kensaku_weight
-            = f.label :user_body_height_gteq do
+            = f.label :user_body_weight_gteq do
               体重:
             = f.search_field :user_body_weight_gteq, class: 'huga'
-            = f.label :user_body_height_lteq do
+            = f.label :user_body_weight_lteq do
               〜
             = f.search_field :user_body_weight_lteq, class: 'huga'
           .kensaku_experience
-            = f.label :user_body_height_gteq do
+            = f.label :user_body_experience_lteq do
               トレーニング歴:
-            = f.search_field :user_body_weight_gteq, class: 'huga'
-            = f.label :user_body_height_lteq do
-              〜
-            = f.search_field :user_body_weight_lteq, class: 'huga'
-        = f.submit class: 'btn btn-primary' do
+            = f.search_field :user_body_experience_lteq, class: 'huga'
+            = f.label :user_body_experience_gteq do
+              年目 〜
+            = f.search_field :user_body_experience_gteq, class: 'huga'
+            .inline-block 年目
+        = f.submit class: 'btn btn-primary search_btn' do
           検索
       %hr
 
-      - @people.each do |people|
-        - unless [people.user_body.height,people.user_body.weight,people.user_body.experience].include?(nil)
-          .user_searched
-            .avatar_searched
-              = image_tag "#{people.user_body.avatar.url}"
-            .user_detail_searched
-              .name #{people.nickname}
-              .body #{people.user_body.height}cm/#{people.user_body.weight}kg
-              .experience= "#{((Date.today - people.user_body.experience).numerator / 365)+1} 年目"
-          %hr
+    #seaech_result
+      = render partial: "shared/search_result"
 
   .col-3.sidebar
