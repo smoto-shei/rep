@@ -2,8 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//プロフィール写真
+// ログインページ
+.form_group{
+  margin-top: 24px;
+}
+.col-4{
+  margin-bottom: 48px;
+}
+.Log_in_top{
+  background-color: rgb(245, 248, 250);
+  min-height: 70vh;
+}
 
+// 新規登録ページ
+.registration_top{
+  background-color: rgb(245, 248, 250);
+}
+
+//プロフィール写真
 .user_info{
   padding-left: 15px;
 }
@@ -242,3 +258,4 @@ $part_font_size: 14px;
   border-radius: 10px;
   font-size: $part_font_size;
 }
+

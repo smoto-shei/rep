@@ -1,2 +1,10 @@
-.card
-  -# = form_with model: @
+= form_with model: image, method: :patch, url: user_image_path(current_user.id,image), id: '', class: '', local: true do |image|
+  .form_group.mx-5.mt-5.text-center
+    %h4 コメントの編集
+  .form_group.m-4
+    = image.text_area :comment, rows: 5, class: 'form_control w-100'
+  .action.m-5.row.justify-content-around
+    = button_tag type: 'submit' , class: '' do
+      %i.fas.fa-3x.fa-check-circle.cursor_pointer.d-inline-flex
+
+    %i.fas.fa-3x.fa-times-circle.close_button.cursor_pointer.d-inline-flex{value: '#html_to_modal_box'}

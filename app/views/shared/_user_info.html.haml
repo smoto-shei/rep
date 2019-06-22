@@ -6,18 +6,16 @@
     %p
       = user.nickname
     .follow_follower
-      .follow.inline-block
-        = link_to '#' do
-          .follow__number
-            = "#{@user.follows.length}"
-          .follow__string
-            = " フォロー"
-      .follow.inline-block.ml-2
-        = link_to '#' do
-          .follow__number
-            = "#{@user.followers.length}"
-          .follow__string
-            = " フォロワー"
+      #follow_now_btn.follow.inline-block.cursor_pointer
+        .follow__number
+          = "#{@user.follows.length}"
+        .follow__string
+          = " フォロー"
+      #for_follow_btn.follow.inline-block.ml-2.cursor_pointer
+        .follow__number
+          = "#{@user.followers.length}"
+        .follow__string
+          = " フォロワー"
     %hr
   .body
     .height
