@@ -143,14 +143,14 @@ document.addEventListener('turbolinks:load', function() {
 
   // 記事削除ボタン押下時のモーダル作成
   $(".delete-btn").on('click',function(){
-    var delete_path = location.pathname + $(this).attr('id');
+    var delete_path = location.pathname + '/' + $(this).attr('id');
     $('#delete-submit').attr('href',delete_path)
   })
 
   // 記事コメント編集ボタン押下時のモーダル作成
-  $(".edit-comment").on('click',function(){
+  $("#user_images_box").on('click','.edit-comment',function(){
     var image_id = $(this).attr('id');
-    var url = location.pathname + image_id + '/edit';
+    var url = location.pathname + '/' + image_id + '/edit';
     $.ajax({
       url: url,
       type: 'GET',

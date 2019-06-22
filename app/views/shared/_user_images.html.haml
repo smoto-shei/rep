@@ -9,7 +9,7 @@
         .edit-btn.ml-3
           %i.fas.fa-pencil-alt.p-1.show_modal.edit-comment{value: '#html_to_modal_box', id: "#{image.id}"}
         .ml-auto.mb-2
-          %i.fas.fa-times-circle.fa-3x.show_modal.delete-btn{value:'#delete_image', id: "#{image.id}"}
+          %i.fas.fa-times-circle.fa-3x.cursor_pointer.show_modal.delete-btn{value:'#delete_image', id: "#{image.id}"}
     - image.user_image.each do |ele|
       = image_tag "#{ele}", class: 'photo-box'
   %hr

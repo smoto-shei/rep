@@ -4,7 +4,7 @@ document.addEventListener('turbolinks:load', function() {
   $(function(){
 
     // モーダルを出す、隠す
-    $('.show_modal').on('click',function(){
+    $('body').on('click','.show_modal',function(){
       $('.body_modal').css('display', 'block');
       $('.overlay').css('display', 'block');
       $('html').addClass('modal_open');
