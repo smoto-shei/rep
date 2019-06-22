@@ -4,9 +4,13 @@ document.addEventListener('turbolinks:load', function() {
   $(function(){
 
     // モーダルを出す、隠す
-    $('#edit_body').on('click',function(){
+    $('#edit_body, .delete-image, .edit-comment').on('click',function(){
       $('.body_modal').css('display', 'block');
-      $('.overlay').css('display', 'block');    $('html').addClass('modal_open');
+      $('.overlay').css('display', 'block');
+      $('html').addClass('modal_open');
+      var target = "#{$(this).attr('value')}_modal";
+      console.log(target);
+      $(target).removeClass('hide');
     });
 
     $('.close_button').on('click',function(){

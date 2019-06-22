@@ -28,10 +28,10 @@
           = image.created_at.strftime("%Y/%m/%d")
         .comment
           = image.comment
-        .edit-btn.ml-3
-          %i.fas.fa-pencil-alt.p-1
-        .delete-btn.ml-auto.mb-2
-          %i.fas.fa-times-circle.fa-3x
+        .edit-btn.ml-3{value: '.edit-btn', id: "#{image.id}"}
+          %i.fas.fa-pencil-alt.p-1.edit-comment
+        .delete-btn.ml-auto.mb-2{value:'.delete-btn', id: "#{image.id}"}
+          %i.fas.fa-times-circle.fa-3x.delete-image
       - image.user_image.each do |ele|
         = image_tag "#{ele}", class: 'photo-box'
       %hr
