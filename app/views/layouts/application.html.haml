@@ -2,39 +2,39 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title M-Rep
+    %title Rep
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = include_gon
-  %body{style: 'padding-top: 86px; min-height: 100vh', class: 'h-100 d-flex flex-column'}
+  %body{style: 'padding-top: 60px; min-height: 100vh', class: 'h-100 d-flex flex-column'}
 
     = render partial: "shared/modal"
 
     .navbar.navbar-dark.bg-secondary.fixed-top.bg-secondary
-      .navbar-brand
-        = link_to root_path, class: 'text-white 15px' do
-          M-Rep
+      .navbar-brand_top
+        = link_to root_path do
+          = image_tag "/assets/Rep_logo", size:"80x40"
       - if user_signed_in?
         %ul.navbar.navbar-nav.navbar-expand
           %li.nav-item.nav-link
-            = link_to user_images_path(current_user.id), class: 'text-white mr-4' do
-              %i.fas.fa-2x.fas.fa-camera
-          %li.nav-item.nav-link
             = link_to users_path, class: 'text-white mr-4' do
-              %i.fas.fa-2x.fa-search
+              %i.fas.fa-lg.fa-search
           %li.nav-item.nav-link
             = link_to toppage_column_path, class: 'text-white mr-4' do
-              %i.fas.fa-2x.fas.fa-book-open
+              %i.fas.fa-lg.fas.fa-book-open
+          %li.nav-item.nav-link
+            = link_to user_images_path(current_user.id), class: 'text-white mr-4' do
+              %i.fas.fa-lg.fas.fa-camera
           %li.nav-item.nav-link
             = link_to user_path(current_user.id), class: 'text-white mr-4' do
-              %i.far.fa-2x.fa-calendar-alt
+              %i.far.fa-lg.fa-calendar-alt
           %li.nav-item.nav-link
             = link_to user_training_records_path(current_user.id), class: 'text-white mr-4' do
-              %i.fas.fa-2x.fa-chart-line
+              %i.fas.fa-lg.fa-chart-line
           %li.nav-item.nav-link
-            = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-1 15px btn btn-danger' do
+            = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-1 10px btn btn-danger' do
               Log Out
       - else
         %ul.navbar.navbar-nav.navbar-expand
@@ -60,8 +60,8 @@
     .nav-box.bg-secondary
       .navbar.navbar-dark.bg-secondary.mt-auto.py-2
         .navbar-brand.below_tab
-          = link_to root_path, class: 'text-white 15px' do
-            M-Rep
+          = link_to root_path do
+            = image_tag "/assets/Rep_logo", size:"80x40"
         %ul.row.policy
           %li.nav-item.nav-link.inline-block
             = link_to root_path, class: 'text-white mr-5 18px' do
@@ -73,4 +73,4 @@
             = link_to toppage_privacy_policy_path , class: 'text-white mr-3 18px' do
               プライバシーポリシー
       .text-white.text-center.mb-3.mt-2
-        © 2019 M-Rep
+        © 2019 Rep

@@ -19,6 +19,17 @@
           .follow__string
             = " フォロワー"
     <hr>
+    %ul.row.justify-content-around.userinfo_link_list
+      %li
+        = link_to user_images_path(current_user.id), class: 'text-blue mr-4' do
+          %i.fas.fa-lg.fas.fa-camera
+      %li
+        = link_to user_path(current_user.id), class: 'text-blue mr-4' do
+          %i.far.fa-lg.fa-calendar-alt
+      %li
+        = link_to user_training_records_path(current_user.id), class: 'text-blue mr-4' do
+          %i.fas.fa-lg.fa-chart-line
+    <hr>
   .body
     .height
       - if userbody&.height.nil?
@@ -35,7 +46,7 @@
         %p.ml-2
           = "#{userbody&.weight} kg"
     .mt-1
-      %h6 BMI
+      .userbody_title BMI
       - if userbody&.height.nil? || userbody&.weight.nil?
         %p.ml-2
           = "--"
@@ -43,7 +54,7 @@
         %p.ml-2
           = (userbody.weight.to_f / (userbody.height.to_f / 100) ** 2).round(1)
     .mt-1
-      %h6 想定基礎代謝
+      .userbody_title 想定基礎代謝
       - if [userbody&.height, userbody&.weight, userbody&.birth_year].include?(nil)
         %p.ml-2
           = '--kcal'
@@ -51,13 +62,22 @@
         %p.ml-2
           = "#{(66.47 + (13.75 * userbody.weight.to_f) + (5 * userbody.height.to_f) - (6.78*(2019 - userbody.birth_year))).round(0)} kcal"
     .mt-1
-      %h6 筋トレ歴
+      .userbody_title 筋トレ歴
       - if userbody&.experience.nil?
         %p.ml-2
           = '--'
       - else
         %p.ml-2
           = "#{((Date.today.year - userbody.experience.year)*12 + Date.today.month - userbody.experience.month) / 12 + 1} 年目"
-    .mt-1
-      = link_to user_images_path(@user.id), class: 'unti' do
-        %h6 筋肉画像
+    <hr>
+    
+    -# .mt-1.userinfo_link
+    -#   = link_to user_images_path(@user.id), class: 'unti userinfo_link' do
+    -#     .userbody_title #Photo
+    -# .mt-1.userinfo_link
+    -#   = link_to user_path(current_user.id), class: 'unti userinfo_link' do
+    -#     .userbody_title #Calender
+    -# .mt-1.userinfo_link
+    -#   = link_to user_training_records_path(current_user.id), class: 'unti userinfo_link' do
+    -#     .userbody_title #Analysis    
+  
