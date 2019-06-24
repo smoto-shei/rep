@@ -47,7 +47,8 @@ group :development, :test do
   gem 'rb-readline'
   gem 'pry-rails'
   gem 'factory_bot_rails', '~> 4.11'
-  # gem 'bullet'
+  gem 'rspec-rails'
+  gem 'bullet'
 end
 
 group :development do
