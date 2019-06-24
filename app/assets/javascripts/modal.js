@@ -1,5 +1,23 @@
 document.addEventListener('turbolinks:load', function() {
 
+    // モーダル出す
+    $('body').on('click','.show_modal',function(){
+      $('.body_modal').css('display', 'block');
+      $('.overlay').css('display', 'block');
+      $('html').addClass('modal_open');
+      var target = $(this).attr('value');
+      $(target).removeClass('hide');
+    });
+
+    // モーダル隠す
+    $('.body_modal').on('click','.close_button',function(){
+      $('.body_modal').css('display', 'none');
+      $('.overlay').css('display', 'none');
+      $('html').removeClass('modal_open');
+      var target = $(this).attr('value');
+      $(target).addClass('hide');
+    });
+
   // 記事削除ボタン押したときのモーダル作成
   $(".delete_btn").on('click',function(){
     var delete_path = location.pathname + '/' + $(this).attr('id');
@@ -23,7 +41,5 @@ document.addEventListener('turbolinks:load', function() {
       alert('通信に失敗しました');
     })
   })
-
-  $("")
 
 })

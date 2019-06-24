@@ -3,22 +3,7 @@ document.addEventListener('turbolinks:load', function() {
 
   $(function(){
 
-    // モーダルを出す、隠す
-    $('body').on('click','.show_modal',function(){
-      $('.body_modal').css('display', 'block');
-      $('.overlay').css('display', 'block');
-      $('html').addClass('modal_open');
-      var target = $(this).attr('value');
-      $(target).removeClass('hide');
-    });
 
-    $('.body_modal').on('click','.close_button',function(){
-      $('.body_modal').css('display', 'none');
-      $('.overlay').css('display', 'none');
-      $('html').removeClass('modal_open');
-      var target = $(this).attr('value');
-      $(target).addClass('hide');
-    });
 
     // アバター画像のプレビューを表示させる
     $('.avatar_image_edit').change(function(){

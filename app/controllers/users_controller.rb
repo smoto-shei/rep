@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_user_info, except: [:create, :index]
-  before_action :set_gon_month, except: :create    #turbolinks で読み込まれるためアクション前にセット
-  before_action :set_gon_user_id, except: :create  #turbolinks で読み込まれるためアクション前にセット
 
   # ユーザー検索画面
   def index
@@ -19,8 +16,12 @@ class UsersController < ApplicationController
 
   # カレンダーページ（マイページ）
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:user_body, :follows, :followers).find(params[:id])
     @userbody = @user.user_body
+    @follows = @user.follows.page(params[:page]).per(5)
+    @followers = @user.followers.page(params[:page]).per(5)
+
+
     @training_records = @user.training_records.includes(:menus)
     @training_record =  TrainingRecord.new
     @training_record.menus.build

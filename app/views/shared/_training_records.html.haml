@@ -1,10 +1,13 @@
 %li.list-unstyled
-  %span.remove_hidden_class ➕
-  %span.add_hidden_class.hidden ➖
+  %span.remove_hidden_class
+    %i.fas.fa-plus
+  %span.add_hidden_class.hidden
+    %i.fas.fa-minus
   = day_record.part
   = day_record.exercise
   - if @user.id == current_user.id
-    %span.ml-2.record_delete_btn{value: "#{day_record.id}"} ❌
+    %span.ml-2.record_delete_btn{value: "#{day_record.id}"}
+      %i.fas.fa-times-circle.cursor_pointer.cancel_btn
   %ul.hidden
     - day_record.menus.each do |menu|
       - if day_record.part == '有酸素'

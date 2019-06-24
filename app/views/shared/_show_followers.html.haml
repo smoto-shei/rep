@@ -1,20 +1,19 @@
-
-
-.follow_title
-  %hr
-  %p フォロワー
-  %hr
-- @followers.each do |person|
-
-  = link_to user_path(person.id) do
-    .user_searched
-      .avatar_searched
-        = image_tag "#{person.user_body.avatar.url}"
-      .user_detail_searched
-        .name #{person.nickname}
-        .body #{person.user_body.height}cm/#{person.user_body.weight}kg
-        .experience= "#{((Date.today.year - person.user_body.experience.year)*12 + Date.today.month - person.user_body.experience.month) / 12 + 1} 年目"
+.card
+  .follow_title
     %hr
-= link_to_next_page @followers, 'さらに表示', remote: true, class: 'btn btn-primary mb-3 block font-size-12', id: 'search_next'
-.action.m-5.row.justify-content-around
-  %i.fas.fa-3x.fa-times-circle.close_button.cursor_pointer.d-inline-flex.cancel_btn{value: '#show_followers'}
+    %p フォロワー
+    %hr
+  - @followers.each do |person|
+
+    = link_to user_path(person.id), class: 'close_button' do
+      .user_searched
+        .avatar_searched
+          = image_tag "#{person.user_body.avatar.url}"
+        .user_detail_searched
+          .name #{person.nickname}
+          .body #{person.user_body.height}cm/#{person.user_body.weight}kg
+          .experience= "#{((Date.today.year - person.user_body.experience.year)*12 + Date.today.month - person.user_body.experience.month) / 12 + 1} 年目"
+      %hr
+  = link_to_next_page @followers, 'さらに表示', remote: true, class: 'btn btn-primary mb-3 block font-size-12', id: 'search_next'
+  .action.m-5.row.justify-content-around
+    %i.fas.fa-3x.fa-times-circle.close_button.cursor_pointer.d-inline-flex.cancel_btn{value: '#show_followers'}

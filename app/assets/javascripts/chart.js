@@ -3,38 +3,45 @@ document.addEventListener('turbolinks:load', function() {
 
 // ----------------------一回目のグラフ作成-----------------------------
 
-  if (document.getElementById("myChart") != null){
+  if (document.getElementById("myChart") !== null){
+
     var ctx = $("#myChart");
     load_chart = new Chart(ctx);
-    console.log(gon.user_id)
 
-    var url = `/users/${gon.user_id}/training_records/draw_graph`
+    var user_id = location.pathname.split('/')[2];
     var part = 'Total';
     var unit = $('input[name="unit"]').val();
+    var url = `/users/${user_id}/training_records/draw_graph`
 
     $.ajax({
       type: 'get',
       url: url,
       data: {
         part: part,
-        unit: unit
+        unit: unit,
+        user_id: user_id
       },
       datatype: 'json'
     })
     .done(function(data){
-        draw_graph(data);
-        data_label();
-      })
-    .fail(function(){
-        alert('通信に失敗しました')
+      console.log(data)
+      draw_graph(data);
+      data_label();
     })
+    .fail(function(){
+      alert('通信に失敗しました')
+    })
+
   }
 
-// ---------------------二度目以降のチャート描写------------------------
+
+
+      // ---------------------二度目以降のチャート描写------------------------
   $(function(){
     //  $('.graph').on('click',function(){ これだとcheckedを二度押さないと効かない
     $('.chart_btn').change(function(){
-      var url = `/users/${gon.user_id}/training_records/draw_graph`
+      var user_id = location.pathname.split('/')[2];
+      var url = `/users/${user_id}/training_records/draw_graph`
       var part = $("[name=check_part]:checked").val(); // タブルクォテーションじゃないとエラーになる.
       var unit = $('input[name="unit"]:checked').val();
 
@@ -63,10 +70,12 @@ document.addEventListener('turbolinks:load', function() {
 // --------------------グラフの描画--------------------------
 function draw_graph(data){
   var ctx = $("#myChart");
+
+
   load_chart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: gon.label, // x軸のラベル
+      labels: data.x_label, // x軸のラベル
       datasets: [{
         label: data.part,
         data: data.data,

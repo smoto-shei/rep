@@ -2,8 +2,8 @@
 .body_modal
   .body_modal__inner
     -# 編集ボタン
-    #edit_body.hide
-      - unless @userbody == nil
+    - unless @userbody == nil
+      #edit_body.hide
         = render partial: "shared/user_body_edit"
 
     -# 投稿削除ボタン
@@ -15,8 +15,8 @@
 
     -# フォロー表示ボタン
     - unless @follows == nil || @followers == nil
-      #show_follows.hide.card
+      #show_follows.hide
         = render partial: "shared/show_follows"
       -# フォロワー表示ボタン
-      #show_followers.hide.card
+      #show_followers.hide
         = render partial: "shared/show_followers"

@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  before_action :set_user
+  # before_action :set_user
 
   # フォロー
   def create
