@@ -1,6 +1,38 @@
 // Place all the styles related to the toppages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//ナビゲーションバー -------------------------------------------
+.navbar{
+  height: 60px;
+}
+.navbar-brand_top{
+  padding-bottom: 20px;
+}
+.navbar-expand{
+  padding-bottom: 20px;
+}
+
+.policy{
+  display: inline-block;
+  margin: auto;
+  padding-left: 0;
+}
+.inline-block{
+  display: inline-block;
+}
+.below_tab{
+  margin-top: 1.5px;
+}
+.block{
+  display: block;
+}
+.suzuki{
+  margin-top: 20px;
+}
+//-------------------------------------------------------------
+
+//トップページ---------------------------------------------------
 .toppage{
   width: 100vw;
   img{
@@ -11,15 +43,17 @@
   background-color: rgb(245, 248, 250);
 }
 .about_service{
-  font-size: 25px;
+  font-size: 20px;
   font-style: italic;
 }
 .about_service_text{
-  font-size: 15px;
-  margin: 0px 0px 40px 0px;
-
+  font-size: 14px;
+  margin: 0px 0px 20px 0px;
 }
-.colum_picture,.colum_introduction,.training_calender,.training_calender_picture{
+.introduction{
+  margin: 0px 70px 20px 70px;
+}
+.colum_picture,.colum_introduction,.training_calender,.training_calender_picture,.twitter_picture,.twitter_introduction{
   float: left;
   border-color: yellow;
   width: 50%;
@@ -32,70 +66,103 @@
 .colum_introduction{
   display: inline-block;      /* インラインブロック要素にする */
   margin: 10px 0px 0px 0px;
-  height: 400px;
+  height: 250px;
   background-color: white;
   .message{
-    margin: 50px 0px 0px 0px;
-    font-size: 30px;
-    font-style: italic;
-  }
-  .sub_message{
     margin: 20px 0px 0px 0px;
     font-size: 20px;
     font-style: italic;
   }
+  .sub_message{
+    margin: 10px 0px 0px 0px;
+    font-size: 18px;
+    font-style: italic;
+  }
   .message_text{
-    margin: 40px 0px 40px 0px;
-    font-size: 15px;
+    margin: 20px 0px 20px 0px;
+    font-size: 13px;
     font-style: italic;
   }
   .btn.btn-primary.learn_button1{
     background-color: black;
     border-color: black;
-    height: 40px;
+    height: 35px;
     margin: 0px 0px 0px 0px;
+    font-size: 14px;
   }
 }
 .training_calender{
   display: inline-block;      /* インラインブロック要素にする */
   margin: 0px 0px 0px 0px;
-  height: 400px;
+  height: 250px;
   background-color: white;
   .message{
-    margin: 50px 0px 0px 0px;
-    font-size: 30px;
-    font-style: italic;
-  }
-  .sub_message{
     margin: 20px 0px 0px 0px;
     font-size: 20px;
     font-style: italic;
   }
+  .sub_message{
+    margin: 10px 0px 0px 0px;
+    font-size: 18px;
+    font-style: italic;
+  }
   .message_text{
-    margin: 40px 0px 40px 0px;
-    font-size: 15px;
+    margin: 20px 0px 20px 0px;
+    font-size: 13px;
     font-style: italic;
   }
   .btn.btn-primary.learn_button2{
     background-color: black;
     border-color: black;
-    height: 40px;
+    height: 35px;
     margin: 0px 0px 0px 0px;
+    font-size: 14px;
   }
 }
 .training_calender_picture{
   display: inline-block;      /* インラインブロック要素にする */
   background-color: white;
+  img{
+    max-width: 100%;
+  }
+}
+.twitter_picture{
+  display: inline-block;      /* インラインブロック要素にする */
+  background-color: white;
+  margin-bottom: 40px;
+  img{
+    max-width: 100%;
+  }
+}
+.twitter_introduction{
+  display: inline-block;      /* インラインブロック要素にする */
+  margin: 0px 0px 40px 0px;
+  height: 250px;
+  background-color: white;
+  .message{
+    margin: 20px 0px 0px 0px;
+    font-size: 20px;
+    font-style: italic;
+  }
+  .sub_message{
+    margin: 10px 0px 0px 0px;
+    font-size: 18px;
+    font-style: italic;
+  }
+  .message_text{
+    margin: 20px 0px 20px 0px;
+    font-size: 13px;
+    font-style: italic;
+  }
+  .btn.btn-primary.learn_button2{
+    background-color: black;
+    border-color: black;
+    height: 35px;
+    margin: 0px 0px 0px 0px;
+    font-size: 14px;
+  }
 }
 
-
-.policy{
-  display: inline-block;
-  margin: auto;
-}
-.inline-block{
-  display: inline-block;
-}
 
 .below_tab{
   margin-top: 1.5px;
@@ -109,3 +176,4 @@
 .width-100{
   width: 100%;
 }
+

@@ -259,3 +259,13 @@ $part_font_size: 14px;
   font-size: $part_font_size;
 }
 
+//ユーザーカード
+.userinfo_link{
+  color: #007bff;
+  font-style: italic;
+}
+.userinfo_link_list{
+  list-style: none;
+  padding: 0px 10px 0px 10px ;
+  margin-top: 15px;
+}
