@@ -1,36 +1,54 @@
 
 .row.no-gutters
   .headline.justify-content-center
-    .title-head.text-center.my-5
+    .title-head.text-center.my-4
       .about_service
         %p About Our Service
         .about_service_text
-          M-Repはトレーニングを愛する全ての人のライフスタイルを総合的にサポートするメディアです。<br>
+          Repはトレーニングを愛する全ての人のライフスタイルを総合的にサポートするメディアです。<br>
           男性でも女性でも、初心者でも上級者でもお楽しみ頂けるコンテンツをお届け致します。
-
-        .colum_picture
-          = image_tag "/assets/toppage_beginners" ,size: "640x400"
-        .colum_introduction
-          .message.justify-content-center
-            %p For  Every  Beginners
-          .sub_message.justify-content-center
-            %p 〜 Let's get started from here 〜
-          .message_text.justify-content-center
-            %p
+        .introduction
+          .colum_picture
+            = image_tag "/assets/toppage_beginners" ,size: "640x250"
+          .colum_introduction
+            .message.justify-content-center
+              %p For  Every  Beginners
+            .sub_message.justify-content-center
+              %p 〜 Let's get started from here 〜
+            .message_text.justify-content-center
+              %p
               トレーニング・食事・サプリメント等、必要な情報は全てここから<br>
               初心者の方でも分かりやすいコラムを掲載！
-          .btn.btn-primary.learn_button1.justify-content-center
-            %p Learn More
-        .training_calender
-          .message.justify-content-center
-            %p For  Every  Trainees
-          .sub_message.justify-content-center
-            %p 〜 Fit Yourself 〜
-          .message_text.justify-content-center
-            %p
+            = link_to toppage_column_path do
+              .btn.btn-primary.learn_button1.justify-content-center
+                %p Learn More
+          .training_calender
+            .message.justify-content-center
+              %p For  Every  Trainees
+            .sub_message.justify-content-center
+              %p 〜 Fit Yourself 〜
+            .message_text.justify-content-center
+              %p
               日々のトレーニング内容の記録とデータ分析であなたのトレーニングを管理<br>
               アプリとの連携でより便利に
-          .btn.btn-primary.learn_button2
-            %p Learn More
-        .training_calender_picture
-          = image_tag "/assets/karate-1343889__480" ,size: "640x400"
+
+            .btn.btn-primary.learn_button2
+              %p Learn More
+          .training_calender_picture
+            = image_tag "/assets/karate-1343889__480" ,size: "640x250"
+          .twitter_picture
+            = image_tag "/assets/network" ,size: "640x250"
+          .twitter_introduction
+            .message.justify-content-center
+              %p For  Every  Users
+            .sub_message.justify-content-center
+              %p 〜 Follow Users 〜
+            .message_text.justify-content-center
+              %p
+              フォロー、フォロワー機能で<br>
+              お気に入りのユーザー情報をチェック！
+            = link_to users_path do
+              .btn.btn-primary.learn_button2
+                %p Learn More
+            
+

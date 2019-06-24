@@ -1,5 +1,9 @@
 .overlay
 .body_modal
   .body_modal__inner
-    - unless @userbody == nil
-      = render partial: "shared/user_body_edit"
+    #edit_body.hide
+      - unless @userbody == nil
+        = render partial: "shared/user_body_edit"
+    #delete_image.hide
+      = render partial: "shared/delete_image"
+    #html_to_modal_box.card.hide

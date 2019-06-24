@@ -6,7 +6,7 @@ class ImagesController < ApplicationController
   # 筋肉画像のページ
   def index
     @user = User.find(params[:user_id])
-    @images = Image.where(user_id: params[:user_id])
+    @images = Image.where(user_id: params[:user_id]).order(created_at: :desc).page(params[:page]).per(5)
     @image = Image.new
   end
 
@@ -17,20 +17,28 @@ class ImagesController < ApplicationController
   end
 
   def edit
-    @image = Image.find(1)
+    @image = Image.find(params[:id])
+    html = render partial: "shared/edit_comment", locals: { image: @image }
   end
 
   def update
-    index = params[:index].strip.split(',').map(&:to_i)
-    @image = Image.find(1)
-    remove_image_at_index(index)
-    @image.save
+    @image = Image.find(params[:id])
+    @image.update(image_params)
+    redirect_back(fallback_location: root_path)
+    # index = params[:index].strip.split(',').map(&:to_i)
+    # @image = Image.find(1)
+    # remove_image_at_index(index)
+    # @image.save
   end
 
   def destroy
-    @image = Image.find(params[:user_id])
-    remove_image_at_index(params[:id].to_i)
-    flash[:error] = "Failed deleting image" unless @image.save
+    @image = Image.find(params[:id])
+    if current_user.id == @image.user_id
+      @image.destroy
+    end
+    
+    # remove_image_at_index(params[:id].to_i)
+    # flash[:error] = "Failed deleting image" unless @image.save
     redirect_back(fallback_location: root_path)
   end
 

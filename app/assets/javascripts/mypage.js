@@ -4,18 +4,20 @@ document.addEventListener('turbolinks:load', function() {
   $(function(){
 
     // モーダルを出す、隠す
-    $('#edit_body, #follow_now_btn, #for_follow_btn').on('click',function(){
-      console.log(this)
+    $('body').on('click','.show_modal',function(){
       $('.body_modal').css('display', 'block');
       $('.overlay').css('display', 'block');
       $('html').addClass('modal_open');
-      $.ajax
+      var target = $(this).attr('value');
+      $(target).removeClass('hide');
     });
 
-    $('.close_button').on('click',function(){
+    $('.body_modal').on('click','.close_button',function(){
       $('.body_modal').css('display', 'none');
       $('.overlay').css('display', 'none');
       $('html').removeClass('modal_open');
+      var target = $(this).attr('value');
+      $(target).addClass('hide');
     });
 
     // アバター画像のプレビューを表示させる
