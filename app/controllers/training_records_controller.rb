@@ -1,7 +1,7 @@
 class TrainingRecordsController < ApplicationController
   before_action :set_user_info, except: [:create, :index]
   before_action :set_gon_month, except: :create    #turbolinks で読み込まれるためアクション前にセット
-  before_action :set_gon_user_id, except: :create  #turbolinks で読み込まれるためアクション前にセット
+  # before_action :set_gon_user_id, except: :create  #turbolinks で読み込まれるためアクション前にセット
 
 
 
@@ -13,11 +13,12 @@ class TrainingRecordsController < ApplicationController
       @followers = @user.followers.page(params[:page]).per(5)
     end
 
-    # Analysisページ グラフ描写
+    # Analysisページ グラフ描写。
     def draw_graph
       @part, @unit = graph_radio_btn_params[:part], graph_radio_btn_params[:unit]
+      @user = User.find(params[:user_id])
       @training_records = TrainingRecord.bring_training_data(@user,@part)
-      gon.user_id = params[:user_id]
+
       if @unit == 'month'
         @x_label = set_gon_month
         @data = TrainingRecord.make_data_for_month(@training_records)
@@ -25,6 +26,7 @@ class TrainingRecordsController < ApplicationController
         @x_label = set_week
         @data = TrainingRecord.make_data_for_week(@training_records)
       end
+
       respond_to do |format|
         format.json
         format.html { redirect_to user_training_records_path }

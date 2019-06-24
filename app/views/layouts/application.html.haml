@@ -39,7 +39,7 @@
               %i.far.fa-lg.fa-calendar-alt
 
           -# 分析
-          %li.nav-item.nav-link
+          %li.nav-item.nav-link.chart_link_nav{value: "#{current_user.id}"}
             = link_to user_training_records_path(current_user.id), class: 'text-white mr-4' do
               %i.fas.fa-lg.fa-chart-line
 

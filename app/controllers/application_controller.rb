@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     @user = User.includes(:user_body).find(current_user.id)
     @userbody = @user.user_body
     # params[:user_id]があればuser_id, なければparams[:id]
-    @user_id ||= params[:user_id] ||= params[:id] ||= current_user.id
+    # @user_id ||= params[:user_id] ||= params[:id] ||= current_user.id
     unless @user_id == nil
       @follows = User.find(@user_id).follows.page(params[:page]).per(5)
       @followers = User.find(@user_id).followers.page(params[:page]).per(5)
@@ -22,9 +22,9 @@ class ApplicationController < ActionController::Base
 
 
   # chart.js に渡す user_id をセット
-  def set_gon_user_id
-    gon.user_id = current_user.id
-  end
+  # def set_gon_user_id
+  #   gon.user_id = current_user.id
+  # end
 
   # chart.js に渡す x軸 をセット
   def set_gon_month

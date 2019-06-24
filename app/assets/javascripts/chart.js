@@ -4,37 +4,44 @@ document.addEventListener('turbolinks:load', function() {
 // ----------------------一回目のグラフ作成-----------------------------
 
   if (document.getElementById("myChart") != null){
-    var ctx = $("#myChart");
-    load_chart = new Chart(ctx);
-    console.log(gon.user_id)
+    $('.chart_link_nav, .chart_link_info').on('click',function(){
 
-    var url = `/users/${gon.user_id}/training_records/draw_graph`
-    var part = 'Total';
-    var unit = $('input[name="unit"]').val();
+      var ctx = $("#myChart");
+      load_chart = new Chart(ctx);
+      var user_id = $(this).attr('value')
+      var url = `/users/${user_id}/training_records/draw_graph`
 
-    $.ajax({
-      type: 'get',
-      url: url,
-      data: {
-        part: part,
-        unit: unit
-      },
-      datatype: 'json'
-    })
-    .done(function(data){
+      console.log(user_id)
+      var part = 'Total';
+      var unit = $('input[name="unit"]').val();
+
+      $.ajax({
+        type: 'get',
+        url: url,
+        data: {
+          part: part,
+          unit: unit,
+          user_id: user_id
+        },
+        datatype: 'json'
+      })
+      .done(function(data){
+        console.log(data)
         draw_graph(data);
         data_label();
       })
-    .fail(function(){
+      .fail(function(){
         alert('通信に失敗しました')
-    })
+      })
+  })
   }
 
 // ---------------------二度目以降のチャート描写------------------------
   $(function(){
     //  $('.graph').on('click',function(){ これだとcheckedを二度押さないと効かない
     $('.chart_btn').change(function(){
-      var url = `/users/${gon.user_id}/training_records/draw_graph`
+      var user_id = $(this).attr('value')
+      var url = `/users/${user_id}/training_records/draw_graph`
       var part = $("[name=check_part]:checked").val(); // タブルクォテーションじゃないとエラーになる.
       var unit = $('input[name="unit"]:checked').val();
 
@@ -63,6 +70,7 @@ document.addEventListener('turbolinks:load', function() {
 // --------------------グラフの描画--------------------------
 function draw_graph(data){
   var ctx = $("#myChart");
+
   load_chart = new Chart(ctx, {
     type: 'bar',
     data: {

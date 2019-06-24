@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user_info, except: [:create, :index]
   before_action :set_gon_month, except: :create    #turbolinks で読み込まれるためアクション前にセット
-  before_action :set_gon_user_id, except: :create  #turbolinks で読み込まれるためアクション前にセット
+  # before_action :set_gon_user_id, except: :create  #turbolinks で読み込まれるためアクション前にセット
 
   # ユーザー検索画面
   def index
