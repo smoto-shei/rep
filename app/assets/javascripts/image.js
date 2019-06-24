@@ -3,7 +3,7 @@ document.addEventListener('turbolinks:load', function() {
   send_file_obj = {}
   var stock_index = []
   var delete_image_index = []
-  change_drop_box_size();
+  // change_drop_box_size();
 
   // プレビューの表示、送信ファイル作成
   function make_preview(send_img_cnt,filelist){
@@ -81,7 +81,6 @@ document.addEventListener('turbolinks:load', function() {
     delete_image_index.push($(this).attr('value'))
     preview_box.remove();
     change_drop_box_size();
-    console.log(delete_image_index)
   })
 
 
@@ -123,11 +122,8 @@ document.addEventListener('turbolinks:load', function() {
     $.each(send_file_obj,function(index,file){
       formdata.append('image[user_image][]',file)
     })
-    console.log(formdata)
     var url = $('#image-create').attr("action")
     var type = $('#image-create').attr("method")
-    console.log(url)
-    console.log(type)
     if ( $(this).attr("id") === "image-edit" ){
       formdata.append('index',delete_image_index)
     }
@@ -138,7 +134,36 @@ document.addEventListener('turbolinks:load', function() {
       dataType: 'json',
       processData: false,
       contentType: false
+    }).done(function(){
+      location.href = location.href;
+    }).fail(function(){
+      alert("通信に失敗しました");
     })
+  })
+
+  // 記事削除ボタン押下時のモーダル作成
+  $(".delete-btn").on('click',function(){
+    var delete_path = location.pathname + '/' + $(this).attr('id');
+    $('#delete-submit').attr('href',delete_path)
+  })
+
+  // 記事コメント編集ボタン押下時のモーダル作成
+  $("#user_images_box").on('click','.edit-comment',function(){
+    var image_id = $(this).attr('id');
+    var url = location.pathname + '/' + image_id + '/edit';
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: {id: image_id},
+      dataType: 'html',
+      processData: false,
+      contentType: false
+    }).done(function(html){
+      $('#html_to_modal_box').html(html);
+    }).fail(function(){
+      alert('通信に失敗しました');
+    })
+
   })
 
 })
