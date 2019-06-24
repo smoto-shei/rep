@@ -33,7 +33,7 @@ class User < ApplicationRecord
     relationship.destroy if relationship
   end
 
-  # フォロー済みかどうかを調べる
+  # フォロー済みかどうかを調べる true || false
   def following?(searched_user)
     self.follows.include?(searched_user) #follows はフォローをしているuser
   end

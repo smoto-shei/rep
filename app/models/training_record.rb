@@ -13,6 +13,19 @@ class TrainingRecord < ApplicationRecord
     end
   end
 
+
+  def self.set_month
+    mon_array = [0,1,2,3,4,5,6,7,8,9,10,11,12,1,2,3,4,5]
+    start = (Date.today - 5.month).month                    # スタートは 今月の５ヶ月前
+    label = mon_array[start,6].map {|a| a.to_s + '月'}
+    label
+  end
+
+  def self.set_week
+    label = ['５週間前','４週間前','３週間前','２週間前','先週','今週']
+    label
+  end
+
   def self.make_data_for_month(records) # 半月分の総負荷量算出
     return [0,0,0,0,0,0] if records.length == 0
     # --------------------------- バケット作成 例:今月が６月の場合 => {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}

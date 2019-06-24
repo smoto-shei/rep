@@ -1,7 +1,4 @@
 class TrainingRecordsController < ApplicationController
-  before_action :set_user_info, except: [:create, :index]
-  before_action :set_gon_month, except: :create    #turbolinks で読み込まれるためアクション前にセット
-  # before_action :set_gon_user_id, except: :create  #turbolinks で読み込まれるためアクション前にセット
 
 
 
@@ -15,17 +12,17 @@ class TrainingRecordsController < ApplicationController
 
     # Analysisページ グラフ描写。
     def draw_graph
-      @part, @unit = graph_radio_btn_params[:part], graph_radio_btn_params[:unit]
-      @user = User.find(params[:user_id])
+      @user, @part, @unit = User.find(graph_params[:user_id]), graph_params[:part], graph_params[:unit]
       @training_records = TrainingRecord.bring_training_data(@user,@part)
 
       if @unit == 'month'
-        @x_label = set_gon_month
+        @x_label = TrainingRecord.set_month
         @data = TrainingRecord.make_data_for_month(@training_records)
       else
-        @x_label = set_week
+        @x_label = TrainingRecord.set_week
         @data = TrainingRecord.make_data_for_week(@training_records)
       end
+
 
       respond_to do |format|
         format.json
@@ -63,14 +60,8 @@ class TrainingRecordsController < ApplicationController
   end
 
   # グラフページのラジオボタンの checked のパラメータ
-  def graph_radio_btn_params
-    params.permit(:part,:unit)
-  end
-
-  # グラフのx軸を週にセット
-  def set_week
-    gon.label = ['５週間前','４週間前','３週間前','２週間前','先週','今週']
-    gon.label
+  def graph_params
+    params.permit(:part, :unit, :user_id)
   end
 
 end
