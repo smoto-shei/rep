@@ -142,7 +142,7 @@ document.addEventListener('turbolinks:load', function() {
   })
 
   // 記事削除ボタン押下時のモーダル作成
-  $(".delete-btn").on('click',function(){
+  $(".delete_btn").on('click',function(){
     var delete_path = location.pathname + '/' + $(this).attr('id');
     $('#delete-submit').attr('href',delete_path)
   })
