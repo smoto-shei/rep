@@ -1,9 +1,22 @@
 .overlay
 .body_modal
   .body_modal__inner
+    -# 編集ボタン
     #edit_body.hide
       - unless @userbody == nil
         = render partial: "shared/user_body_edit"
+
+    -# 投稿削除ボタン
     #delete_image.hide
       = render partial: "shared/delete_image"
+
+    -# 投稿コメント編集ボタン
     #html_to_modal_box.card.hide
+
+    -# フォロー表示ボタン
+    - unless @follows == nil || @followers == nil
+      #show_follows.hide.card
+        = render partial: "shared/show_follows"
+      -# フォロワー表示ボタン
+      #show_followers.hide.card
+        = render partial: "shared/show_followers"

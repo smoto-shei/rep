@@ -3,7 +3,6 @@
   .col-2.sidebar.my-0.ml-0.justify-content-center
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
-  -# ここから自由に描いてください
   .col-9
     .com Photo
     %hr
@@ -22,6 +21,8 @@
           = image.text_area :comment, rows: 5, class: 'form_control w-100'
           = image.submit '自慢の筋肉画像を投稿する', class: 'btn btn-primary w-100', id: 'image-submit'
       %hr
+
+    -# 一単位の投稿
     #user_images_box
       = render partial: "shared/user_images"
   .col-2
