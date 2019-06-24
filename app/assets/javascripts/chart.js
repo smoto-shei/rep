@@ -6,6 +6,7 @@ document.addEventListener('turbolinks:load', function() {
   if (document.getElementById("myChart") != null){
     var ctx = $("#myChart");
     load_chart = new Chart(ctx);
+    console.log(gon.user_id)
 
     var url = `/users/${gon.user_id}/training_records/draw_graph`
     var part = 'Total';

@@ -18,21 +18,31 @@
           = image_tag "/assets/Rep_logo", size:"80x40"
       - if user_signed_in?
         %ul.navbar.navbar-nav.navbar-expand
+          -# 検索
           %li.nav-item.nav-link
             = link_to users_path, class: 'text-white mr-4' do
               %i.fas.fa-lg.fa-search
+
+          -# コラム
           %li.nav-item.nav-link
             = link_to toppage_column_path, class: 'text-white mr-4' do
               %i.fas.fa-lg.fas.fa-book-open
+
+          -# 写真
           %li.nav-item.nav-link
             = link_to user_images_path(current_user.id), class: 'text-white mr-4' do
               %i.fas.fa-lg.fas.fa-camera
+
+          -# カレンダー
           %li.nav-item.nav-link
             = link_to user_path(current_user.id), class: 'text-white mr-4' do
               %i.far.fa-lg.fa-calendar-alt
+
+          -# 分析
           %li.nav-item.nav-link
             = link_to user_training_records_path(current_user.id), class: 'text-white mr-4' do
               %i.fas.fa-lg.fa-chart-line
+
           %li.nav-item.nav-link
             = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-1 10px btn btn-danger' do
               Log Out

@@ -6,28 +6,27 @@
     %p
       = user.nickname
     .follow_follower
-      .follow.inline-block
-        = link_to '#' do
-          .follow__number
-            = "#{@user.follows.length}"
-          .follow__string
-            = " フォロー"
-      .follow.inline-block.ml-2
-        = link_to '#' do
-          .follow__number
-            = "#{@user.followers.length}"
-          .follow__string
-            = " フォロワー"
+      -# ここのvalueは表示するモーダルのid.モーダルの中でidが#show_follwsであるもののhideを取る。
+      .show_modal.follow.inline-block.cursor_pointer{value:'#show_follows'}
+        .follow__number
+          = "#{@user.follows.length}"
+        .follow__string
+          = " フォロー"
+      .show_modal.follow.inline-block.ml-2.cursor_pointer{value:'#show_followers'}
+        .follow__number
+          = "#{@user.followers.length}"
+        .follow__string
+          = " フォロワー"
     <hr>
     %ul.row.justify-content-around.userinfo_link_list
       %li
-        = link_to user_images_path(current_user.id), class: 'text-blue mr-4' do
+        = link_to user_images_path(@user.id), class: 'text-blue mr-4' do
           %i.fas.fa-lg.fas.fa-camera
       %li
-        = link_to user_path(current_user.id), class: 'text-blue mr-4' do
+        = link_to user_path(@user.id), class: 'text-blue mr-4' do
           %i.far.fa-lg.fa-calendar-alt
       %li
-        = link_to user_training_records_path(current_user.id), class: 'text-blue mr-4' do
+        = link_to user_training_records_path(@user.id), class: 'text-blue mr-4' do
           %i.fas.fa-lg.fa-chart-line
     <hr>
 
@@ -71,7 +70,7 @@
         %p.ml-2
           = "#{((Date.today.year - userbody.experience.year)*12 + Date.today.month - userbody.experience.month) / 12 + 1} 年目"
     <hr>
-    
+
     -# .mt-1.userinfo_link
     -#   = link_to user_images_path(@user.id), class: 'unti userinfo_link' do
     -#     .userbody_title #Photo
@@ -80,5 +79,4 @@
     -#     .userbody_title #Calender
     -# .mt-1.userinfo_link
     -#   = link_to user_training_records_path(current_user.id), class: 'unti userinfo_link' do
-    -#     .userbody_title #Analysis    
-  
+    -#     .userbody_title #Analysis

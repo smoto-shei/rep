@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user_info, except: [:create]
+  before_action :set_user_info, except: [:create, :index]
   before_action :set_gon_month, except: :create    #turbolinks で読み込まれるためアクション前にセット
   before_action :set_gon_user_id, except: :create  #turbolinks で読み込まれるためアクション前にセット
 
   # ユーザー検索画面
   def index
+    @user = User.includes(:user_body, :follows, :followers).find(current_user.id)
+    @userbody = @user.user_body
+    @follows = @user.follows.page(params[:page]).per(5)
+    @followers = @user.followers.page(params[:page]).per(5)
     if params[:q].present?
       gon.formdata = search_params
       @params = User.search_experience(search_params)

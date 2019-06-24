@@ -1,24 +1,63 @@
-# README
+##概要
+***
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ 筋トレを愛する人に送るSNSです。自分の筋トレの記録をしっかり管理することができることはもちろん、他の方々がどのような筋トレライフを送っているのかを見ることができます。初心者から上級者まで幅広く利用できるSNSとなっています。
+ 具体的には以下のようなことが可能です。
 
-Things you may want to cover:
+ - カレンダー機能による過去の筋トレ結果（トレーニング箇所、トレーニング内容）の管理
+ - カレンダー機能と連携したデータをグラフ化し、総負荷量をパーツ別、期間別（週、月）に分析。
+ - 自慢の筋肉画像の投稿。
+ - 他のユーザーの検索。
+ - コラムの閲覧。
+ - ユーザーフォロー機能
 
-* Ruby version
+初級者の方々には自分と似た体格のユーザーのトレーニングを参考することにより質を向上させるため、上級者の方々には自分がどの部位を鍛えたか、また今週、今月の総負荷量はどれくらいかを見るため、を想定しサイトを作成しました。ぜひご利用ください。
+（初めて利用する方々、ポートフォリオ閲覧する方々のためにテストユーザーとしてログインできるようになっています。）
 
-* System dependencies
+##仕様記述一覧
+***
+* デザイン
+  - Bootstrap
+  - haml
+  - jQuery
+  - font-awesome
 
-* Configuration
+* ユーザー管理機能
+  - Devise
 
-* Database creation
+* カレンダー(simple_calender)
+  - simple_calender
+  -
+* 画像アップロード
+  * carrier wave
 
-* Database initialization
+* ページネーション
+  * kaminari
 
-* How to run the test suite
+* ユーザー検索機能
+  - ransack
 
-* Services (job queues, cache servers, search engines, etc.)
+* テスト[単体・統合]
+  - RSpec
 
-* Deployment instructions
+* グラフ作成
+  - chart.js
 
-* ...
+* DB
+  Mysql
+
+* AWS
+  * EC2
+  * S3
+
+* デプロイ
+  * Capistrano
+
+* いいね機能
+  * Follow,follower
+
+##今後追加予定の機能
+***
+  - Omniauth
+  - circleCI
+  - docker

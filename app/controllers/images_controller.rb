@@ -1,11 +1,14 @@
 class ImagesController < ApplicationController
-  before_action :set_user_info, except: [:create]
+  before_action :set_user_info, except: [:create, :index]
   before_action :set_gon_user_id, except: :create
   before_action :set_gon_month, except: :create
 
   # 筋肉画像のページ
   def index
-    @user = User.find(params[:user_id])
+    @user = User.includes(:user_body, :follows, :followers).find(params[:user_id])
+    @userbody = @user.user_body
+    @follows = @user.follows.page(params[:page]).per(5)
+    @followers = @user.followers.page(params[:page]).per(5)
     @images = Image.where(user_id: params[:user_id]).order(created_at: :desc).page(params[:page]).per(5)
     @image = Image.new
   end
@@ -18,7 +21,7 @@ class ImagesController < ApplicationController
 
   def edit
     @image = Image.find(params[:id])
-    html = render partial: "shared/edit_comment", locals: { image: @image }
+    render partial: "shared/edit_comment", locals: { image: @image }
   end
 
   def update
@@ -36,7 +39,7 @@ class ImagesController < ApplicationController
     if current_user.id == @image.user_id
       @image.destroy
     end
-    
+
     # remove_image_at_index(params[:id].to_i)
     # flash[:error] = "Failed deleting image" unless @image.save
     redirect_back(fallback_location: root_path)
