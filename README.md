@@ -27,7 +27,7 @@
 
 * カレンダー(simple_calender)
   - simple_calender
-  -
+
 * 画像アップロード
   * carrier wave
 
@@ -44,17 +44,10 @@
   - chart.js
 
 * DB
-  Mysql
-
-* AWS
-  * EC2
-  * S3
-
-* デプロイ
-  * Capistrano
+  - Mysql
 
 * いいね機能
-  * Follow,follower
+  -  Follow,follower
 
 ## 今後追加予定の機能
 ***
