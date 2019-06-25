@@ -31,3 +31,16 @@ a:hover {
 .cancel_btn, .delete_btn{
   color: #ea352d;
 }
+
+.cursor_pointer{
+  cursor: pointer;
+}
+.sidebar{
+  border-right: solid rgb(245, 248, 250);
+  background-color: rgb(245, 248, 250);
+  min-height: 90vh;
+  // padding: 10px 20px 0px 20px;
+}
+.margin_auto{
+  margin: auto;
+}

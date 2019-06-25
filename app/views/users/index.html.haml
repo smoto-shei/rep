@@ -1,41 +1,41 @@
 
 .row.no-gutters
-  .col-2.sidebar-my-0.ml-0.justify-content-center.px-2
+  .col-2.sidebar.justify-content-center.px-2
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
-  .col-7.uniti
+  .col-7.search_box
     .kensaku
-      %p.margin ユーザーを検索
-      %hr
+      %p.margin ユーザー検索
+      
       = search_form_for @search, id: "user_search_form", url: users_path do |f|
-        .kensaku_form_group
-          .kensaku_form
+        .kensaku_form_group.card
+          .kensaku_form.inline-block
             = f.label :nickname_start, 'ニックネーム: '
             = f.search_field :nickname_start
-          .kensaku_height
+          .kensaku_height.inline-block
             = f.label :user_body_height_gteq do
               身長:
-            = f.search_field :user_body_height_gteq, class: 'huga'
-            = f.label :user_body_height_lteq do
+            = f.search_field :user_body_height_gteq, class: 'input_box'
+            = f.label :user_body_height_lteq, class: '' do
               〜
-            = f.search_field :user_body_height_lteq, class: 'huga'
-          .kensaku_weight
+            = f.search_field :user_body_height_lteq, class: 'input_box'
+          .kensaku_weight.inline-block
             = f.label :user_body_weight_gteq do
               体重:
-            = f.search_field :user_body_weight_gteq, class: 'huga'
+            = f.search_field :user_body_weight_gteq, class: 'input_box'
             = f.label :user_body_weight_lteq do
               〜
-            = f.search_field :user_body_weight_lteq, class: 'huga'
-          .kensaku_experience
+            = f.search_field :user_body_weight_lteq, class: 'input_box'
+          .kensaku_experience.inline-block
             = f.label :user_body_experience_lteq do
               トレーニング歴:
-            = f.search_field :user_body_experience_lteq, class: 'huga'
+            = f.search_field :user_body_experience_lteq, class: 'input_box'
             = f.label :user_body_experience_gteq do
               年目 〜
-            = f.search_field :user_body_experience_gteq, class: 'huga'
+            = f.search_field :user_body_experience_gteq, class: 'input_box'
             .inline-block 年目
-        = f.submit class: 'btn btn-primary search_btn' do
-          検索
+          = button_tag type: 'submit' , class: 'margin_auto mb-3' do
+            %i.fas.fa-sm.fa-search.cursor_pointer.d-inline-flex.btn.btn-primary
       %hr
 
     #seaech_result
