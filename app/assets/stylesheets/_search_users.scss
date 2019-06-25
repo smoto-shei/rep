@@ -1,48 +1,44 @@
 //ユーザー検索
-.uniti{
+.search_box{
     background-color: rgb(245, 248, 250);
     text-align:center;
     background-color: white;
 }
-.sidebar{
-    min-height: 90vh;
-}
+
 .margin{
     margin-top: 20px;
 }
 .kensaku{
-    font-size: 18px;
+    font-size: 14px;
     background-color: white;
-    margin: 0px auto 10px auto;
+    margin: 0px auto 0px auto;
 }
 .kensaku_form_group{
     text-align: left;
-    padding-left: 200px;
-    font-size: 16px;
+    font-size: 14px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: rgb(245, 248, 250);
 }
 .kensaku_form{
-    display: block;
     margin-bottom: 16px;
+    margin-top: 16px;
+    padding-left: 14px;
 }
 .kensaku_height{
     margin-bottom: 14px;
+    padding-left: 70px;
 }
 .kensaku_weight{
     margin-bottom: 14px;
+    padding-left: 70px;
 }
 .kensaku_experience{
     margin-bottom: 14px;
 }
-.label{
-    display: block;
-}
-.search_field{
-    display: block;
-}
-.hoge{
-    width: 200px;
-}
-.huga{
+.input_box{
     width: 60px;
     margin: 0px 0px 5px 5px;
 }
