@@ -18,7 +18,7 @@
           = "#{@user.followers.length}"
         .follow__string
           = " フォロワー"
-    <hr>
+    %hr
     %ul.row.justify-content-around.userinfo_link_list
       %li
         = link_to user_images_path(@user.id), class: 'text-blue mr-4' do
@@ -29,7 +29,7 @@
       %li
         = link_to user_training_records_path(@user.id), class: 'text-blue mr-4 chart_link_info' do
           %i.fas.fa-lg.fa-chart-line
-    <hr>
+    %hr
 
   .body
     .height
@@ -70,14 +70,5 @@
       - else
         %p.ml-2
           = "#{((Date.today.year - userbody.experience.year)*12 + Date.today.month - userbody.experience.month) / 12 + 1} 年目"
-    <hr>
+    %hr
 
-    -# .mt-1.userinfo_link
-    -#   = link_to user_images_path(@user.id), class: 'unti userinfo_link' do
-    -#     .userbody_title #Photo
-    -# .mt-1.userinfo_link
-    -#   = link_to user_path(current_user.id), class: 'unti userinfo_link' do
-    -#     .userbody_title #Calender
-    -# .mt-1.userinfo_link
-    -#   = link_to user_training_records_path(current_user.id), class: 'unti userinfo_link' do
-    -#     .userbody_title #Analysis
