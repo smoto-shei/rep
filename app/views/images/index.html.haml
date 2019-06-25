@@ -1,9 +1,9 @@
 -# 本文
 .row.no-gutters
-  .col-2.sidebar.my-0.ml-0.justify-content-center.px-2
+  .col-2.sidebar.justify-content-center.px-3.border_right.padding_top
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
-  .col-9
+  .col-9.padding_bothside
     .com Photo
     %hr
     - if @user.id == current_user.id
@@ -19,10 +19,10 @@
                     またはクリックしてアップロード
 
           = image.text_area :comment, rows: 5, class: 'form_control w-100'
-          = image.submit '自慢の筋肉画像を投稿する', class: 'btn btn-primary w-100', id: 'image-submit'
+          = image.submit '写真を投稿する', class: 'btn btn-primary w-30 ', id: 'image-submit'
       %hr
 
     -# 一単位の投稿
-    #user_images_box
+    #user_images_box.padding_bothside
       = render partial: "shared/user_images"
-  .col-2
+  .col-1

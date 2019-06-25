@@ -1,6 +1,6 @@
 
 .row.no-gutters
-  .col-2.sidebar.justify-content-center.px-2
+  .col-2.sidebar.justify-content-center.px-3.border_right.padding_top
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
   .col-7.search_box
@@ -9,24 +9,24 @@
 
       = search_form_for @search, id: "user_search_form", url: users_path do |f|
         .kensaku_form_group.card
-          .kensaku_form.inline-block
+          .kensaku_form.inline-block.margin_bottom_14
             = f.label :nickname_start, 'ニックネーム: '
             = f.search_field :nickname_start
-          .kensaku_height.inline-block
+          .kensaku_body.inline-block.margin_bottom_14
             = f.label :user_body_height_gteq do
               身長:
             = f.search_field :user_body_height_gteq, class: 'input_box'
             = f.label :user_body_height_lteq, class: '' do
               〜
             = f.search_field :user_body_height_lteq, class: 'input_box'
-          .kensaku_weight.inline-block
+          .kensaku_body.inline-block.margin_bottom_14
             = f.label :user_body_weight_gteq do
               体重:
             = f.search_field :user_body_weight_gteq, class: 'input_box'
             = f.label :user_body_weight_lteq do
               〜
             = f.search_field :user_body_weight_lteq, class: 'input_box'
-          .kensaku_experience.inline-block
+          .kensaku_experience.inline-block.margin_bottom_14
             = f.label :user_body_experience_lteq do
               トレーニング歴:
             = f.search_field :user_body_experience_lteq, class: 'input_box'
@@ -41,4 +41,4 @@
     #search_result
       = render partial: "shared/search_result"
 
-  .col-3.sidebar
+  .col-3.sidebar.border_left
