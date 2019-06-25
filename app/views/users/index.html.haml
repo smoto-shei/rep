@@ -6,7 +6,7 @@
   .col-7.search_box
     .kensaku
       %p.margin ユーザー検索
-      
+
       = search_form_for @search, id: "user_search_form", url: users_path do |f|
         .kensaku_form_group.card
           .kensaku_form.inline-block
@@ -38,7 +38,7 @@
             %i.fas.fa-sm.fa-search.cursor_pointer.d-inline-flex.btn.btn-primary
       %hr
 
-    #seaech_result
+    #search_result
       = render partial: "shared/search_result"
 
   .col-3.sidebar

@@ -269,3 +269,8 @@ $part_font_size: 14px;
   text-align: center;
   font-size: 20px;
 }
+.scroll {
+  overflow: auto;
+  scroll-snap-type: y;
+  height: 50vh;
+}

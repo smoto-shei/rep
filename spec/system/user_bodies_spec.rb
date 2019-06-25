@@ -12,6 +12,7 @@ describe 'ユーザーボディ', type: :system do
         visit new_user_session_path
         fill_in 'メールアドレス', with: 'test-5@com'
         fill_in 'パスワード', with: 'password'
+        binding.pry
         click_button 'ログイン'
       end
 
