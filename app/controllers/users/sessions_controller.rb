@@ -4,12 +4,17 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  def new
-    # @user = User.new
-  end
+  # def new
+  #   # @user = User.new
+  # end
 
   def create
-    redirect_to user_path(current_user.id)
+    if user_signed_in?
+      redirect_to user_path(current_user.id)
+    else
+      flash.now[:alert] = 'ログインに失敗しました'
+      render :new
+    end
   end
 
   # DELETE /resource/sign_out

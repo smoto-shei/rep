@@ -4,8 +4,8 @@ class ImagesController < ApplicationController
   def index
     @user = User.includes(:user_body, :follows, :followers).find(params[:user_id])
     @userbody = @user.user_body
-    @follows = @user.follows.page(params[:page]).per(5)
-    @followers = @user.followers.page(params[:page]).per(5)
+    @follows = @user.follows
+    @followers = @user.followers
     @images = Image.where(user_id: params[:user_id]).order(created_at: :desc).page(params[:page]).per(5)
     @image = Image.new
   end

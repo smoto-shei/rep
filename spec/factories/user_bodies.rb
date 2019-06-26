@@ -4,8 +4,8 @@ FactoryBot.define do
     height { 160 }
     gender { '男' }
     birth_year { 1993 }
-    avatar { 'no_avatar.png'}
-    # experience { 2014-06-01}
+    avatar {Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/avatar_default.png'))}
+    experience {'2017-06-11'}
     user
   end
 end
