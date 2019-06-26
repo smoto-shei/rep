@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// ログインページ
+// ログインページ-----------------------------------
 .form_group{
   margin-top: 24px;
 }
@@ -14,12 +14,12 @@
   min-height: 80vh;
 }
 
-// 新規登録ページ
+// 新規登録ページ-----------------------------------
 .registration_top{
   background-color: rgb(245, 248, 250);
 }
 
-//プロフィール写真
+//プロフィール写真----------------------------------
 .btn.btn-primary.my-6{
   width: 60px;
   margin-left: auto;
@@ -40,8 +40,7 @@
     object-fit: cover;
   }
 }
-
-// フォローボタン
+// フォローボタン-----------------------------------
 .follow_now_btn{
   display: inline-block;
   font-size: 12px;
@@ -74,19 +73,16 @@
     display: inline-block;
   }
 }
-
 .edit_avatar{
   text-align: center;
 }
-
-//ニックネーム
+//ニックネーム-------------------------------------
 .nickname{
   font-size: 13px;
   margin: 20px 0px 10px 0px;
   text-align: center;
 }
-
-//ボディー表示
+//ボディー表示-------------------------------------
 .body{
   box-sizing: border-box;
   font-size: 14px;
@@ -99,7 +95,6 @@
     display: inline-block;
   }
 }
-
 // userbody のフォーム
 // 表示をするには display, block にする
 //-----------------------------------------------------
@@ -184,11 +179,9 @@ input[type="date"]::-webkit-clear-button{
 .record_delete_btn {
   cursor: pointer;
 }
-
 .menu-list {
   list-style-type: none;
 }
-
 .remove_hidden_class{
   cursor: pointer;
 }
@@ -198,7 +191,6 @@ input[type="date"]::-webkit-clear-button{
 .hidden {
   display: none;
 }
-
 .records_boxes{
   border-style: solid;
   border-width: 1px;
@@ -206,11 +198,11 @@ input[type="date"]::-webkit-clear-button{
   border-color: #eeeeee;
   padding: 0.5em 0 0.5em 1em;
 }
-
-$part_font_size: 14px;
+//種目ごとの表示色
+$part_font_size: 13px;
 .chest_color{
   text-align: center;
-  background-color: blue;
+  background-color: skyblue;
   color: white;
   border-radius: 10px;
   font-size: $part_font_size;
@@ -218,7 +210,7 @@ $part_font_size: 14px;
 
 .sholder_color{
   text-align: center;
-  background-color: green;
+  background-color: black;
   color: white;
   border-radius: 10px;
   font-size: $part_font_size;
@@ -246,7 +238,7 @@ $part_font_size: 14px;
 }
 .aerobics_color{
   text-align: center;
-  background-color: brown;
+  background-color: red;
   color: white;
   border-radius: 10px;
   font-size: $part_font_size;

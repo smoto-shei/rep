@@ -3,6 +3,9 @@
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
   .col-8.mt-5.padding_bothside_30
+    .total_weight
+    %p.text_align_center.fontsize_25 総負荷量
+    %hr
     -# ここで cursor_pointer 指定すれば子要素全部に有効
     .btn-group.cursor_pointer.ml-5
       .form-check-inline
@@ -35,8 +38,9 @@
       .form-check-inline
         %input.chart_btn#check_week.radio_btn.form-check-input.chart_btn.mr-2.cursor_pointer{type: 'radio', name: 'unit', value: 'week'}
         %label.unit_label.form-check-label.btn.btn-secondary.fontsize_13{for: 'check_week'} 週
+    %hr  
 
-    %canvas#myChart.mt-5
+    %canvas#myChart.mt-4
 
   .col-2.sidebar.border_left
 

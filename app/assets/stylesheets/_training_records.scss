@@ -2,28 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.col-2{
-  border-right: solid rgb(245, 248, 250);
-  background-color: rgb(245, 248, 250);
-}
-
-.cursor_pointer{
-  cursor: pointer;
-}
-
 .radio_btn{
   display: none;
 }
-
 input[type=radio]:checked + .part_label {
   border: 5px solid #000;
 }
-
 input[type=radio]:checked + .unit_label {
   border: 5px solid #000;
 }
-
 .chart{
   height: 400px;
-   width: 900px;
+  width: 900px;
 }

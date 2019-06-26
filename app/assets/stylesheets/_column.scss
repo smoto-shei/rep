@@ -59,40 +59,15 @@
   height: 30px;
 }
 
-//   ------------------------------------------------------a_column
-.columu{
-  margin: 0px 200px 0px 200px;
-  background-color: white;
-  border-right: solid rgba(0, 0, 0, 0.1);
-  border-left: solid rgba(0, 0, 0, 0.1);
-  border-width: 0px 1px 0px 1px;
-}
-.title-head{
-  font-size: 20px;
-  font-style: normal;
-}
+//   ------------------------------------------------------a_column コラム詳細ページ
 .column_picture1{
-  display: inline-block;      /* インラインブロック要素にする */
-  margin: 10px 0px 10px 0px;
-  background-color: white;
-}
-.column1{
-  display: inline-block;      /* インラインブロック要素にする */
-  margin: 10px 0px 30px 0px;
-  height: 300px;
+  display: flex;      /* インラインブロック要素にする */
   background-color: white;
 }
 .column1_text{
-  margin: 20px 30px 20px 30px;
-  font-size: 16px;
-  font-style: normal;
   text-align: left;
+  line-height: 2.0;
 }
 .a_link{
   color: white;
-}
-
-//font-size 12
-.font-size-12{
-  font-size: 12px;
 }

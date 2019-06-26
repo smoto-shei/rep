@@ -12,7 +12,6 @@
 .navbar-expand{
   padding-bottom: 20px;
 }
-
 .policy{
   display: inline-block;
   margin: auto;
@@ -23,15 +22,14 @@
 }
 .below_tab{
   margin-top: 1.5px;
+  margin-right: 0;
 }
 .block{
   display: block;
 }
-.suzuki{
-  margin-top: 20px;
+.width-100{
+  width: 100%;
 }
-//-------------------------------------------------------------
-
 //トップページ---------------------------------------------------
 .toppage{
   width: 100vw;
@@ -163,18 +161,4 @@
   }
 }
 
-
-.below_tab{
-  margin-top: 1.5px;
-  margin-right: 0;
-}
-.block{
-  display: block;
-}
-.suzuki{
-  margin-top: 20px;
-}
-.width-100{
-  width: 100%;
-}
 
