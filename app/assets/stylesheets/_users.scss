@@ -267,3 +267,35 @@ $part_font_size: 14px;
   text-align: center;
   font-size: 20px;
 }
+.scroll {
+  overflow: auto;
+  scroll-snap-type: y;
+  height: 50vh;
+}
+
+//エラーメッセージ
+.user_registrations_form__errors{
+  margin: 30px 0;
+  padding: 20px 40px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 10px;
+    color: #f05050;
+    font-size: 14px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+  }
+}

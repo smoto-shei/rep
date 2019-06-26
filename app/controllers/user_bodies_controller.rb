@@ -19,7 +19,8 @@ class UserBodiesController < ApplicationController
     if current_user.user_body.update(userbody_params_update)
       redirect_back(fallback_location: root_path)
     else
-      render :new
+      flash[:alert] = '更新に失敗しました'
+      redirect_back(fallback_location: root_path)
     end
   end
 

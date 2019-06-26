@@ -8,21 +8,26 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = include_gon
-  %body{style: 'padding-top: 60px; min-height: 100vh', class: 'h-100 d-flex flex-column'}
+  %body{style: 'min-height: 100vh', class: 'h-100 d-flex flex-column'}
+
+    .head_blank
+    = render 'layouts/notifications'
 
     = render partial: "shared/modal"
 
-    .navbar.navbar-dark.bg-secondary.fixed-top.bg-secondary
+
+    .navbar.navbar-dark.bg-secondary.fixed-top
       .navbar-brand_top
         = link_to root_path do
           = image_tag "/assets/Rep_logo", size:"80x40"
       - if user_signed_in?
         %ul.navbar.navbar-nav.navbar-expand
+
           -# コラム
           %li.nav-item.nav-link
             = link_to toppage_column_path, class: 'text-white mr-4' do
               %i.fas.fa-lg.fas.fa-book-open
-          
+
           -# 検索
           %li.nav-item.nav-link
             = link_to users_path, class: 'text-white mr-4' do
@@ -65,6 +70,7 @@
           %li.nav-item.nav-link
             = link_to new_user_session_path, class: 'text-white mr-1' do
               Log In
+
     = yield
 
     .nav-box.bg-secondary.width-100

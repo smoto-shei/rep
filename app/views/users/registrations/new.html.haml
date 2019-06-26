@@ -1,4 +1,10 @@
 .registration_top
+  - if @user.errors.any?
+    .user_registrations_form__errors
+      %h2= "#{@user.errors.full_messages.count}件のエラーが発生しました。"
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li= message
   .container.h-100
     .row.justify-content-center
       .col-4.card.justify-content-center.mt-5

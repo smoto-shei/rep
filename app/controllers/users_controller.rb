@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   def index
     @user = User.includes(:user_body, :follows, :followers).find(current_user.id)
     @userbody = @user.user_body
-    @follows = @user.follows.page(params[:page]).per(5)
-    @followers = @user.followers.page(params[:page]).per(5)
+    @follows = @user.follows
+    @followers = @user.followers
     if params[:q].present?
       gon.formdata = search_params
       @params = User.search_experience(search_params)
