@@ -23,7 +23,7 @@
       %p.edit_body_fail.weight_fail.hide 20以上350以下で入力してください
     .form_group.m-4
       = f.label :experience, '筋トレ開始日'
-      %br
+      <br>
       = f.date_select :experience, start_year: 1960, end_year: Date.today.year, discard_day: true, class: 'form-control'
     .action.m-5.row.justify-content-around
       = button_tag type: 'submit' , class: '' do

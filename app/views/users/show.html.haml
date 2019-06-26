@@ -1,6 +1,6 @@
 -# 本文
 .row.no-gutters
-  .col-2.justify-content-center.px-3.border_right.padding_top
+  .col-2.justify-content-center.px-3.border_right.padding_top.background_color
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
 
@@ -16,7 +16,7 @@
     = form_with model: @training_record, method: :post, url: user_training_records_path(current_user.id), id: 'new_training_record', class: 'new_training_record' do |f|
       = f.date_field :date, value: Date.today, readonly: true, class: 'form-control-sm text-center my-4 mx-2'
       #training_records.mx-2
-        %h6 実施したメニュー
+        %p.font-size_13 実施したメニュー
         %ul#day_records.list-unstyled.ml-2
           = render partial: "shared/training_records", collection: @day_records, as: "day_record"
 
@@ -31,4 +31,4 @@
         = f.fields_for :menus do |menus|
           #set-form
         .action.my-4.mx-2.text-center
-          = f.submit '登録する', class: 'btn btn-primary'
+          = f.submit '登録する', class: 'btn btn-primary fontsize_13'
