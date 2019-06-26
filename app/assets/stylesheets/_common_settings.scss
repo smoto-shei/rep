@@ -3,7 +3,7 @@ body{
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 13px;
 }
-// buttonのリセット
+// buttonのリセット--------------------------------------
 button{
   background-color: transparent;
   border: none;
@@ -24,23 +24,28 @@ a:hover {
   color: #333333;
   opacity: 1;
 }
-
 .confirm_btn{
   color: #55c550;
 }
 .cancel_btn, .delete_btn{
   color: #ea352d;
 }
-
 .cursor_pointer{
   cursor: pointer;
 }
+//padding margin 等の調節--------------------------------
+//サイドバーに関する調整-------------------------
 .sidebar{
-  border-right: solid rgb(245, 248, 250);
   background-color: rgb(245, 248, 250);
   min-height: 90vh;
-  // padding: 10px 20px 0px 20px;
 }
+.border_right{
+  border-right: solid 1px rgba(0,0,0,0.1);
+}
+.border_left{
+  border-left: solid 1px rgba(0,0,0,0.1);
+}
+//マージンに関する調整--------------------------
 .margin_auto{
   margin: auto;
 }
@@ -54,12 +59,13 @@ a:hover {
 .margin_bottom_14{
   margin-bottom: 14px;
 }
-.border_right{
-  border-right: solid 1px rgba(0,0,0,0.1);
+.margin_bottom_20{
+  margin-bottom: 20px;
 }
-.border_left{
-  border-left: solid 1px rgba(0,0,0,0.1);
+.margin_left_30{
+  margin-left: 30px;
 }
+//paddingに関する調整-------------------------
 .padding_bothside{
   padding: 0px 20px 0px 20px !important;
 }
@@ -72,9 +78,33 @@ a:hover {
 .padding_top{
   padding-top: 10px;
 }
+//フォントサイズに関する調整--------------------
 .fontsize_13{
   font-size: 13px
 }
+
+.fontsize_25{
+  font-size: 25px;
+}
+.fontsize_12{
+  font-size: 12px;
+}
+.fontsize_20{
+  font-size: 20px;
+}
+.fontsize_15{
+  font-size: 15px;
+}
+//テキスト位置に関する調整---------------------
+.text_align_center{
+  text-align: center;
+}
+//背景色に関する調整-------------------------
+.background_color{
+  background-color: rgb(245, 248, 250);
+}
+
 .margin_left_30{
   margin-left: 30px;
 }
+

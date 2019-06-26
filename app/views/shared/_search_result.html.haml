@@ -10,4 +10,4 @@
             .body #{people.user_body.height}cm/#{people.user_body.weight}kg
             .experience= "#{((Date.today.year - people.user_body.experience.year)*12 + Date.today.month - people.user_body.experience.month) / 12 + 1} 年目"
         %hr
-= link_to_next_page @people, 'さらに表示', remote: true, class: 'btn btn-primary mb-3 block font-size-12', id: 'search_next'
+= link_to_next_page @people, 'さらに表示', remote: true, class: 'btn btn-primary mb-3 block fontsize_12', id: 'search_next'
