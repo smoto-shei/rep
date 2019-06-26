@@ -12,6 +12,7 @@ document.addEventListener('turbolinks:load', function() {
     var part = 'Total';
     var unit = $('input[name="unit"]').val();
     var url = `/users/${user_id}/training_records/draw_graph`
+    var y_label = 'Kg'
 
     $.ajax({
       type: 'get',
@@ -19,12 +20,12 @@ document.addEventListener('turbolinks:load', function() {
       data: {
         part: part,
         unit: unit,
-        user_id: user_id
+        user_id: user_id,
+        y_label: y_label
       },
       datatype: 'json'
     })
     .done(function(data){
-      console.log(data)
       draw_graph(data);
       data_label();
     })
@@ -44,13 +45,19 @@ document.addEventListener('turbolinks:load', function() {
       var url = `/users/${user_id}/training_records/draw_graph`
       var part = $("[name=check_part]:checked").val(); // タブルクォテーションじゃないとエラーになる.
       var unit = $('input[name="unit"]:checked').val();
+      if( part == '有酸素'){
+        var y_label = 'minutes'
+      } else{
+        var y_label = 'Kg'
+      }
 
       $.ajax({
         type: 'get',
         url: url,
         data: {
           part: part,
-          unit: unit
+          unit: unit,
+          y_label: y_label
          },
         datatype: 'json'
       })
@@ -70,7 +77,6 @@ document.addEventListener('turbolinks:load', function() {
 // --------------------グラフの描画--------------------------
 function draw_graph(data){
   var ctx = $("#myChart");
-
 
   load_chart = new Chart(ctx, {
     type: 'bar',
@@ -101,7 +107,7 @@ function draw_graph(data){
             display: true,             //表示設定
             scaleLabel: {              //軸ラベル設定
                 display: true,          //表示設定
-                // labelString: 'Kg',  //ラベル
+                labelString: data.y_label,  //ラベル
                 fontSize: 18               //フォントサイズ
             },
             ticks: {                      //最大値最小値設定
@@ -145,6 +151,8 @@ function update_chart(data){
   load_chart.data.datasets[0].data = data.data
   load_chart.data.labels = data.x_label
   load_chart.options.title.text = data.part
+  a = load_chart.options.scales.yAxes[0].scaleLabel.labelString = data.y_label
+  console.log(a)
   load_chart.update();
 }
 

@@ -13,13 +13,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     ActiveRecord::Base.transaction do
       super
-      @user.save
-
-      @userbody = UserBody.new
-      @userbody.user_id = @user.id
-      @userbody.avatar = Pathname.new(Rails.root.join("app/assets/images/no_avatar.png")).open
-      @userbody.save
-
+      if @user.save
+        @userbody = UserBody.new
+        @userbody.user_id = @user.id
+        @userbody.avatar = Pathname.new(Rails.root.join("app/assets/images/no_avatar.png")).open
+        if @userbody.save
+          redirect_to user_path(current_user.id)
+        end
+      end
     end
   end
 

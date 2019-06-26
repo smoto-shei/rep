@@ -1,0 +1,23 @@
+.notification {
+  .notice {
+    background-color: $light_blue;
+    color: $white;
+    text-align: center;
+    margin-bottom: 0px !important;
+    border-radius: 0px;
+  }
+
+  .alert {
+    background-color: $alert_orange;
+    color: $white;
+    text-align: center;
+    margin-bottom: 0px !important;
+    border-radius: 0px;
+  }
+
+  .success{
+    background-color: #7EBFD4;
+    color: $white;
+    text-align: center;
+  }
+}

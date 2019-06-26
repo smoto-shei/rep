@@ -13,8 +13,8 @@
     -# 投稿コメント編集ボタン
     #html_to_modal_box.card.hide
 
-    -# フォロー表示ボタン
     - unless @follows == nil || @followers == nil
+      -# フォロー表示ボタン
       #show_follows.hide
         = render partial: "shared/show_follows"
       -# フォロワー表示ボタン

@@ -1,18 +1,20 @@
 class TrainingRecordsController < ApplicationController
 
-
-
     # Analysisページ
     def index
       @user = User.includes(:user_body, :follows, :followers).find(params[:user_id])
       @userbody = @user.user_body
-      @follows = @user.follows.page(params[:page]).per(5)
-      @followers = @user.followers.page(params[:page]).per(5)
+      @follows = @user.follows
+      @followers = @user.followers
     end
 
     # Analysisページ グラフ描写。
     def draw_graph
-      @user, @part, @unit = User.find(graph_params[:user_id]), graph_params[:part], graph_params[:unit]
+      @user, @part, @unit, @y_label = User.find(graph_params[:user_id]),
+                                      graph_params[:part],
+                                      graph_params[:unit],
+                                      graph_params[:y_label]
+
       @training_records = TrainingRecord.bring_training_data(@user,@part)
 
       if @unit == 'month'
@@ -56,12 +58,14 @@ class TrainingRecordsController < ApplicationController
 
   # トレーニングレコードを登録するときのパラメータ
   def training_record_params
-    params.require(:training_record).permit(:date, :part, :exercise, menus_attributes: [:weight, :rep, :time]).merge(user_id: current_user.id)
+    params.require(:training_record)
+          .permit(:date, :part, :exercise,menus_attributes: [:weight, :rep, :time])
+          .merge(user_id: current_user.id)
   end
 
   # グラフページのラジオボタンの checked のパラメータ
   def graph_params
-    params.permit(:part, :unit, :user_id)
+    params.permit(:part, :unit, :user_id, :y_label)
   end
 
 end
