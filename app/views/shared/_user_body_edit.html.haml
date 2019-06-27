@@ -9,18 +9,18 @@
     .form_group.m-4
       = f.label :birth_year, '誕生年'
       = f.number_field :birth_year, in: 1900...2019, class: 'form-control birth_year_number'
-      %p.edit_body_fail.birth_year_fail.hide  1900以上2019以下で入力してください
+      %p.edit_body_fail.birth_year_fail.hide.fontsize_12 1900以上2019以下で入力してください
     .form_group.m-4
       = f.label :gender, '性別'
       = f.select :gender, [['男'],['女']], prompt: '--', class: 'form-control'
     .form_group.m-4
       = f.label :height, '身長'
       = f.number_field :height, step: '0.1', in: 100...300, class: 'form-control height_number'
-      %p.edit_body_fail.height_fail.hide  100以上300以下で入力してください
+      %p.edit_body_fail.height_fail.hide.fontsize_12  100以上300以下で入力してください
     .form_group.m-4
       = f.label :weight, '体重'
       = f.number_field :weight, step: '0.1', in: 20...350, class: 'form-control weight_number'
-      %p.edit_body_fail.weight_fail.hide 20以上350以下で入力してください
+      %p.edit_body_fail.weight_fail.hide.fontsize_12 20以上350以下で入力してください
     .form_group.m-4
       = f.label :experience, '筋トレ開始日'
       <br>
