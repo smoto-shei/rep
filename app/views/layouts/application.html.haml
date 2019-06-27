@@ -32,22 +32,19 @@
           %li.nav-item.nav-link
             = link_to users_path, class: 'text-white mr-4' do
               %i.fas.fa-lg.fa-search
-
           -# 写真
           %li.nav-item.nav-link
             = link_to user_images_path(current_user.id), class: 'text-white mr-4' do
               %i.fas.fa-lg.fas.fa-camera
-
           -# カレンダー
           %li.nav-item.nav-link
             = link_to user_path(current_user.id), class: 'text-white mr-4' do
               %i.far.fa-lg.fa-calendar-alt
-
           -# 分析
           %li.nav-item.nav-link.chart_link_nav
             = link_to user_training_records_path(current_user.id), class: 'text-white mr-4' do
               %i.fas.fa-lg.fa-chart-line
-
+          -# ログアウト
           %li.nav-item.nav-link
             = link_to destroy_user_session_path, method: :delete, class: 'text-white mr-1 10px btn btn-danger' do
               Log Out
@@ -58,9 +55,7 @@
               = f.hidden_field :email, value: 'arnold@com'
               = f.hidden_field :password, value: '123456'
               = f.submit 'Test Log In', class: 'btn btn-info mr-3'
-          -# %li.nav-item.nav-link
-          -#   = link_to users_path, class: 'text-white mr-3 15px btn btn-info' do
-          -#     ユーザー検索
+          -# コラム
           %li.nav-item.nav-link
             = link_to toppage_column_path, class: 'text-white mr-4' do
               %i.fas.fa-2x.fas.fa-book-open
@@ -72,7 +67,6 @@
               Log In
 
     = yield
-
     .nav-box.bg-secondary.width-100
       .navbar.navbar-dark.bg-secondary.mt-auto.py-2
         .navbar-brand.below_tab
@@ -89,4 +83,4 @@
             = link_to toppage_privacy_policy_path , class: 'text-white mr-3 18px' do
               プライバシーポリシー
       .text-white.text-center.mb-3.mt-2
-        © 2019 Rep
+        %p © 2019 Rep

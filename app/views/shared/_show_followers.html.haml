@@ -3,9 +3,9 @@
     %hr
     %p フォロワー
     %hr
+
     .scroll
       - @followers.each do |person|
-
         = link_to user_path(person.id), class: 'close_button' do
           .user_searched
             .avatar_searched
