@@ -1,10 +1,10 @@
-#followers_result.card.background_theme_color
+#followers_result.card
   .follow_title
     %hr
     %p フォロワー
     %hr
 
-    .scroll
+    .scroll.background_theme_color
       - @followers.each do |person|
         = link_to user_path(person.id), class: 'close_button' do
           .user_searched

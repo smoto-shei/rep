@@ -151,7 +151,7 @@ document.addEventListener('turbolinks:load', function() {
           })
         }
       }).fail(function(){
-        alert('error');
+        alert('インクリメンタルサーチに失敗しました');
       })
     }
   })
