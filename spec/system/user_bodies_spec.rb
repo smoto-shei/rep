@@ -25,7 +25,7 @@ describe 'ユーザーボディ', type: :system do
     context 'カレンダーページ' do
 
       it 'ユーザーボディ情報が表示されている' do
-        expect(page).to have_content "#{@userbody.height}" &&
+        expect(page).to have_content "#{@userbody.height}"
       end
     end
   end

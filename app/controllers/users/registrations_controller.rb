@@ -16,10 +16,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if @user.save
         @userbody = UserBody.new
         @userbody.user_id = @user.id
-        @userbody.avatar = Pathname.new(Rails.root.join("app/assets/images/no_avatar.png")).open
-        if @userbody.save
-          redirect_to user_path(current_user.id)
-        end
+        @userbody.avatar = Pathname.new(Rails.root.join("app/assets/images/no_avatar.jpg")).open
+        @userbody.experience = Date.today
+        @userbody.save
       end
     end
   end
