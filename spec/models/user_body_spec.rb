@@ -64,10 +64,11 @@ RSpec.describe UserBody, type: :model do
       end
     end
 
-    context 'avatarの拡張子' do
+    context 'avatarの拡張子が.rb' do
       it 'avatar' do
         @user_body.avatar = dummy_image
         expect(@user_body).not_to be_valid
+        expect(@user_body.errors[:avatar]).to include('拡張子は jpg jpeg gif png のみです')
       end
     end
 
