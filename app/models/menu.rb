@@ -1,8 +1,8 @@
 class Menu < ApplicationRecord
   belongs_to :training_record
-  validates :weight, presence: true, inclusion: { in: 0..999.5 }, unless: :part_type?
-  validates :rep, presence: true, inclusion: { in: 0..999}, unless: :part_type?
-  validates :time, presence: true, inclusion: { in: 0..1440 }, if: :part_type?
+  validates :weight, presence: true, numericality: { greater_than_or_equal_to: 0, less_than: 1000 }, unless: :part_type?
+  validates :rep, presence: true, numericality: { greater_than_or_equal_to: 0, less_than: 1000 }, unless: :part_type?
+  validates :time, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 1440 }, if: :part_type?
 
   private
 
