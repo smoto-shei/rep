@@ -8,6 +8,7 @@ RSpec.describe Image, type: :model do
   end
 
   describe Image do
+
     describe '#create' do
       it "投稿できる" do
         expect(@image).to be_valid
@@ -29,8 +30,7 @@ RSpec.describe Image, type: :model do
         @image.valid?
         expect(@image).not_to be_valid
       end
-
-
     end
+
   end
 end

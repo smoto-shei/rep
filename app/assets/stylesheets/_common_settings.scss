@@ -50,7 +50,7 @@ a:hover {
   margin: auto;
 }
 .background_theme_color {
-  background-color: rgb(245, 248, 250);
+  background-color:#f5f8fa;
 }
 .background_cha {
   background-color: rgb(250, 255, 250);
@@ -110,9 +110,15 @@ a:hover {
 .background_color_white{
   background-color: white;
 }
+
 .user_searched{
   background-color: white;
 }
 .user_searched:hover{
   background-color: rgb(245,248,250);
+}
+
+
+.margin_left_30{
+  margin-left: 30px;
 }
