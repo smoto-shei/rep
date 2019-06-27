@@ -3,6 +3,7 @@ class TrainingRecord < ApplicationRecord
   has_many :menus, dependent: :destroy
   validates :part, presence: true
   validates :exercise, presence: true
+  validates :date, presence: true
   accepts_nested_attributes_for :menus, allow_destroy: true
 
   def self.bring_training_data(user,part)
