@@ -23,14 +23,14 @@ document.addEventListener('turbolinks:load', function() {
         var url = e.target.result;
         // imageをデータとして取得する
         var preview =
-  `<li data-id='${i}'>
-    <figure class="image-preview">
-      <img src="${url}" class="image-preview">
-    </figure>
-    <div class="preview-btn">
-      <div class="preview-delete btn btn-outline-danger btn-sm px-4">削除</a>
-    </div>
-  </li>`
+                      `<li data-id='${i}'>
+                        <figure class="image-preview">
+                          <img src="${url}" class="image-preview">
+                        </figure>
+                        <div class="preview-btn">
+                          <div class="preview-delete btn btn-outline-danger btn-sm px-4">削除</a>
+                        </div>
+                      </li>`
 
         $('#image-list-before').before(preview);
         change_drop_box_size();
@@ -134,9 +134,11 @@ document.addEventListener('turbolinks:load', function() {
       dataType: 'json',
       processData: false,
       contentType: false
-    }).done(function(){
+    })
+    .done(function(){
       location.href = location.href;
-    }).fail(function(){
+    })
+    .fail(function(){
       alert("通信に失敗しました");
     })
   })

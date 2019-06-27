@@ -1,10 +1,10 @@
-#follows_result.card
+#follows_result.card.background_color_light_black
   .follow_title
     %hr
     %p フォロー中
     %hr
 
-    .scroll.background_theme_color
+    .scroll.background_color_white
       - @follows.each do |person|
         = link_to user_path(person.id), class: 'close_button' do
           .user_searched
