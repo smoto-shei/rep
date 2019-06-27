@@ -35,9 +35,11 @@ document.addEventListener('turbolinks:load', function() {
       dataType: 'html',
       processData: false,
       contentType: false
-    }).done(function(html){
+    })
+    .done(function(html){
       $('#html_to_modal_box').html(html);
-    }).fail(function(){
+    })
+    .fail(function(){
       alert('通信に失敗しました');
     })
   })

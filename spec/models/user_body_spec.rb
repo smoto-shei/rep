@@ -13,25 +13,37 @@ RSpec.describe UserBody, type: :model do
     end
 
     context '身長' do
-      it '身長が300cmの時' do
+      it '身長が300cmのとき' do
         @user_body.height = 300
         expect(@user_body).to be_valid
       end
 
-      it '身長が100cmの時' do
+      it '身長が100cmのとき' do
         @user_body.height = 100
         expect(@user_body).to be_valid
       end
     end
 
     context '体重' do
-      it '体重が20kgの時' do
+      it '体重が20kgのとき' do
         @user_body.weight = 20
         expect(@user_body).to be_valid
       end
 
-      it '体重が350kgの時' do
+      it '体重が350kgのとき' do
         @user_body.weight = 350
+        expect(@user_body).to be_valid
+      end
+    end
+
+    context '生年月日' do
+      it '生年月日が1900' do
+        @user_body.birth_year = 1900
+        expect(@user_body).to be_valid
+      end
+
+      it '生年月日が今年' do
+        @user_body.birth_year = Date.today.year
         expect(@user_body).to be_valid
       end
     end
@@ -64,11 +76,22 @@ RSpec.describe UserBody, type: :model do
       end
     end
 
+    context '生年月日' do
+      it '1900年未満' do
+        @user_body.birth_year = rand(0..1899)
+        expect(@user_body).not_to be_valid
+      end
+
+      it '現在の西暦超過' do
+        @user_body.birth_year = rand(Date.today.year..9999)
+        expect(@user_body).not_to be_valid
+      end
+    end
+
     context 'avatarの拡張子が.rb' do
       it 'avatar' do
         @user_body.avatar = dummy_image
         expect(@user_body).not_to be_valid
-        expect(@user_body.errors[:avatar]).to include('拡張子は jpg jpeg gif png のみです')
       end
     end
 

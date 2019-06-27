@@ -10,6 +10,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def create
     if user_signed_in?
+      flash[:success] = 'ログインしました'
       redirect_to user_path(current_user.id)
     else
       flash.now[:alert] = 'ログインに失敗しました'

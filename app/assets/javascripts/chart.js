@@ -30,7 +30,7 @@ document.addEventListener('turbolinks:load', function() {
       data_label();
     })
     .fail(function(){
-      alert('通信に失敗しました')
+      alert('データの取得に失敗しました')
     })
 
   }
@@ -65,7 +65,7 @@ document.addEventListener('turbolinks:load', function() {
         update_chart(data);
       })
       .fail(function(){
-        alert('通信に失敗しました')
+        alert('データの取得に失敗しました')
       })
     });
   });

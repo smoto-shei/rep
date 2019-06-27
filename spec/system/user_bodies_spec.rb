@@ -1,23 +1,31 @@
 require 'rails_helper'
 
 describe 'ユーザーボディ', type: :system do
-  describe 'ボディの表示' do
+  describe 'ログイン' do
     before do
-      user_a = FactoryBot.create(:user)
-      FactoryBot.create(:user_body,user: user_a)
+      @user = FactoryBot.create(:user)
+      @userbody = FactoryBot.create(:user_body,user: @user)
 
       visit new_user_session_path
-      fill_in 'メールアドレス', with: 'test-5@com'
-      fill_in 'パスワード', with: 'password'
+      fill_in 'メールアドレス', with: @user.email
+      fill_in 'パスワード', with: @user.password
       click_button 'ログイン'
     end
 
-    context 'test-5がログインしている時' do
-      before do
-      end
+    it 'ログインの成功' do
+      expect(page).to have_content 'ログインしました'
+    end
+
+    it 'リダイレクト先がカレンダーページ' do
+      show_url = "/users/#{@user.id}"
+      expect(current_path).to eq show_url
+    end
+
+
+    context 'カレンダーページ' do
 
       it 'ユーザーボディ情報が表示されている' do
-        # expect(page).to have_content 160
+        expect(page).to have_content "#{@userbody.height}" &&
       end
     end
   end
