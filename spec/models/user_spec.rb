@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
     @user = FactoryBot.create(:user)
   end
 
-  context "ユーザーが有効であるとき" do
+  context "ユーザーが有効" do
     it "有効なユーザーの検証" do
       expect(@user).to be_valid
     end
@@ -20,33 +20,35 @@ RSpec.describe User, type: :model do
 
   end
 
-  context "ユーザーが無効であるとき" do
-    it "名前の存在性" do
-      @user.nickname = ""
+  context "ユーザーが無効" do
+
+    it "ニックネームがnil" do
+      @user.nickname = nil
       expect(@user).not_to be_valid
     end
 
-    it "ユーザー名の長さ" do
-      @user.nickname = "a"*51
+    it "ニックネームが20文字を超過" do
+      @user.nickname = "a"*21
       expect(@user).not_to be_valid
     end
 
-    it "メールアドレスの存在性" do
-      @user.email = ""
+    it "メールアドレスがnil" do
+      @user.email = nil
       expect(@user).not_to be_valid
     end
 
     it "メールアドレスの一意性" do
-      user = FactoryBot.build(:user, email: "test@example.com")
+      user = FactoryBot.build(:user, email: "#{@user.email}")
       expect(user).not_to be_valid
     end
 
-    it "パスワードの存在性" do
+    it "パスワードがnil" do
       @user.password = @user.password_confirmation = ""
+      binding.pry
       expect(@user).not_to be_valid
     end
 
-    it "パスワードの最小長さ" do
+    it "パスワードが6文字未満" do
       @user.password = @user.password_confirmation = "a"*5
       expect(@user).not_to be_valid
     end

@@ -49,7 +49,6 @@ a:hover {
 .margin_auto{
   margin: auto;
 }
-
 .background_theme_color {
   background-color:#f5f8fa;
 }
@@ -75,6 +74,9 @@ a:hover {
 .padding_left_30{
   padding-left: 30px;
 }
+.padding_left_70{
+  padding-left: 70px;
+}
 .padding_top{
   padding-top: 10px;
 }
@@ -82,7 +84,6 @@ a:hover {
 .fontsize_13{
   font-size: 13px
 }
-
 .fontsize_25{
   font-size: 25px;
 }
@@ -99,13 +100,27 @@ a:hover {
 .text_align_center{
   text-align: center;
 }
+.text_align_left{
+  text-align: left;
+}
 //背景色に関する調整-------------------------
 .background_color{
   background-color: rgb(245, 248, 250);
 }
 .background_color_white{
+  background-color: #ffffff;
+}
+.background_color_light_black{
+  background-color: #f5f5f5;
+}
+
+.user_searched{
   background-color: white;
 }
+.user_searched:hover{
+  background-color: rgb(245,248,250);
+}
+
 
 .margin_left_30{
   margin-left: 30px;

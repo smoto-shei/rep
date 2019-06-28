@@ -1,15 +1,13 @@
-// Place all the styles related to the training_records controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//総負荷量のグラフ
 
 .radio_btn{
   display: none;
 }
 input[type=radio]:checked + .part_label {
-  border: 5px solid #000;
+  border: 3px solid #000;
 }
 input[type=radio]:checked + .unit_label {
-  border: 5px solid #000;
+  border: 3px solid #000;
 }
 .chart{
   height: 400px;

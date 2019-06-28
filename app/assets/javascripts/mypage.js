@@ -25,7 +25,8 @@ document.addEventListener('turbolinks:load', function() {
     $('.birth_year_number').keyup(function(){
       if ( $(this).val() < 1900 || $(this).val() > 2019){
         $('.birth_year_fail').removeClass('hide');
-      } else {
+      }
+      else {
         $('.birth_year_fail').addClass('hide');
       }
     })
@@ -34,7 +35,8 @@ document.addEventListener('turbolinks:load', function() {
     $('.height_number').keyup(function(){
       if ( $(this).val() < 100 || $(this).val() > 300){
         $('.height_fail').removeClass('hide');
-      } else {
+      }
+      else {
         $('.height_fail').addClass('hide');
       }
     })
@@ -43,7 +45,8 @@ document.addEventListener('turbolinks:load', function() {
     $('.weight_number').keyup(function(){
       if ( $(this).val() < 20 || $(this).val() > 350){
         $('.weight_fail').removeClass('hide');
-      } else {
+      }
+      else {
         $('.weight_fail').addClass('hide');
       }
     })
