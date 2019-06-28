@@ -19,7 +19,7 @@
     .navbar.navbar-dark.bg-secondary.fixed-top
       .navbar-brand_top
         = link_to root_path do
-          = image_tag image_path("/assets/Rep_logo"), size:"80x40"
+          = image_tag("/assets/Rep_logo", size:"80x40")
       - if user_signed_in?
         %ul.navbar.navbar-nav.navbar-expand
 
