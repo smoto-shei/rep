@@ -19,7 +19,7 @@
     .navbar.navbar-dark.bg-secondary.fixed-top
       .navbar-brand_top
         = link_to root_path do
-          = image_tag asset_path("/assets/Rep_logo"), size:"80x40"
+          = image_tag asset_path("Rep_logo"), size:"80x40"
       - if user_signed_in?
         %ul.navbar.navbar-nav.navbar-expand
 
@@ -71,7 +71,7 @@
       .navbar.navbar-dark.bg-secondary.mt-auto.py-2
         .navbar-brand.below_tab
           = link_to root_path do
-            = image_tag asset_path("/assets/Rep_logo"), size:"80x40"
+            = image_tag asset_path("Rep_logo"), size:"80x40"
         %ul.row.policy
           %li.nav-item.nav-link.inline-block
             = link_to root_path, class: 'text-white mr-5 18px' do
