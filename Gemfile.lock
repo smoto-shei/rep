@@ -126,6 +126,8 @@ GEM
     faker (1.9.3)
       i18n (>= 0.7)
     ffi (1.11.1)
+    font-awesome-sass (5.4.1)
+      sassc (>= 1.11)
     get_process_mem (0.2.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -279,6 +281,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (2.0.1)
+      ffi (~> 1.9)
+      rake
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
@@ -352,6 +357,7 @@ DEPENDENCIES
   devise
   factory_bot_rails (~> 4.11)
   faker
+  font-awesome-sass
   gon
   haml-rails
   jbuilder (~> 2.5)
