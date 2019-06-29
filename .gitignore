@@ -31,3 +31,6 @@ public/uploads/
 
 # secrets.ymlあげない
 config/secrets.yml
+
+#credentials.yml.enc あげない
+config/credentials.yml.enc
