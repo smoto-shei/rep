@@ -117,6 +117,7 @@ GEM
     diff-lcs (1.3)
     erubi (1.8.0)
     erubis (2.7.0)
+    excon (0.64.0)
     execjs (2.7.0)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
@@ -126,8 +127,25 @@ GEM
     faker (1.9.3)
       i18n (>= 0.7)
     ffi (1.11.1)
+    fog-aws (3.5.1)
+      fog-core (~> 2.1)
+      fog-json (~> 1.1)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
+    fog-core (2.1.2)
+      builder
+      excon (~> 0.58)
+      formatador (~> 0.2)
+      mime-types
+    fog-json (1.2.0)
+      fog-core
+      multi_json (~> 1.10)
+    fog-xml (0.1.3)
+      fog-core
+      nokogiri (>= 1.5.11, < 2.0.0)
     font-awesome-sass (5.4.1)
       sassc (>= 1.11)
+    formatador (0.2.5)
     get_process_mem (0.2.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -152,6 +170,7 @@ GEM
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
+    ipaddress (0.8.3)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     jquery-rails (4.3.3)
@@ -357,6 +376,7 @@ DEPENDENCIES
   devise
   factory_bot_rails (~> 4.11)
   faker
+  fog-aws
   font-awesome-sass
   gon
   haml-rails

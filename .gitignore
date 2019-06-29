@@ -28,3 +28,6 @@
 
 # ローカルの画像をあげない
 public/uploads/
+
+# secrets.ymlあげない
+config/secrets.yml
