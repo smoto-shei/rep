@@ -2,7 +2,9 @@ document.addEventListener('turbolinks:load', function() {
 
   send_file_obj = {}
   var stock_index = []
-  var delete_image_index = []
+
+  // // 画像の個別削除用の記述
+  // var delete_image_index = []
   // change_drop_box_size();
 
   // プレビューの表示、送信ファイル作成
@@ -75,13 +77,13 @@ document.addEventListener('turbolinks:load', function() {
     change_drop_box_size();
   });
 
-  // 編集時の元画像プレビューの削除
-  $('.edit-preview-delete').on('click',function(){
-    var preview_box = $(this).parent().parent()
-    delete_image_index.push($(this).attr('value'))
-    preview_box.remove();
-    change_drop_box_size();
-  })
+  // // 編集時の元画像プレビューの削除
+  // $('.edit-preview-delete').on('click',function(){
+  //   var preview_box = $(this).parent().parent()
+  //   delete_image_index.push($(this).attr('value'))
+  //   preview_box.remove();
+  //   change_drop_box_size();
+  // })
 
   // -------------------------------------------------------------------
   // 発火（D&D）
@@ -123,9 +125,13 @@ document.addEventListener('turbolinks:load', function() {
     })
     var url = $('#image-create').attr("action")
     var type = $('#image-create').attr("method")
-    if ( $(this).attr("id") === "image-edit" ){
-      formdata.append('index',delete_image_index)
-    }
+
+// // 画像記事編集時の個別削除用の記述
+//     if ( $(this).attr("id") === "image-edit" ){
+//       formdata.append('index',delete_image_index)
+//     }
+
+
     $.ajax({
       url: url,
       type: type,
