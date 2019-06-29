@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       @params = User.search_experience(search_params)
     end
     @search = User.ransack(@params)
-    @people = @search.result(nickname_present: 1).includes(:user_body).page(params[:page]).per(5)
+    @people = @search.result(nickname_present: 1).includes(:user_body).page(params[:page]).per(5).order("user_bodies.experience asc")
   end
 
   # カレンダーページ（マイページ）
