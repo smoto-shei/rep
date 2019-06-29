@@ -83,7 +83,6 @@ document.addEventListener('turbolinks:load', function() {
     change_drop_box_size();
   })
 
-
   // -------------------------------------------------------------------
   // 発火（D&D）
   $('#image-drop-box').on('dragover',function(e){
@@ -142,7 +141,4 @@ document.addEventListener('turbolinks:load', function() {
       alert("通信に失敗しました");
     })
   })
-
-
-
 })

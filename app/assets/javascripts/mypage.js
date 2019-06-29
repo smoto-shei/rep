@@ -2,9 +2,6 @@
 document.addEventListener('turbolinks:load', function() {
 
   $(function(){
-
-
-
     // アバター画像のプレビューを表示させる
     $('.avatar_image_edit').change(function(){
       // 投稿された画像をfileオブジェクトで取得する
@@ -19,7 +16,6 @@ document.addEventListener('turbolinks:load', function() {
       }
       reader.readAsDataURL(avatar_image[0]);
     })
-
 
     // 誕生年のバリデーションを出す
     $('.birth_year_number').keyup(function(){

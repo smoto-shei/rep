@@ -44,7 +44,6 @@ RSpec.describe User, type: :model do
 
     it "パスワードがnil" do
       @user.password = @user.password_confirmation = ""
-      binding.pry
       expect(@user).not_to be_valid
     end
 

@@ -2,7 +2,6 @@
 document.addEventListener('turbolinks:load', function() {
 
 // ----------------------一回目のグラフ作成-----------------------------
-
   if (document.getElementById("myChart") !== null){
 
     var ctx = $("#myChart");
@@ -34,10 +33,7 @@ document.addEventListener('turbolinks:load', function() {
     })
 
   }
-
-
-
-      // ---------------------二度目以降のチャート描写------------------------
+  // ---------------------二度目以降のチャート描写------------------------
   $(function(){
     //  $('.graph').on('click',function(){ これだとcheckedを二度押さないと効かない
     $('.chart_btn').change(function(){
@@ -152,10 +148,8 @@ function update_chart(data){
   load_chart.data.labels = data.x_label
   load_chart.options.title.text = data.part
   a = load_chart.options.scales.yAxes[0].scaleLabel.labelString = data.y_label
-  console.log(a)
   load_chart.update();
 }
-
 
 //--------------------データラベルの表示--------------------------
 function data_label(){

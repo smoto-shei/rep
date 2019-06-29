@@ -7,7 +7,6 @@ class UserBodiesController < ApplicationController
   def create
     @userbody = UserBody.new(userbody_params.merge(user_id: current_user.id))
     if @userbody.save
-      binding.pry
       flash[:success] = 'プロフィールを更新しました'
       redirect_back(fallback_location: root_path)
     else
