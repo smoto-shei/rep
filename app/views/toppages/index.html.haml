@@ -18,7 +18,7 @@
               %p
               トレーニング・食事・サプリメント等、必要な情報は全てここから<br>
               初心者の方でも分かりやすいコラムを掲載！
-            = link_to toppage_column_path do
+            = link_to column_toppages_path do
               .btn.btn-primary.learn_button1.justify-content-center
                 %p Learn More
           .training_calender
@@ -30,8 +30,6 @@
               %p
               日々のトレーニング内容の記録とデータ分析であなたのトレーニングを管理<br>
               アプリとの連携でより便利に
-            .btn.btn-primary.learn_button2
-              %p Learn More
 
           .training_calender_picture
             = image_tag asset_path("karate-1343889__480"), size: "640x250"
@@ -46,6 +44,3 @@
               %p
               フォロー、フォロワー機能で<br>
               お気に入りのユーザー情報をチェック！
-            = link_to users_path do
-              .btn.btn-primary.learn_button2
-                %p Learn More

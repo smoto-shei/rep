@@ -1,15 +1,15 @@
 .notification {
   .notice {
-    background-color: $light_blue;
-    color: $white;
+    background-color: #38AEF0;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 0px !important;
     border-radius: 0px;
   }
 
   .alert {
-    background-color: $alert_orange;
-    color: $white;
+    background-color: #F35500;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 0px !important;
     border-radius: 0px;
@@ -17,7 +17,7 @@
 
   .success{
     background-color: #7EBFD4;
-    color: $white;
+    color: #ffffff;
     text-align: center;
   }
 }

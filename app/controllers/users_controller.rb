@@ -36,7 +36,6 @@ class UsersController < ApplicationController
   end
 
   private
-
   # ユーザー検索のparams
   def search_params
     params.require(:q).permit(:nickname_start, :user_body_height_gteq, :user_body_height_lteq,

@@ -1,6 +1,5 @@
 class UserBodiesController < ApplicationController
 
-
   def new
     @userbody = UserBody.new
   end

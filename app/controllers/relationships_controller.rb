@@ -1,8 +1,8 @@
 class RelationshipsController < ApplicationController
+  before_action :set_user
 
   # フォロー
   def create
-    user = User.find(params[:relationship][:follow_id])
     following = current_user.follow(user)
     if following.save
       flash[:success] = 'フォローしました'
@@ -15,7 +15,6 @@ class RelationshipsController < ApplicationController
 
   # フォロー解除
   def destroy
-    user = User.find(params[:relationship][:follow_id])
     following = current_user.unfollow(user)
     if following.destroy
       flash[:success] = 'フォローを解除しました'

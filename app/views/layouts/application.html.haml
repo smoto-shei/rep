@@ -15,7 +15,6 @@
 
     = render partial: "shared/modal"
 
-
     .navbar.navbar-dark.bg-secondary.fixed-top
       .navbar-brand_top
         = link_to root_path do
@@ -25,7 +24,7 @@
 
           -# コラム
           %li.nav-item.nav-link
-            = link_to toppage_column_path, class: 'text-white mr-4' do
+            = link_to column_toppages_path, class: 'text-white mr-4' do
               %i.fas.fa-lg.fas.fa-book-open
 
           -# 検索
@@ -57,7 +56,7 @@
               = f.submit 'Test Log In', class: 'btn btn-info mr-3'
           -# コラム
           %li.nav-item.nav-link
-            = link_to toppage_column_path, class: 'text-white mr-4' do
+            = link_to column_toppages_path, class: 'text-white mr-4' do
               %i.fas.fa-2x.fas.fa-book-open
           %li.nav-item.nav-link
             = link_to new_user_registration_path, class: 'text-white mr-4' do
@@ -67,6 +66,7 @@
               Log In
 
     = yield
+
     .nav-box.bg-secondary.width-100
       .navbar.navbar-dark.bg-secondary.mt-auto.py-2
         .navbar-brand.below_tab
@@ -77,10 +77,10 @@
             = link_to root_path, class: 'text-white mr-5 18px' do
               トップページ
           %li.nav-item.nav-link.inline-block
-            = link_to toppage_regulation_path, class: 'text-white mr-5 18px' do
+            = link_to regulation_toppages_path, class: 'text-white mr-5 18px' do
               利用規約
           %li.nav-item.nav-link.inline-block
-            = link_to toppage_privacy_policy_path , class: 'text-white mr-3 18px' do
+            = link_to privacy_policy_toppages_path , class: 'text-white mr-3 18px' do
               プライバシーポリシー
       .text-white.text-center.mb-3.mt-2
         %p © 2019 Rep

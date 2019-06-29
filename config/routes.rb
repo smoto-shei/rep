@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'toppages#index'
 
   devise_for :users, controllers: {
@@ -6,16 +7,25 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
   }
 
-  resources :users do
+  resources :toppages, only: :index do
+    collection do
+      get 'column'
+      get 'a_column'
+      get 'privacy_policy'
+      get 'regulation'
+    end
+  end
+
+  resources :users, only: [:index, :show] do
     member do      #id含む
       get 'records_update'
     end
     collection do  #id含まない
       get 'pagination'
     end
-    resources :images
-    resources :user_bodies
-    resources :training_records do
+    resources :images, except: [:new, :show]
+    resources :user_bodies, only: [:new, :create, :update]
+    resources :training_records, only: [:index, :create, :destroy] do
       collection do
         get :draw_graph
       end
@@ -25,11 +35,5 @@ Rails.application.routes.draw do
   resources :exercises, only: :index
 
   resources :relationships, only: [:create, :destroy]
-
-  get 'toppage/column', to: 'toppages#column' #のちにcolumnテーブル作ったらルーティング修正
-  get 'toppage/a_column', to: 'toppages#a_column' #のちにcolumnテーブル作ったらルーティング修正
-  get 'toppage/privacy_policy', to: 'toppages#privacy_policy' #のちにcolumnテーブル作ったらルーティング修正
-  get 'toppage/regulation', to: 'toppages#regulation' #のちにcolumnテーブル作ったらルーティング修正
-
 
 end

@@ -33,7 +33,6 @@ a:hover {
 .cursor_pointer{
   cursor: pointer;
 }
-//padding margin 等の調節--------------------------------
 //サイドバーに関する調整-------------------------
 .sidebar{
   background-color: rgb(245, 248, 250);
@@ -121,7 +120,13 @@ a:hover {
   background-color: rgb(245,248,250);
 }
 
-
-.margin_left_30{
-  margin-left: 30px;
+// 幅調整
+.w-13{
+  max-width: 13%;
+}
+.w-22{
+  max-width: 22%;
+}
+.w-90{
+  max-width: 90%;
 }

@@ -12,9 +12,11 @@ class ToppagesController < ApplicationController
   def a_column
   end
 
+  # プライバシーポリシー
   def privacy_policy
   end
 
+  # 利用規約
   def regulation
   end
 

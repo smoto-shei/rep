@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  before_action :set_image, only: [:edit, :update, :destroy]
 
   # 筋肉画像のページ
   def index
@@ -6,7 +7,8 @@ class ImagesController < ApplicationController
     @userbody = @user.user_body
     @follows = @user.follows
     @followers = @user.followers
-    @images = Image.where(user_id: params[:user_id]).order(created_at: :desc).page(params[:page]).per(5)
+    @images = Image.where(user_id: params[:user_id])
+                   .order(created_at: :desc).page(params[:page]).per(5)
     @image = Image.new
   end
 
@@ -17,12 +19,10 @@ class ImagesController < ApplicationController
   end
 
   def edit
-    @image = Image.find(params[:id])
     render partial: "shared/edit_comment", locals: { image: @image }
   end
 
   def update
-    @image = Image.find(params[:id])
     @image.update(image_params)
     redirect_back(fallback_location: root_path)
     # index = params[:index].strip.split(',').map(&:to_i)
@@ -32,7 +32,6 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    @image = Image.find(params[:id])
     if current_user.id == @image.user_id
       @image.destroy
     end
@@ -44,6 +43,10 @@ class ImagesController < ApplicationController
 
   private
 
+  #画像のセット
+  def set_image
+    @image = Image.find(params[:id])
+  end
   # 記事投稿のストロングパラメータ
   def image_params
     params.require(:image).permit(:comment, {user_image: []}).merge(user_id: current_user.id)
@@ -63,10 +66,6 @@ class ImagesController < ApplicationController
       deleted_image.try(:remove!)
     end
     @image.user_image = remain_images
-  end
-
-  def set_image
-    @image = Image.find(params[:image_id])
   end
 
 end

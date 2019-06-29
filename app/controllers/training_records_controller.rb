@@ -8,34 +8,11 @@ class TrainingRecordsController < ApplicationController
       @followers = @user.followers
     end
 
-    # Analysisページ グラフ描写。
-    def draw_graph
-      @user, @part, @unit, @y_label = User.find(graph_params[:user_id]),
-                                      graph_params[:part],
-                                      graph_params[:unit],
-                                      graph_params[:y_label]
-
-      @training_records = TrainingRecord.bring_training_data(@user,@part)
-
-      if @unit == 'month'
-        @x_label = TrainingRecord.set_month
-        @data = TrainingRecord.make_data_for_month(@training_records)
-      else
-        @x_label = TrainingRecord.set_week
-        @data = TrainingRecord.make_data_for_week(@training_records)
-      end
-
-
-      respond_to do |format|
-        format.json
-        format.html { redirect_to user_training_records_path }
-      end
-    end
-
     # トレーニングレコードの登録
     def create
       @training_record = TrainingRecord.new(training_record_params)
-      @training_records = TrainingRecord.where(user_id: current_user.id, date: params[:training_record][:date])
+      @training_records = TrainingRecord.where(user_id: current_user.id,
+                                               date: params[:training_record][:date])
       @user = User.find(current_user.id)
       unless @training_record.save
         render status: 400, body: nil
@@ -53,6 +30,28 @@ class TrainingRecordsController < ApplicationController
       end
     end
 
+    # Analysisページ グラフ描写。
+    def draw_graph
+      @user, @part, @unit, @y_label = User.find(graph_params[:user_id]),
+                                      graph_params[:part],
+                                      graph_params[:unit],
+                                      graph_params[:y_label]
+
+      @training_records = TrainingRecord.bring_training_data(@user,@part)
+
+      if @unit == 'month'
+        @x_label = TrainingRecord.set_month
+        @data = TrainingRecord.make_data_for_month(@training_records)
+      else
+        @x_label = TrainingRecord.set_week
+        @data = TrainingRecord.make_data_for_week(@training_records)
+      end
+
+      respond_to do |format|
+        format.json
+        format.html { redirect_to user_training_records_path }
+      end
+    end
 
   private
 
