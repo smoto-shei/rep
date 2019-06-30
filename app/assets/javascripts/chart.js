@@ -11,7 +11,7 @@ document.addEventListener('turbolinks:load', function() {
     var part = 'Total';
     var unit = $('input[name="unit"]').val();
     var url = `/users/${user_id}/training_records/draw_graph`
-    var y_label = 'Kg'
+    var y_label = '(kg)'
 
     $.ajax({
       type: 'get',
@@ -42,9 +42,9 @@ document.addEventListener('turbolinks:load', function() {
       var part = $("[name=check_part]:checked").val(); // タブルクォテーションじゃないとエラーになる.
       var unit = $('input[name="unit"]:checked').val();
       if( part == '有酸素'){
-        var y_label = 'minutes'
+        var y_label = '(minutes)'
       } else{
-        var y_label = 'Kg'
+        var y_label = '(kg)'
       }
 
       $.ajax({
