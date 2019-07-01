@@ -24,6 +24,7 @@
 ***
 
 1. 行ったトレーニング内容をカレンダーに記入
+![calender](https://raw.github.com/wiki/smoto-shei/rep/images/calender_demo.gif)
 2. 分析ページでチェック
 3. 自分と似た体格のユーザーのトレーニングをチェック、フォロー
 4. 自慢の筋肉の画像をアップすることもできる
