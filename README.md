@@ -14,7 +14,7 @@
 以下の利用を想定しております。
  - 初級者：自分と似た体格のユーザーのトレーニングを参考にし、トレーニングの質を向上
  - 上級者：自分がどの部位を鍛えたか、また今週、今月の総負荷量の確認
- 
+
 また、初めて利用する方々、ポートフォリオ閲覧する方々のためにテストユーザーとしてログインできるようになっています
 
 #### なぜ作成したか
@@ -26,8 +26,11 @@
 1. 行ったトレーニング内容をカレンダーに記入
 ![calender](https://raw.github.com/wiki/smoto-shei/rep/images/calender_demo.gif)
 2. 分析ページでチェック
+![analyze](https://raw.github.com/wiki/smoto-shei/rep/images/analyze_demo.gif)
 3. 自分と似た体格のユーザーのトレーニングをチェック、フォロー
+![follow](https://raw.github.com/wiki/smoto-shei/rep/images/follow_demo.gif)
 4. 自慢の筋肉の画像をアップすることもできる
+![photo](https://raw.github.com/wiki/smoto-shei/rep/images/photo_demo.gif)
 5. コラムをみて知識を高める
 
 ## 使用技術一覧
