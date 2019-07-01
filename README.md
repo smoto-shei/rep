@@ -24,17 +24,16 @@
 
 1. 行ったトレーニング内容をカレンダーに記入
 ![calender](https://raw.github.com/wiki/smoto-shei/rep/images/calender_demo.gif)
-<br>
+
 2. 分析ページでチェック
 ![analyze](https://raw.github.com/wiki/smoto-shei/rep/images/analyze_demo.gif)
-<br>
+
 3. 自分と似た体格のユーザーのトレーニングをチェック、フォロー
 ![follow](https://raw.github.com/wiki/smoto-shei/rep/images/follow_demo.gif)
-<br>
+
 4. 自慢の筋肉の画像をアップすることもできる
-<br>
 ![photo](https://raw.github.com/wiki/smoto-shei/rep/images/photo_demo.gif)
-<br>
+
 5. コラムをみて知識を高める
 
 ## 使用技術一覧
