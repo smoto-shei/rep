@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'regulation'
       get 'contact_us'
       get 'administrator_info'
+      get 'protein'
     end
   end
 
