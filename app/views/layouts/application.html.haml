@@ -27,6 +27,11 @@
             = link_to column_toppages_path, class: 'text-white mr-4' do
               %i.fas.fa-lg.fas.fa-book-open
 
+          -# プロテイン
+          %li.nav-item.nav-link
+            = link_to protein_toppages_path, class: 'text-white mr-4' do
+              %i.fas.fa-lg.fas.fa-prescription-bottle
+
           -# 検索
           %li.nav-item.nav-link
             = link_to users_path, class: 'text-white mr-4' do
@@ -57,10 +62,17 @@
           -# コラム
           %li.nav-item.nav-link
             = link_to column_toppages_path, class: 'text-white mr-4' do
-              %i.fas.fa-2x.fas.fa-book-open
+              %i.fas.fa-lg.fas.fa-book-open
+
+          -# プロテイン
+          %li.nav-item.nav-link
+            = link_to protein_toppages_path, class: 'text-white mr-4' do
+              %i.fas.fa-lg.fas.fa-prescription-bottle
+
           %li.nav-item.nav-link
             = link_to new_user_registration_path, class: 'text-white mr-4' do
               Sign Up
+
           %li.nav-item.nav-link
             = link_to new_user_session_path, class: 'text-white mr-1' do
               Log In
@@ -86,7 +98,7 @@
             = link_to privacy_policy_toppages_path , class: 'text-white mr-3 18px' do
               お問い合わせ
           %li.nav-item.nav-link.inline-block
-            = link_to privacy_policy_toppages_path , class: 'text-white mr-3 18px' do
+            = link_to administrator_info_toppages_path , class: 'text-white mr-3 18px' do
               管理者情報
       .text-white.text-center.mb-3.mt-2
         %p © 2019 Rep

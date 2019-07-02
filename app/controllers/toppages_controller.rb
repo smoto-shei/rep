@@ -20,4 +20,16 @@ class ToppagesController < ApplicationController
   def regulation
   end
 
+  # お問い合わせ
+  def contact_us
+  end
+
+  # 管理者情報
+  def administrator_info
+  end
+
+  # プロテイン
+  def protein
+  end
+
 end

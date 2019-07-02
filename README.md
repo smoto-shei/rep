@@ -81,6 +81,8 @@
   - route53 (DNS)
   - DB      (MySQL)
 
+* その他
+  - 自動デプロイ (capistrano)
 
 ## 今後追加予定の機能
 ***

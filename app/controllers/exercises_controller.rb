@@ -7,3 +7,4 @@ class ExercisesController < ApplicationController
   end
 
 end
+Ω

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       get 'a_column'
       get 'privacy_policy'
       get 'regulation'
+      get 'contact_us'
+      get 'administrator_info'
+      get 'protein'
     end
   end
 
