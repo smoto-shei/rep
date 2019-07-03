@@ -1,1 +1,34 @@
-%h1 修理中
+//お問い合わせページ
+-# .row.no-gutters
+    -# .col-2.sidebar.border_right
+.contact_fontsize_15.padding_bottom
+    .contact_header.text_align_center.fontsize_20.padding_top.padding_bottom.border_top.border_bottom
+        %p.margin_bottom_0 お問合わせ
+    .contact_box.padding_bothside_30.fontsize_15
+        %p.margin_top_40
+            お問合わせについて
+        %p
+            お問合わせに添付書類がある場合、ウイルスによる事故を回避するため未開封にて削除しております。お問合わせ内容は全て本文にお書き頂きますようお願い致します。<br>
+            <br>
+            Repに関するお問合せは、こちらのフォームからお願い致します。
+    .contact_form.padding_bothside_30.margin_top_40
+        .contact_form_name.margin_bottom_20
+            %p.margin_bottom_0 お名前
+            %input.input.height_input{:placeholder => "筋肉 太郎", :type => "text"}/
+
+        .contact_form_email.margin_bottom_20
+            %p.margin_bottom_0 メールアドレス
+            %input.input.height_input{:placeholder => "info@sample.com", :type => "email"}/
+
+        .contact_form_tel.margin_bottom_20
+            %p.margin_bottom_0 ご連絡先電話番号
+            %input.input.height_input{:placeholder => "090-1234-5678", :type => "tel"}/
+
+        .contact_form_claim.margin_bottom_20
+            %p.margin_bottom_0 お問合わせ内容（具体的な内容をお書き下さい）
+            %textarea.input_claim.height_200_input#t_message{:name => "message", :placeholder => "こちらにお問合わせ内容を入力してください。"}
+
+        .contact_form_submit
+        %input.margin_bottom_20{:type => "submit", :value => "送信する"}/
+
+-# .col-2.sidebar.border_left

@@ -1,52 +1,236 @@
-// 記事一覧ページ-----------------------------------------------------
-.art{
-  margin: 0px 150px 0px 150px;
-}
-.article_picture1,.article1{
-  float: left;
-  border-color: yellow;
-  width: 50%;
-}
-.article_picture1{
-  display: inline-block;      /* インラインブロック要素にする */
-  margin: 10px 0px 0px 0px;
-}
-.article1{
-  display: inline-block;      /* インラインブロック要素にする */
-  margin: 10px 0px 30px 0px;
-  height: 300px;
-  border-top: solid rgba(0, 0, 0, 0.1);
-  border-bottom: solid rgba(0, 0, 0, 0.1);
-  border-width: 1px 0px 1px 0px;
-  .article1_date{
-    margin: 10px 0px 0px 20px;
+
+//pc用のcssを記述----------------------------------------------
+@media screen and (min-width:951px) {
+// 記事一覧ページ--------------------------------------------
+  .art{
+    margin: 0 10% 0 10%;
+    padding: 0 5% 0 5%;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
   }
-  .article1_headline{
-    margin: 10px 0px 0px 20px;
+  .article{
+    border-top: 1px dotted rgba(0, 0, 0, 0.1);
+    padding: 20px 0 20px 0;
+    height: 310px;
+    &:hover{
+      background-color: white;
+      cursor : pointer;
+      color: red;
+    }
+    img:hover {
+      opacity: 0.5;
+    }
+    .article_picture1,.article1{
+      float: left;
+      border-color: yellow;
+      width: 50%;
+    }
+    .article_picture1{
+      display: inline-block;      /* インラインブロック要素にする */
+      margin: 0px 0px 0px 0px;
+      img {
+        width:100%;
+        max-width: 100%;
+        height: auto;
+        }
+        
+    }
+    .article1{
+      display: inline-block;      /* インラインブロック要素にする */
+      margin: 0px 0px 30px 0px;
+      height: 260px;
+      // border-top: solid rgba(0, 0, 0, 0.1);
+      // border-bottom: solid rgba(0, 0, 0, 0.1);
+      // border-width: 1px 0px 1px 0px;
+      .article1_date{
+        margin: 10px 0px 0px 20px;
+      }
+      .article1_headline{
+        margin: 10px 0px 0px 20px;
+      }
+      .article1_text{
+        margin: 10px 0px 10px 20px;
+      }
+    }
+    .detail_button{
+      display: inline-block;
+      background-color:black;
+      color: white;
+      border-color: black;
+      width: 80px;
+      height: 30px;
+    }
   }
-  .article1_text{
-    margin: 10px 0px 10px 20px;
+  // a_column コラム詳細ページ-----------------------------------
+  .column{
+    padding: 0 15% 0 15%;
   }
-}
-.detail_button{
-  display: inline-block;
-  background-color:black;
-  color: white;
-  border-color: black;
-  width: 80px;
-  height: 30px;
+  .column_picture1{
+    display: flex; 
+    img {
+      width:100%;
+      max-width: 100%;
+      height: auto;
+      }
+  }
+  .column1_text{
+    line-height: 1.5;
+  }
+  .a_link{
+    color: white;
+  }
+  .head_blank{
+    height: 60px;
+  }
 }
 
-// a_column コラム詳細ページ------------------------------------------------------
-.column_picture1{
-  display: flex; 
+//tablet用のcssを記述------------------------------------------------
+@media only screen and (min-width:480px) and (max-width:950px) {
+  // 記事一覧ページ--------------------------------------------
+  .art{
+    margin: 0 7% 0 7%;
+    padding: 0 3% 0 3%;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .article_picture1{
+    display: inline-block;      /* インラインブロック要素にする */
+    margin: 10px 0px 0px 0px;
+    img {
+      width:100%;
+      max-width: 100%;
+      height: auto;
+      }
+      img:hover {
+        opacity: 0.5;
+        background-color: white;
+        cursor : pointer;
+      }
+  }
+  .article1{
+    display: inline-block;      /* インラインブロック要素にする */
+    margin: 10px 0px 30px 0px;
+    height: 250px;
+    border-top: solid rgba(0, 0, 0, 0.1);
+    border-bottom: solid rgba(0, 0, 0, 0.1);
+    border-width: 1px 0px 1px 0px;
+    &:hover{
+      background-color: white;
+      cursor : pointer;
+      color: red;
+    }
+    
+    .article1_date{
+      margin: 10px 0px 0px 20px;
+    }
+    .article1_headline{
+      margin: 10px 0px 0px 20px;
+    }
+    .article1_text{
+      margin: 10px 0px 10px 20px;
+    }
+  }
+  .detail_button{
+    display: inline-block;
+    background-color:black;
+    color: white;
+    border-color: black;
+    width: 80px;
+    height: 30px;
+  }
+  // a_column コラム詳細ページ------------------------------------------------------
+  .column{
+    padding: 0 10% 0 10%;
+  }
+  .column_picture1{
+    display: flex; 
+    img {
+      width:100%;
+      max-width: 100%;
+      height: auto;
+      }
+      
+  }
+  .column1_text{
+    line-height: 1.5;
+  }
+  .a_link{
+    color: white;
+  }
+  .head_blank{
+    height: 60px;
+  }
 }
-.column1_text{
-  line-height: 2.0;
-}
-.a_link{
-  color: white;
-}
-.head_blank{
-  height: 60px;
+
+//スマホ用のcssを記述-------------------------------------------
+@media screen and (max-width:479px) {
+  // 記事一覧ページ--------------------------------------------
+  .art{
+    margin: 0 5% 0 5%;
+  }
+  .article_picture1{
+    display: inline-block;      /* インラインブロック要素にする */
+    margin: 10px 0px 0px 0px;
+    img {
+      width:100%;
+      max-width: 100%;
+      height: auto;
+      }
+      img:hover {
+        opacity: 0.5;
+        background-color: white;
+        cursor : pointer;
+      }
+  }
+  .article1{
+    display: inline-block;      /* インラインブロック要素にする */
+    margin: 10px 0px 30px 0px;
+    height: 250px;
+    border-top: solid rgba(0, 0, 0, 0.1);
+    border-bottom: solid rgba(0, 0, 0, 0.1);
+    border-width: 1px 0px 1px 0px;
+    &:hover{
+      background-color: white;
+      cursor : pointer;
+      color: red;
+    }
+    .article1_date{
+      margin: 10px 0px 0px 20px;
+    }
+    .article1_headline{
+      margin: 10px 0px 0px 20px;
+    }
+    .article1_text{
+      margin: 10px 0px 10px 20px;
+    }
+  }
+  .detail_button{
+    display: inline-block;
+    background-color:black;
+    color: white;
+    border-color: black;
+    width: 80px;
+    height: 30px;
+  }
+  // a_column コラム詳細ページ-----------------------------------
+  .column{
+    padding: 0 5% 0 5%;
+  } 
+  .column_picture1{
+    display: flex; 
+    img {
+      width:100%;
+      max-width: 100%;
+      height: auto;
+      }
+  }
+  .column1_text{
+    line-height: 1.0;
+  }
+  .a_link{
+    color: white;
+  }
+  .head_blank{
+    height: 60px;
+  }
 }

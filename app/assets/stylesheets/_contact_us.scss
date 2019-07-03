@@ -1,0 +1,51 @@
+
+//pc用のcssを記述----------------------------------------------
+@media screen and (min-width:951px) {
+    .contact{
+        padding: 0 15% 0 15%;
+
+    }
+    .contact_header{
+        background-color: rgba(0,0,0,0.01)
+    }
+    .input{
+        width: 25%;
+    }
+    .input_claim{
+        width: 50%;
+    }
+}
+
+//tablet用のcssを記述------------------------------------------------
+@media only screen and (min-width:480px) and (max-width:950px) {
+    .contact{
+        padding: 0 15% 0 15%;
+
+    }
+    .contact_header{
+        background-color: rgba(0,0,0,0.01)
+    }
+    .input{
+        width: 50%;
+    }
+    .input_claim{
+        width: 80%;
+    }
+}
+
+//スマホ用のcssを記述-------------------------------------------
+@media screen and (max-width:479px) {
+    .contact{
+        padding: 0 15% 0 15%;
+
+    }
+    .contact_header{
+        background-color: rgba(0,0,0,0.01)
+    }
+    .input{
+        width: 80%;
+    }
+    .input_claim{
+        width: 80%;
+    }
+}

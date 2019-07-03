@@ -1,56 +1,178 @@
-// 利用規約 ---------------------------------------
-.regulation_container{
-    background-color: rgb(245, 248, 250)
-}
-.regulation_box{
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.regulation_header{
-    text-align: center;
-    font-size: 25px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.regulation_top{
-    margin-bottom: 10px;
-}
-.regulation{
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-.regulation_text{
-    margin-bottom: 20px;
-}
-.update_date{
-    margin-bottom: 30px;
+
+//pc用のcssを記述----------------------------------------------
+@media screen and (min-width:951px) {
+    // 利用規約 ---------------------------------------
+    .regulation_container{
+        background-color: rgb(245, 248, 250)
+    }
+    .regulation_box{
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .regulation_header{
+        text-align: center;
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .regulation_top{
+        margin-bottom: 10px;
+    }
+    .regulation{
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .regulation_text{
+        margin-bottom: 20px;
+    }
+    .update_date{
+        margin-bottom: 30px;
+    }
+    // プライバシーポリシー　----------------------------
+    .privacy_policy_container{
+        background-color: rgb(245, 248, 250);
+    }
+    .privacy_policy_box{
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .privacy_policy_header{
+        text-align: center;
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .privacy_policy_top{
+        margin-bottom: 10px;
+    }
+    .privacy_policy{
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .privacy_policy_text{
+        margin-bottom: 20px;
+    }
 }
 
-// プライバシーポリシー　----------------------------
-.privacy_policy_container{
-    background-color: rgb(245, 248, 250);
+//tablet用のcssを記述------------------------------------------------
+@media only screen and (min-width:480px) and (max-width:950px) {
+    // 利用規約 ---------------------------------------
+    .regulation_container{
+        background-color: rgb(245, 248, 250)
+    }
+    .regulation_box{
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .regulation_header{
+        text-align: center;
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .regulation_top{
+        margin-bottom: 10px;
+    }
+    .regulation{
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .regulation_text{
+        margin-bottom: 20px;
+    }
+    .update_date{
+        margin-bottom: 30px;
+    }
+    // プライバシーポリシー　----------------------------
+    .privacy_policy_container{
+        background-color: rgb(245, 248, 250);
+    }
+    .privacy_policy_box{
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .privacy_policy_header{
+        text-align: center;
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .privacy_policy_top{
+        margin-bottom: 10px;
+    }
+    .privacy_policy{
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .privacy_policy_text{
+        margin-bottom: 20px;
+    }
 }
-.privacy_policy_box{
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
+//スマホ用のcssを記述-------------------------------------------
+@media screen and (max-width:479px) {
+    .regulation_container{
+        background-color: rgb(245, 248, 250)
+    }
+    .regulation_box{
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+    .regulation_header{
+        text-align: center;
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .regulation_top{
+        margin-bottom: 10px;
+    }
+    .regulation{
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .regulation_text{
+        margin-bottom: 20px;
+    }
+    .update_date{
+        margin-bottom: 30px;
+    }
+    // プライバシーポリシー　----------------------------
+    .privacy_policy_container{
+        background-color: rgb(245, 248, 250);
+    }
+    .privacy_policy_box{
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .privacy_policy_header{
+        text-align: center;
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .privacy_policy_top{
+        margin-bottom: 10px;
+    }
+    .privacy_policy{
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .privacy_policy_text{
+        margin-bottom: 20px;
+    }
 }
-.privacy_policy_header{
-    text-align: center;
-    font-size: 25px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.privacy_policy_top{
-    margin-bottom: 10px;
-}
-.privacy_policy{
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-.privacy_policy_text{
-    margin-bottom: 20px;
-}
+
+
+
