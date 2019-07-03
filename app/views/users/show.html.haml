@@ -3,14 +3,12 @@
   .col-2.justify-content-center.px-3.border_right.padding_top.background_color
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
-
   .col-7.my-5.justify-content-center.padding_bothside
     = month_calendar(attribute: :date, events: @training_records) do |date, training_records|
       .calendar-btn{id: "#{date}"}
         = date.day
         %div{id: "records_#{date}"}
           = render partial: "shared/day_records_on_calendar", locals: { training_records: training_records}
-
 
   .col-3.sidebar.justify-content-center.px-3.border_left
     = form_with model: @training_record, method: :post, url: user_training_records_path(current_user.id), id: 'new_training_record', class: 'new_training_record' do |f|

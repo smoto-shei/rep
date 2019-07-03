@@ -1,46 +1,53 @@
-.row.no-gutters
-  .headline.justify-content-center
-    .title-head.text-center.my-4
-      .about_service
-        %p About Our Service
-        .about_service_text
-          Repはトレーニングを愛する全ての人のライフスタイルを総合的にサポートするメディアです。<br>
-          男性でも女性でも、初心者でも上級者でもお楽しみ頂けるコンテンツをお届け致します。
-        .introduction
-          .colum_picture
-            = image_tag asset_path("toppage_beginners"), size: "640x250"
-          .colum_introduction
-            .message.justify-content-center
-              %p For  Every  Beginners
-            .sub_message.justify-content-center
-              %p 〜 Let's get started from here 〜
-            .message_text.justify-content-center
-              %p
-              トレーニング・食事・サプリメント等、必要な情報は全てここから<br>
-              初心者の方でも分かりやすいコラムを掲載！
-            = link_to column_toppages_path do
-              .btn.btn-primary.learn_button1.justify-content-center
-                %p Learn More
-          .training_calender
-            .message.justify-content-center
-              %p For  Every  Trainees
-            .sub_message.justify-content-center
-              %p 〜 Fit Yourself 〜
-            .message_text.justify-content-center
-              %p
-              日々のトレーニング内容の記録とデータ分析であなたのトレーニングを管理<br>
-              アプリとの連携でより便利に
 
-          .training_calender_picture
-            = image_tag asset_path("karate-1343889__480"), size: "640x250"
-          .twitter_picture
-            = image_tag asset_path("network"), size: "640x250"
-          .twitter_introduction
-            .message.justify-content-center
-              %p For  Every  Users
-            .sub_message.justify-content-center
-              %p 〜 Follow Users 〜
-            .message_text.justify-content-center
-              %p
-              フォロー、フォロワー機能で<br>
-              お気に入りのユーザー情報をチェック！
+.toppage_headline.justify-content-center
+  .title-head.text-center.my-4
+    .about_service
+      %p About Our Service
+      .about_service_text
+      %p.text
+        Repはトレーニングを愛する全ての人のライフスタイルを総合的にサポートするメディアです。<br>
+        男性でも女性でも、初心者でも上級者でもお楽しみ頂けるコンテンツをお届け致します。
+    .service_guide
+    = link_to column_toppages_path do
+      .introduction
+        .message.justify-content-center
+          %p For  Every  Beginners
+        .sub_message.justify-content-center
+          %p 〜 Let's get started from here 〜
+        .message_text.justify-content-center
+          %p
+          トレーニング・食事・サプリメント等、必要な情報は全てここから<br>
+          初心者の方でも分かりやすいコラムを掲載！
+        -# = link_to column_toppages_path do
+          -# .btn.btn-primary.learn_button1.justify-content-center
+          -#   %p Learn More
+      .introduction
+        .message.justify-content-center
+          %p For  Every  Trainees
+        .sub_message.justify-content-center
+          %p 〜 Fit Yourself 〜
+        .message_text.justify-content-center
+          %p
+          日々のトレーニング内容の記録とデータ分析であなたのトレーニングを管理<br>
+          アプリとの連携でより便利に
+      .introduction
+        .message.justify-content-center
+          %p For  Every  Users
+        .sub_message.justify-content-center
+          %p 〜 Follow Users 〜
+        .message_text.justify-content-center
+          %p
+          フォロー、フォロワー機能で<br>
+          お気に入りのユーザー情報をチェック！
+    = link_to protein_toppages_path do
+      .introduction
+        .message.justify-content-center
+          %p For  Every  Users
+        .sub_message.justify-content-center
+          %p 〜 Check Review 〜
+        .message_text.justify-content-center
+          %p
+          ユーザーによるプロテインのレビューをチェック<br>
+          お気に入りのプロテインを見つけよう！
+          
+          
