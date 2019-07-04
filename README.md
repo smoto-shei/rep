@@ -79,7 +79,7 @@
   - s3      (ストレージ)
   - ELB     (HTTPS)
   - route53 (DNS)
-  - DB      (MySQL)
+  - RDB      (MySQL)
 
 * その他
   - 自動デプロイ (capistrano)
