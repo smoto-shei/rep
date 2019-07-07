@@ -2,7 +2,7 @@
   - @people.each do |people|
     - unless [people.user_body.height,people.user_body.weight,people.user_body.experience].include?(nil)
       = link_to user_path(people.id) do
-        .user_searched.padding_left_70
+        .user_searched
           .avatar_searched
             = image_tag "#{people.user_body.avatar.url}"
           .user_detail_searched

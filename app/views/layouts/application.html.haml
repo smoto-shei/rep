@@ -2,6 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0", :name => "viewport"}/
     %title Rep
     = csrf_meta_tags
     = csp_meta_tag
@@ -17,10 +18,14 @@
 
     = render partial: "shared/modal"
 
+    
+
     .navbar.navbar-dark.bg-secondary.fixed-top
       .navbar-brand_top
         = link_to root_path do
           = image_tag asset_path("Rep_logo"), size:"80x40"
+        
+
       - if user_signed_in?
         %ul.navbar.navbar-nav.navbar-expand
 
@@ -74,6 +79,7 @@
             = link_to new_user_session_path, class: 'text-white mr-1' do
               Log In
 
+      
     = yield
 
     .nav-box.bg-secondary.width-100
