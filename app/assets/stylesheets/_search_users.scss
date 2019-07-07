@@ -12,16 +12,29 @@
     font-size: 14px;
     background-color: white;
     margin: 0px auto 0px auto;
+    @media screen and (max-width:479px) {
+        padding: 0 5% 0 5%;
+    }
+    @media only screen and (min-width:480px) and (max-width:950px) {
+        padding: 0 20% 0 20%;
+    }
+    @media screen and (min-width:951px) {
+        padding: 0 20% 0 20%;
+    }
 }
 .kensaku_form_group{
     text-align: left;
     font-size: 14px;
-    padding: 0px 100px 0px 100px;
-    margin: 0px 100px 0px 100px;
+    text-align: center;
     background-color: rgb(245, 248, 250);
+    
+}
+.search_form_group{
+    margin: auto;
+
 }
 .kensaku_form{
-    margin: 16px 0px 16px 0px;
+    margin: 5vh 0 5vh 0px;
     padding-left: 14px;
 }
 .kensaku_body{

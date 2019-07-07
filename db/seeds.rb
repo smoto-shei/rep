@@ -59,8 +59,3 @@
     { en_name: en_name, ja_name: ja_name }
   )
 end
-
-30.times do
-  @user = User.create!(
-    { nickname: Faker::}
-  )

@@ -1,6 +1,12 @@
 .image-form{
   width: 850px;
   margin: 0 auto;
+  @media screen and (max-width:479px) {
+    display: none;
+  }
+  @media only screen and (min-width:480px) and (max-width:950px) {
+    display: none;
+  }
 }
 .image-box{
   width: 100%;

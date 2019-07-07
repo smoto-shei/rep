@@ -93,9 +93,9 @@ function draw_graph(data){
       },
       title:  {
         display: true,
-        fontSize: 22,
+        fontSize: 15,
         position: 'top',
-        padding: 20,
+        padding: 10,
         text: data.part
       },
       scales: {                          //軸設定
@@ -104,12 +104,12 @@ function draw_graph(data){
             scaleLabel: {              //軸ラベル設定
                 display: true,          //表示設定
                 labelString: data.y_label,  //ラベル
-                fontSize: 18               //フォントサイズ
+                fontSize: 12               //フォントサイズ
             },
             ticks: {                      //最大値最小値設定
                 suggestedMax: 100,
                 min: 0,                   //最小値
-                fontSize: 18,             //フォントサイズ
+                fontSize: 12,             //フォントサイズ
                 stepSize: 0               //軸間隔
             },
         }],
@@ -120,10 +120,10 @@ function draw_graph(data){
             scaleLabel: {                 //軸ラベル設定
                 display: false,             //表示設定
                 labelString: 'Month',  //ラベル
-                fontSize: 18
+                fontSize: 12
             },
             ticks: {
-                fontSize: 18             //フォントサイズ
+                fontSize: 12            //フォントサイズ
             },
         }],
 
@@ -165,7 +165,7 @@ function data_label(){
             // Draw the text in black, with the specified font
             ctx.fillStyle = 'rgb(0, 0, 0)';
 
-            var fontSize = 14;
+            var fontSize = 12;
             var fontStyle = 'normal';
             var fontFamily = 'Helvetica Neue';
             ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
