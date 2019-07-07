@@ -35,7 +35,6 @@ document.addEventListener('turbolinks:load', function() {
   }
   // ---------------------二度目以降のチャート描写------------------------
   $(function(){
-    //  $('.graph').on('click',function(){ これだとcheckedを二度押さないと効かない
     $('.chart_btn').change(function(){
       var user_id = location.pathname.split('/')[2];
       var url = `/users/${user_id}/training_records/draw_graph`
@@ -128,14 +127,6 @@ function draw_graph(data){
         }],
 
       },
-      // layout: {                             //レイアウト
-      //   padding: {                          //余白設定
-      //       left: 0,
-      //       right: 100,
-      //       top: 0,
-      //       bottom: 0
-      //   }
-      // }
     },
 
   });
