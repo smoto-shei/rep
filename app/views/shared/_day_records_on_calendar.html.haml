@@ -11,9 +11,18 @@
     - value = 'arms'
   - when '背中'
     - value = 'back'
+    %div{ class: "#{value}_color"}
+      背
+      %span.sp_hide 中
+    - part = nil
   - when '脚'
     - value = 'foots'
   - when '有酸素'
     - value = 'aerobics'
-  %div{ class: "#{value}_color fontsize_13"}
+    %div{ class: "#{value}_color"}
+      有
+      %span.sp_hide 酸
+      %span.sp_hide 素
+    - part = nil
+  %div{ class: "#{value}_color"}
     = part

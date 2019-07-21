@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //ナビゲーションバー -------------------------------------------
+
 .navbar{
   height: 60px;
 }
@@ -12,6 +13,7 @@
 .navbar-expand{
   padding-bottom: 20px;
 }
+
 .policy{
   display: inline-block;
   margin: auto;
@@ -31,6 +33,101 @@
   width: 100%;
 }
 //トップページ----------------------------------------------------------------------------
+
+//スマホ用のcssを記述-------------------------------------------
+@media screen and (max-width:479px) {
+  .toppage_headline{
+    padding: 0 5% 0 5%;
+    background-color: rgb(245, 248, 250);
+  }
+  .about_service{
+    font-size: 20px;
+  }
+  .text{
+    font-size: 14px;
+  }
+  .about_service_text{
+    font-size: 14px;
+    margin: 0px 0px 20px 0px;
+  }
+  .service_guide{
+    padding-bottom: 20px;
+  }
+  .introduction{
+    display: inline-block;      /* インラインブロック要素にする */
+    margin: 0px 0px 0px 0px;
+    height: 180px;
+    width: 90%;
+    border: solid 1px rgba(0,0,0,0.1);
+    background-color: white;
+    &:hover{
+      background-color: white;
+      cursor : pointer;
+      color: red;
+    }
+    .message{
+      margin: 20px 0px 0px 0px;
+      font-size: 18px;
+    }
+    .sub_message{
+      margin: 10px 0px 0px 0px;
+      font-size: 14px;     
+    }
+    .message_text{
+      margin: 20px auto 20px auto;
+      font-size: 13px; 
+      width: 90%;
+    }
+  }
+}
+
+//tablet用のcssを記述------------------------------------------------
+@media only screen and (min-width:480px) and (max-width:950px) {
+  .toppage_headline{
+    padding: 0 5% 0 5%;
+    background-color: rgb(245, 248, 250);
+  }
+  .about_service{
+    font-size: 20px;
+  }
+  .text{
+    font-size: 14px;
+  }
+  .about_service_text{
+    
+    margin: 0px 0px 20px 0px;
+  }
+  .service_guide{
+    padding-bottom: 20px;
+  }
+  .introduction{
+    display: inline-block;      /* インラインブロック要素にする */
+    margin: 0px 0px 0px 0px;
+    height: 200px;
+    width: 90%;
+    border: solid 1px rgba(0,0,0,0.1);
+    background-color: white;
+    &:hover{
+      background-color: white;
+      cursor : pointer;
+      color: red;
+    }
+    .message{
+      margin: 20px 0px 0px 0px;
+      font-size: 18px;
+    }
+    .sub_message{
+      margin: 10px 0px 0px 0px;
+      font-size: 14px;     
+    }
+    .message_text{
+      margin: 20px auto 20px auto;
+      font-size: 13px; 
+      width: 90%;
+    }
+  }
+}
+
 //pc用のcssを記述----------------------------------------------
 @media screen and (min-width:951px) {
   .toppage_headline{
@@ -82,98 +179,3 @@
     }
   }
 } 
-
-//tablet用のcssを記述------------------------------------------------
-@media only screen and (min-width:480px) and (max-width:950px) {
-  .toppage_headline{
-    padding: 0 5% 0 5%;
-    background-color: rgb(245, 248, 250);
-  }
-  .about_service{
-    font-size: 20px;
-  }
-  .text{
-    font-size: 14px;
-  }
-  .about_service_text{
-    
-    margin: 0px 0px 20px 0px;
-  }
-  .service_guide{
-    padding-bottom: 20px;
-  }
-  .introduction{
-    display: inline-block;      /* インラインブロック要素にする */
-    margin: 0px 0px 0px 0px;
-    height: 200px;
-    width: 90%;
-    border: solid 1px rgba(0,0,0,0.1);
-    background-color: white;
-    &:hover{
-      background-color: white;
-      cursor : pointer;
-      color: red;
-    }
-    .message{
-      margin: 20px 0px 0px 0px;
-      font-size: 18px;
-    }
-    .sub_message{
-      margin: 10px 0px 0px 0px;
-      font-size: 14px;     
-    }
-    .message_text{
-      margin: 20px auto 20px auto;
-      font-size: 13px; 
-      width: 80%;
-    }
-  }
-}
-
-//スマホ用のcssを記述-------------------------------------------
-@media screen and (max-width:479px) {
-  .toppage_headline{
-    padding: 0 5% 0 5%;
-    background-color: rgb(245, 248, 250);
-  }
-  .about_service{
-    font-size: 20px;
-  }
-  .text{
-    font-size: 14px;
-  }
-  .about_service_text{
-    font-size: 14px;
-    margin: 0px 0px 20px 0px;
-  }
-  .service_guide{
-    padding-bottom: 20px;
-  }
-  .introduction{
-    display: inline-block;      /* インラインブロック要素にする */
-    margin: 0px 0px 0px 0px;
-    height: 180px;
-    width: 90%;
-    border: solid 1px rgba(0,0,0,0.1);
-    background-color: white;
-    &:hover{
-      background-color: white;
-      cursor : pointer;
-      color: red;
-    }
-    .message{
-      margin: 20px 0px 0px 0px;
-      font-size: 18px;
-    }
-    .sub_message{
-      margin: 10px 0px 0px 0px;
-      font-size: 14px;     
-    }
-    .message_text{
-      margin: 20px auto 20px auto;
-      font-size: 13px; 
-      width: 80%;
-    }
-  }
-}
-

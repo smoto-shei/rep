@@ -1,10 +1,10 @@
 -# 本文
 .row.no-gutters
-  .col-2.sidebar.justify-content-center.px-3.border_right.padding_top
+  .col-lg-2.co-md-12.sidebar.justify-content-center.px-3.border_right.padding_top
     = render partial: "shared/user_info", locals: { userbody: @userbody, user: @user }
 
-  .col-9.padding_bothside
-    .com Photo
+  .col-lg-9.col-md-12.padding_bothside
+    %p.com Photo
     %hr
     - if @user.id == current_user.id
       = form_with model: @image, url: user_images_path(current_user.id,@image), method: :post, id: 'image-create' do |image|
@@ -25,4 +25,4 @@
     -# 一単位の投稿
     #user_images_box.padding_bothside
       = render partial: "shared/user_images"
-  .col-1
+  

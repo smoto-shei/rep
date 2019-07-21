@@ -165,6 +165,7 @@ input[type="date"]::-webkit-clear-button{
     background-color: #aaaaaa;
     cursor : pointer;
   }
+
 }
 .checked{
   background-color: #aaaaaa!important;
@@ -194,50 +195,151 @@ input[type="date"]::-webkit-clear-button{
   padding: 0.5em 0 0.5em 1em;
 }
 //種目ごとの表示色
-$part_font_size: 13px;
-.chest_color{
-  text-align: center;
-  background-color: skyblue;
-  color: white;
-  border-radius: 10px;
-  font-size: $part_font_size;
+@media screen and (max-width:479px) {
+  .sp_hide{
+    display: none;
+  }
+  $part_font_size: 0.5px;
+  .chest_color{
+    text-align: center;
+    background-color: skyblue;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+
+  .shoulder_color{
+    text-align: center;
+    background-color: brown;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+  .arms_color{
+    text-align: center;
+    background-color: yellowgreen;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+  .back_color{
+    text-align: center;
+    background-color: violet;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+  .foots_color{
+    text-align: center;
+    background-color: orange;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+  .aerobics_color{
+    text-align: center;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+}
+@media only screen and (min-width:480px) and (max-width:950px) {
+  .sp_hide{
+    display: none;
+  }
+  $part_font_size: 2px;
+  .chest_color{
+    text-align: center;
+    background-color: skyblue;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+
+  .shoulder_color{
+    text-align: center;
+    background-color: brown;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+  .arms_color{
+    text-align: center;
+    background-color: yellowgreen;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+  .back_color{
+    text-align: center;
+    background-color: violet;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+  .foots_color{
+    text-align: center;
+    background-color: orange;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+  .aerobics_color{
+    text-align: center;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+}
+@media screen and (min-width:951px) {
+  $part_font_size: 13px;
+  .chest_color{
+    text-align: center;
+    background-color: skyblue;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+
+  .shoulder_color{
+    text-align: center;
+    background-color: brown;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+  .arms_color{
+    text-align: center;
+    background-color: yellowgreen;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+  .back_color{
+    text-align: center;
+    background-color: violet;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+  .foots_color{
+    text-align: center;
+    background-color: orange;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
+  .aerobics_color{
+    text-align: center;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    font-size: $part_font_size;
+  }
 }
 
-.shoulder_color{
-  text-align: center;
-  background-color: brown;
-  color: white;
-  border-radius: 10px;
-  font-size: $part_font_size;
-}
-.arms_color{
-  text-align: center;
-  background-color: yellowgreen;
-  color: white;
-  border-radius: 10px;
-  font-size: $part_font_size;
-}
-.back_color{
-  text-align: center;
-  background-color: violet;
-  color: white;
-  border-radius: 10px;
-  font-size: $part_font_size;
-}
-.foots_color{
-  text-align: center;
-  background-color: orange;
-  color: white;
-  border-radius: 10px;
-  font-size: $part_font_size;
-}
-.aerobics_color{
-  text-align: center;
-  background-color: red;
-  color: white;
-  border-radius: 10px;
-  font-size: $part_font_size;
-}
 
 //ユーザーカード
 .userinfo_link{
