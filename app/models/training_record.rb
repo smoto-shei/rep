@@ -46,7 +46,7 @@ class TrainingRecord < ApplicationRecord
           total += menu[:weight] * menu[:rep]
         end
       end
-      amount[record.date.month] += total  #record.date.month でtraining_record の date型から実施された月を出す
+      amount[record.date.month] += total if amount[record.date.month] != nil #record.date.month でtraining_record の date型から実施された月を出す
     end
     amount.values # hash をバリューのみの配列にする {1:100, 2:100, 3:400, 4:2500, 5:1600, 6:2800.5} =>[100.0, 100.0, 400.0, 2500.0, 1600.0, 2800.5]
   end
