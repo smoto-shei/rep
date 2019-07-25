@@ -72,14 +72,14 @@
 * 開発環境
   - ruby   (2.5.1)
   - Rails  (5.2.3)
-  - DB     (MySQL 5.6)
+  - RDS     (MySQL 5.6)
 
 * 本番環境(AWS)
   - EC2     (unicorn,nginx)
   - s3      (ストレージ)
   - ELB     (HTTPS)
   - route53 (DNS)
-  - DB      (MySQL)
+  - RDS      (MySQL)
 
 * その他
   - 自動デプロイ (capistrano)
